@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   Custom CSS Variables
+   ======================================== */
+:root {
+  --color-primary: #006B4C;
+  --color-primary-light: #18B790;
+  --color-dark: #124036;
+  --color-background: #F8F9FA;
+  --color-text: #333333;
+  --color-text-light: #6B7280;
+  --color-surface: #FFFFFF;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+}
+
+/* ========================================
+   Base Styles
+   ======================================== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    line-height: 1.6;
+  }
+
+  /* ========================================
+     Headings
+     ======================================== */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 600;
+    line-height: 1.25;
+    color: #111827;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-size: 2rem;
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+  }
+
+  /* ========================================
+     Paragraphs & Links
+     ======================================== */
+  p {
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  a {
+    color: var(--color-primary);
+    transition: color var(--transition-fast);
+  }
+
+  a:hover {
+    color: var(--color-primary-light);
+  }
+
+  /* ========================================
+     Selection
+     ======================================== */
+  ::selection {
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+  }
+
+  ::-moz-selection {
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+  }
+}
+
+/* ========================================
+   Component Layer
+   ======================================== */
+@layer components {
+  .container-custom {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  .gradient-primary {
+    background: linear-gradient(135deg, #006B4C 0%, #18B790 100%);
+  }
+
+  .gradient-dark {
+    background: linear-gradient(135deg, #124036 0%, #006B4C 100%);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #006B4C 0%, #18B790 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-base {
+    @apply bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+
+  .btn-base {
+    @apply inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+}
+
+/* ========================================
+   Utility Layer
+   ======================================== */
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+}
+
+/* ========================================
+   Custom Scrollbar
+   ======================================== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E9ECEF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #006B4C;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #005B3F;
+}
