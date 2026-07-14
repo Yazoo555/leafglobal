@@ -115,101 +115,15 @@ export default {
         },
       },
 
-      /* ========================================
-         TYPOGRAPHY SYSTEM
-         IBM Plex Sans — Primary typeface
-         IBM Plex Mono — Technical / code content
-         ======================================== */
       fontFamily: {
-        sans: [
-          'IBM Plex Sans',
-          'Inter',
-          'system-ui',
-          '-apple-system',
-          'BlinkMacSystemFont',
-          '"Segoe UI"',
-          'Roboto',
-          'Helvetica',
-          'Arial',
-          'sans-serif',
-        ],
-        heading: [
-          'IBM Plex Sans',
-          'Inter',
-          'system-ui',
-          '-apple-system',
-          'BlinkMacSystemFont',
-          '"Segoe UI"',
-          'Roboto',
-          'Helvetica',
-          'Arial',
-          'sans-serif',
-        ],
-        mono: [
-          'IBM Plex Mono',
-          'JetBrains Mono',
-          'SFMono-Regular',
-          'Consolas',
-          'Monaco',
-          'monospace',
-        ],
+        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        heading: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
       },
 
-      /* ========================================
-         TYPE SCALE — Enterprise Cybersecurity
-         ======================================== */
       fontSize: {
-        /* Display */
-        'display-xl': ['72px', { lineHeight: '1.02', letterSpacing: '-0.045em', fontWeight: '700' }],
-        'display-lg': ['64px', { lineHeight: '1.05', letterSpacing: '-0.04em', fontWeight: '700' }],
-        'display-md': ['56px', { lineHeight: '1.08', letterSpacing: '-0.035em', fontWeight: '700' }],
-        'display-sm': ['48px', { lineHeight: '1.1', letterSpacing: '-0.03em', fontWeight: '700' }],
-
-        /* Headings */
-        'h1': ['52px', { lineHeight: '1.1', letterSpacing: '-0.03em', fontWeight: '700' }],
-        'h2': ['40px', { lineHeight: '1.15', letterSpacing: '-0.02em', fontWeight: '600' }],
-        'h3': ['32px', { lineHeight: '1.2', letterSpacing: '-0.015em', fontWeight: '600' }],
-        'h4': ['28px', { lineHeight: '1.25', letterSpacing: '-0.01em', fontWeight: '600' }],
-        'h5': ['22px', { lineHeight: '1.3', letterSpacing: '-0.005em', fontWeight: '600' }],
-        'h6': ['18px', { lineHeight: '1.35', letterSpacing: '0em', fontWeight: '600' }],
-
-        /* Body */
-        'body-lg': ['18px', { lineHeight: '1.8', letterSpacing: '0em', fontWeight: '400' }],
-        'body-base': ['16px', { lineHeight: '1.75', letterSpacing: '0em', fontWeight: '400' }],
-        'body-md': ['15px', { lineHeight: '1.7', letterSpacing: '0em', fontWeight: '400' }],
-        'body-sm': ['14px', { lineHeight: '1.65', letterSpacing: '0em', fontWeight: '400' }],
-        'caption': ['13px', { lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: '500' }],
-
-        /* Labels & Badges */
-        'label': ['14px', { lineHeight: '1.4', letterSpacing: '0.02em', fontWeight: '500' }],
-        'badge': ['12px', { lineHeight: '1.2', letterSpacing: '0.08em', fontWeight: '600' }],
-
-        /* Navigation */
-        'nav': ['15px', { lineHeight: '1.4', letterSpacing: '0.01em', fontWeight: '500' }],
-
-        /* Statistics */
-        'stat-primary': ['48px', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '700' }],
-        'stat-secondary': ['32px', { lineHeight: '1.15', letterSpacing: '-0.015em', fontWeight: '600' }],
-
-        /* Button sizes */
-        'btn-sm': ['14px', { lineHeight: '1.3', letterSpacing: '0.015em', fontWeight: '600' }],
-        'btn-md': ['15px', { lineHeight: '1.3', letterSpacing: '0.015em', fontWeight: '600' }],
-        'btn-lg': ['16px', { lineHeight: '1.3', letterSpacing: '0.015em', fontWeight: '600' }],
-        'btn-xl': ['18px', { lineHeight: '1.3', letterSpacing: '0.015em', fontWeight: '600' }],
-
-        /* Table */
-        'table-header': ['14px', { lineHeight: '1.2', letterSpacing: '0.05em', fontWeight: '600' }],
-        'table-row': ['15px', { lineHeight: '1.6', letterSpacing: '0em', fontWeight: '400' }],
-
-        /* Technical/Monospace */
-        'code': ['14px', { lineHeight: '1.65', letterSpacing: '0em', fontWeight: '400' }],
-        'code-inline': ['13px', { lineHeight: '1.5', letterSpacing: '0em', fontWeight: '500' }],
-        'terminal': ['14px', { lineHeight: '1.7', letterSpacing: '0em', fontWeight: '400' }],
-
-        /* Legacy aliases for backward compatibility */
-        'hero': ['52px', { lineHeight: '1.1', letterSpacing: '-0.03em', fontWeight: '700' }],
-        'display': ['48px', { lineHeight: '1.1', letterSpacing: '-0.03em', fontWeight: '700' }],
         '2xs': ['0.625rem', { lineHeight: '0.875rem' }],
+        'hero': ['3.5rem', { lineHeight: '1.1', letterSpacing: '-0.03em' }],
+        'display': ['2.5rem', { lineHeight: '1.15', letterSpacing: '-0.02em' }],
       },
 
       spacing: {
