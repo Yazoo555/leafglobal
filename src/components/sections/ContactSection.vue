@@ -14,46 +14,46 @@
         <div class="mt-12 lg:mt-16 grid grid-cols-1 lg:grid-cols-5 gap-10">
           <!-- Form (3/5 width) -->
           <div v-scroll-reveal="{ animation: 'slide-up', delay: 0 }" class="lg:col-span-3">
-            <div class="card-base p-8 sm:p-10" :class="darkBg ? 'bg-white' : ''">
-              <h3 class="text-xl font-heading font-semibold text-dark mb-6">{{ formTitle }}</h3>
+            <div class="glass-card p-8 sm:p-10" :class="darkBg ? 'bg-white/10 backdrop-blur-sm' : ''">
+              <h3 class="text-h4 font-heading font-semibold text-dark mb-6">{{ formTitle }}</h3>
 
               <form @submit.prevent="handleSubmit" class="space-y-5">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label for="cs-name" class="block text-sm font-medium text-dark mb-1.5">Full Name</label>
+                    <label for="cs-name" class="block label text-dark mb-1.5">Full Name</label>
                     <input
                       id="cs-name"
                       v-model="form.name"
                       type="text"
                       required
-                      class="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-text placeholder:text-text-light/50 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary transition-all duration-200 text-sm"
+                      class="w-full px-4 py-3 text-base rounded-xl border border-gray-200 bg-white/80 backdrop-blur-sm text-text placeholder:text-text-light/70 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary transition-all duration-200"
                       placeholder="Your name"
                       :class="{ 'border-red-400': errors.name }"
                     />
-                    <p v-if="errors.name" class="text-xs text-red-500 mt-1">{{ errors.name }}</p>
+                    <p v-if="errors.name" class="caption text-red-500 mt-1">{{ errors.name }}</p>
                   </div>
                   <div>
-                    <label for="cs-email" class="block text-sm font-medium text-dark mb-1.5">Email Address</label>
+                    <label for="cs-email" class="block label text-dark mb-1.5">Email Address</label>
                     <input
                       id="cs-email"
                       v-model="form.email"
                       type="email"
                       required
-                      class="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-text placeholder:text-text-light/50 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary transition-all duration-200 text-sm"
+                      class="w-full px-4 py-3 text-base rounded-xl border border-gray-200 bg-white/80 backdrop-blur-sm text-text placeholder:text-text-light/70 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary transition-all duration-200"
                       placeholder="you@company.com"
                       :class="{ 'border-red-400': errors.email }"
                     />
-                    <p v-if="errors.email" class="text-xs text-red-500 mt-1">{{ errors.email }}</p>
+                    <p v-if="errors.email" class="caption text-red-500 mt-1">{{ errors.email }}</p>
                   </div>
                 </div>
 
                 <div>
-                  <label for="cs-subject" class="block text-sm font-medium text-dark mb-1.5">Subject</label>
+                  <label for="cs-subject" class="block label text-dark mb-1.5">Subject</label>
                   <select
                     id="cs-subject"
                     v-model="form.subject"
                     required
-                    class="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-text focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary transition-all duration-200 text-sm"
+                    class="w-full px-4 py-3 text-base rounded-xl border border-gray-200 bg-white/80 backdrop-blur-sm text-text focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary transition-all duration-200"
                   >
                     <option value="" disabled>Select a service</option>
                     <option v-for="opt in subjectOptions" :key="opt.value" :value="opt.value">{{ opt.label }}</option>
@@ -61,24 +61,24 @@
                 </div>
 
                 <div>
-                  <label for="cs-message" class="block text-sm font-medium text-dark mb-1.5">Message</label>
+                  <label for="cs-message" class="block label text-dark mb-1.5">Message</label>
                   <textarea
                     id="cs-message"
                     v-model="form.message"
                     required
                     rows="4"
-                    class="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-text placeholder:text-text-light/50 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary transition-all duration-200 text-sm resize-none"
+                    class="w-full px-4 py-3 text-base rounded-xl border border-gray-200 bg-white/80 backdrop-blur-sm text-text placeholder:text-text-light/70 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary transition-all duration-200 resize-none"
                     placeholder="Tell us about your project..."
                     :class="{ 'border-red-400': errors.message }"
                   />
-                  <p v-if="errors.message" class="text-xs text-red-500 mt-1">{{ errors.message }}</p>
+                  <p v-if="errors.message" class="caption text-red-500 mt-1">{{ errors.message }}</p>
                 </div>
 
                 <div class="flex items-center justify-between pt-2">
-                  <p class="text-xs text-text-light">We respect your privacy.</p>
+                  <p class="caption text-text-light">We respect your privacy.</p>
                   <Button
                     type="submit"
-                    variant="primary"
+                    variant="glass-primary"
                     size="lg"
                     :loading="submitting"
                   >
@@ -99,8 +99,8 @@
               >
                 <div v-if="submitted" class="mt-8 p-6 rounded-xl bg-primary-50 border border-primary-100 text-center">
                   <Icon name="check-circle" size="40" class="text-primary mx-auto mb-3" />
-                  <h4 class="font-heading font-semibold text-dark">Message Sent Successfully!</h4>
-                  <p class="text-sm text-text-light mt-1">Thank you for reaching out. We'll get back to you within 24 hours.</p>
+                  <h4 class="font-heading font-semibold text-dark h6">Message Sent Successfully!</h4>
+                  <p class="body-md text-text-light mt-1">Thank you for reaching out. We'll get back to you within 24 hours.</p>
                 </div>
               </transition>
             </div>
@@ -109,13 +109,13 @@
           <!-- Info Panel (2/5 width) -->
           <div v-scroll-reveal="{ animation: 'slide-up', delay: 200 }" class="lg:col-span-2 flex flex-col h-full">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-1 content-start">
-              <div v-for="item in contactInfo" :key="item.title" class="card-base card-hover p-5 flex flex-col" :class="darkBg ? 'bg-white' : ''">
-                <div class="w-10 h-10 rounded-xl bg-primary-50 flex items-center justify-center mb-3 shrink-0">
+              <div v-for="item in contactInfo" :key="item.title" class="glass-card p-5 flex flex-col" :class="darkBg ? 'bg-white/10' : ''">
+                <div class="w-10 h-10 rounded-xl icon-blue flex items-center justify-center mb-3 shrink-0">
                   <Icon :name="item.icon" size="20" class="text-primary" />
                 </div>
-                <h4 class="font-heading font-semibold text-dark text-sm mb-0.5">{{ item.title }}</h4>
-                <p class="text-xs text-text-light mb-auto">{{ item.detail }}</p>
-                <a v-if="item.action" :href="item.action" target="_blank" rel="noopener noreferrer" class="text-xs font-medium text-primary hover:text-primary-600 transition-colors duration-200 mt-2 inline-flex items-center">
+                <h4 class="font-heading font-semibold text-dark body-md mb-0.5">{{ item.title }}</h4>
+                <p class="caption text-text-light mb-auto">{{ item.detail }}</p>
+                <a v-if="item.action" :href="item.action" target="_blank" rel="noopener noreferrer" class="caption font-medium text-primary hover:text-primary-600 transition-colors duration-200 mt-2 inline-flex items-center">
                   {{ item.actionText }}
                   <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                 </a>

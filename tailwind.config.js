@@ -7,63 +7,211 @@ export default {
   theme: {
     extend: {
       colors: {
+        /* ========================================
+           BRAND: Blue — Global Consulting & Technology
+           Primary brand color — 60% of interface
+           ======================================== */
         primary: {
-          DEFAULT: '#006B4C',
-          50: '#E8F5F0',
-          100: '#C5E6D9',
-          200: '#9ED1BE',
-          300: '#6EB8A0',
-          400: '#46A385',
-          500: '#006B4C',
-          600: '#005B3F',
-          700: '#004B33',
-          800: '#003B27',
-          900: '#002B1C',
+          DEFAULT: '#2563EB',
+          50: '#EFF6FF',
+          100: '#DBEAFE',
+          200: '#BFDBFE',
+          300: '#93C5FD',
+          400: '#60A5FA',
+          500: '#3B82F6',
+          600: '#2563EB',
+          700: '#1D4ED8',
+          800: '#1E40AF',
+          900: '#1E3A8A',
         },
-        secondary: {
-          DEFAULT: '#18B790',
-          50: '#E8FBF5',
-          100: '#C5F4E5',
-          200: '#9EECD3',
-          300: '#6EE2BF',
-          400: '#46D9AE',
-          500: '#18B790',
-          600: '#149E7C',
-          700: '#108568',
-          800: '#0C6C54',
-          900: '#085340',
+
+        /* ========================================
+           FINANCE: Green — Audit, Finance & Business Growth
+           30% of interface — Audit/Finance sections only
+           ======================================== */
+        finance: {
+          DEFAULT: '#10B981',
+          50: '#ECFDF5',
+          100: '#D1FAE5',
+          200: '#A7F3D0',
+          300: '#6EE7B7',
+          400: '#34D399',
+          500: '#10B981',
+          600: '#059669',
+          700: '#047857',
+          800: '#065F46',
+          900: '#064E3B',
         },
+
+        /* ========================================
+           EDUCATION: Orange — Learning & Training
+           10% of interface — CTA buttons, Education sections
+           ======================================== */
+        education: {
+          DEFAULT: '#F97316',
+          50: '#FFF7ED',
+          100: '#FFEDD5',
+          200: '#FED7AA',
+          300: '#FDBA74',
+          400: '#FB923C',
+          500: '#F97316',
+          600: '#EA580C',
+          700: '#C2410C',
+          800: '#9A3412',
+          900: '#7C2D12',
+        },
+
+        /* ========================================
+           METALLIC: Chrome, Silver & Steel accents
+           Decorative lines, icons, dividers, highlights
+           ======================================== */
+        chrome: {
+          DEFAULT: '#C7CDD8',
+          light: '#D8DEE9',
+          steel: '#9FA8B8',
+          white: '#FFFFFF',
+        },
+
+        /* ========================================
+           DARK: Premium dark sections (Footer, Hero overlays)
+           ======================================== */
         dark: {
-          DEFAULT: '#124036',
-          50: '#E8F0EE',
-          100: '#C5D8D3',
-          200: '#9EBDB4',
-          300: '#6E9F92',
-          400: '#468575',
-          500: '#124036',
-          600: '#0E362D',
-          700: '#0A2C24',
-          800: '#06221B',
-          900: '#021812',
+          DEFAULT: '#0F172A',
+          50: '#F8FAFC',
+          100: '#F1F5F9',
+          200: '#E2E8F0',
+          300: '#CBD5E1',
+          400: '#94A3B8',
+          500: '#64748B',
+          600: '#475569',
+          700: '#334155',
+          800: '#1E293B',
+          900: '#0F172A',
         },
+
+        /* ========================================
+           BACKGROUND SYSTEM
+           Layered backgrounds — never plain white
+           ======================================== */
         background: {
-          DEFAULT: '#F8F9FA',
-          dark: '#E9ECEF',
+          DEFAULT: '#F8FAFC',
+          secondary: '#F1F5F9',
+          dark: '#0F172A',
+          'dark-alt': '#1E293B',
         },
+
+        /* ========================================
+           SURFACE / TEXT
+           ======================================== */
         surface: {
           DEFAULT: '#FFFFFF',
-          dark: '#F0EDE8',
+          glass: 'rgba(255, 255, 255, 0.18)',
         },
         text: {
-          DEFAULT: '#333333',
-          light: '#6B7280',
-          dark: '#111827',
+          DEFAULT: '#1E293B',
+          light: '#64748B',
+          dark: '#0F172A',
+          white: '#F8FAFC',
         },
       },
+
+      /* ========================================
+         TYPOGRAPHY SYSTEM
+         IBM Plex Sans — Primary typeface
+         IBM Plex Mono — Technical / code content
+         ======================================== */
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
-        heading: ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: [
+          'IBM Plex Sans',
+          'Inter',
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"Segoe UI"',
+          'Roboto',
+          'Helvetica',
+          'Arial',
+          'sans-serif',
+        ],
+        heading: [
+          'IBM Plex Sans',
+          'Inter',
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"Segoe UI"',
+          'Roboto',
+          'Helvetica',
+          'Arial',
+          'sans-serif',
+        ],
+        mono: [
+          'IBM Plex Mono',
+          'JetBrains Mono',
+          'SFMono-Regular',
+          'Consolas',
+          'Monaco',
+          'monospace',
+        ],
       },
+
+      /* ========================================
+         TYPE SCALE — Enterprise Cybersecurity
+         ======================================== */
+      fontSize: {
+        /* Display */
+        'display-xl': ['72px', { lineHeight: '1.02', letterSpacing: '-0.045em', fontWeight: '700' }],
+        'display-lg': ['64px', { lineHeight: '1.05', letterSpacing: '-0.04em', fontWeight: '700' }],
+        'display-md': ['56px', { lineHeight: '1.08', letterSpacing: '-0.035em', fontWeight: '700' }],
+        'display-sm': ['48px', { lineHeight: '1.1', letterSpacing: '-0.03em', fontWeight: '700' }],
+
+        /* Headings */
+        'h1': ['52px', { lineHeight: '1.1', letterSpacing: '-0.03em', fontWeight: '700' }],
+        'h2': ['40px', { lineHeight: '1.15', letterSpacing: '-0.02em', fontWeight: '600' }],
+        'h3': ['32px', { lineHeight: '1.2', letterSpacing: '-0.015em', fontWeight: '600' }],
+        'h4': ['28px', { lineHeight: '1.25', letterSpacing: '-0.01em', fontWeight: '600' }],
+        'h5': ['22px', { lineHeight: '1.3', letterSpacing: '-0.005em', fontWeight: '600' }],
+        'h6': ['18px', { lineHeight: '1.35', letterSpacing: '0em', fontWeight: '600' }],
+
+        /* Body */
+        'body-lg': ['18px', { lineHeight: '1.8', letterSpacing: '0em', fontWeight: '400' }],
+        'body-base': ['16px', { lineHeight: '1.75', letterSpacing: '0em', fontWeight: '400' }],
+        'body-md': ['15px', { lineHeight: '1.7', letterSpacing: '0em', fontWeight: '400' }],
+        'body-sm': ['14px', { lineHeight: '1.65', letterSpacing: '0em', fontWeight: '400' }],
+        'caption': ['13px', { lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: '500' }],
+
+        /* Labels & Badges */
+        'label': ['14px', { lineHeight: '1.4', letterSpacing: '0.02em', fontWeight: '500' }],
+        'badge': ['12px', { lineHeight: '1.2', letterSpacing: '0.08em', fontWeight: '600' }],
+
+        /* Navigation */
+        'nav': ['15px', { lineHeight: '1.4', letterSpacing: '0.01em', fontWeight: '500' }],
+
+        /* Statistics */
+        'stat-primary': ['48px', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '700' }],
+        'stat-secondary': ['32px', { lineHeight: '1.15', letterSpacing: '-0.015em', fontWeight: '600' }],
+
+        /* Button sizes */
+        'btn-sm': ['14px', { lineHeight: '1.3', letterSpacing: '0.015em', fontWeight: '600' }],
+        'btn-md': ['15px', { lineHeight: '1.3', letterSpacing: '0.015em', fontWeight: '600' }],
+        'btn-lg': ['16px', { lineHeight: '1.3', letterSpacing: '0.015em', fontWeight: '600' }],
+        'btn-xl': ['18px', { lineHeight: '1.3', letterSpacing: '0.015em', fontWeight: '600' }],
+
+        /* Table */
+        'table-header': ['14px', { lineHeight: '1.2', letterSpacing: '0.05em', fontWeight: '600' }],
+        'table-row': ['15px', { lineHeight: '1.6', letterSpacing: '0em', fontWeight: '400' }],
+
+        /* Technical/Monospace */
+        'code': ['14px', { lineHeight: '1.65', letterSpacing: '0em', fontWeight: '400' }],
+        'code-inline': ['13px', { lineHeight: '1.5', letterSpacing: '0em', fontWeight: '500' }],
+        'terminal': ['14px', { lineHeight: '1.7', letterSpacing: '0em', fontWeight: '400' }],
+
+        /* Legacy aliases for backward compatibility */
+        'hero': ['52px', { lineHeight: '1.1', letterSpacing: '-0.03em', fontWeight: '700' }],
+        'display': ['48px', { lineHeight: '1.1', letterSpacing: '-0.03em', fontWeight: '700' }],
+        '2xs': ['0.625rem', { lineHeight: '0.875rem' }],
+      },
+
       spacing: {
         '18': '4.5rem',
         '22': '5.5rem',
@@ -72,25 +220,60 @@ export default {
         '84': '21rem',
         '96': '24rem',
       },
-      fontSize: {
-        '2xs': ['0.625rem', { lineHeight: '0.875rem' }],
-        'hero': ['3.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
-        'display': ['2.5rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
-      },
+
       screens: {
         'xs': '475px',
         '3xl': '1792px',
       },
+
       transitionDuration: {
         '250': '250ms',
         '400': '400ms',
       },
+
+      /* ========================================
+         BACKDROP BLUR — Glassmorphism
+         ======================================== */
+      backdropBlur: {
+        glass: '18px',
+        'glass-lg': '24px',
+        'glass-sm': '12px',
+      },
+
+      /* ========================================
+         BORDER RADIUS — Premium rounded corners
+         ======================================== */
+      borderRadius: {
+        'glass': '20px',
+        'glass-sm': '12px',
+        'glass-lg': '24px',
+      },
+
+      /* ========================================
+         BOX SHADOW — Premium soft shadows
+         ======================================== */
+      boxShadow: {
+        'glass': '0 8px 32px rgba(0, 0, 0, 0.06)',
+        'glass-lg': '0 16px 48px rgba(0, 0, 0, 0.08)',
+        'glass-sm': '0 4px 16px rgba(0, 0, 0, 0.04)',
+        'metallic': '0 4px 24px rgba(37, 99, 235, 0.15)',
+        'premium': '0 20px 60px rgba(0, 0, 0, 0.08)',
+      },
+
+      /* ========================================
+         ANIMATIONS
+         ======================================== */
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out forwards',
         'slide-up': 'slideUp 0.6s ease-out forwards',
         'slide-down': 'slideDown 0.3s ease-out forwards',
         'scale-in': 'scaleIn 0.4s ease-out forwards',
+        'glass-shimmer': 'glassShimmer 3s ease-in-out infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'glow-pulse': 'glowPulse 2s ease-in-out infinite',
+        'gradient-shift': 'gradientShift 8s ease infinite',
       },
+
       keyframes: {
         fadeIn: {
           '0%': { opacity: '0' },
@@ -107,6 +290,23 @@ export default {
         scaleIn: {
           '0%': { opacity: '0', transform: 'scale(0.95)' },
           '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        glassShimmer: {
+          '0%': { backgroundPosition: '-200% center' },
+          '100%': { backgroundPosition: '200% center' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+        glowPulse: {
+          '0%, 100%': { opacity: '0.4' },
+          '50%': { opacity: '0.8' },
+        },
+        gradientShift: {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
         },
       },
     },

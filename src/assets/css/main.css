@@ -6,27 +6,44 @@
    Custom CSS Variables
    ======================================== */
 :root {
-  --color-primary: #006B4C;
-  --color-primary-light: #18B790;
-  --color-dark: #124036;
-  --color-background: #F8F9FA;
-  --color-text: #333333;
-  --color-text-light: #6B7280;
+  --color-primary: #2563EB;
+  --color-primary-light: #60A5FA;
+  --color-primary-dark: #1D4ED8;
+  --color-finance: #10B981;
+  --color-education: #F97316;
+  --color-dark: #0F172A;
+  --color-dark-alt: #1E293B;
+  --color-background: #F8FAFC;
+  --color-background-secondary: #F1F5F9;
+  --color-text: #1E293B;
+  --color-text-light: #64748B;
   --color-surface: #FFFFFF;
+  --color-chrome: #C7CDD8;
+  --color-silver: #D8DEE9;
+  --color-steel: #9FA8B8;
 
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.06);
+  --shadow-glass-lg: 0 16px 48px rgba(0, 0, 0, 0.08);
+  --shadow-glass-sm: 0 4px 16px rgba(0, 0, 0, 0.04);
+  --shadow-metallic: 0 4px 24px rgba(37, 99, 235, 0.15);
+  --shadow-premium: 0 20px 60px rgba(0, 0, 0, 0.08);
 
   --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
+  --radius-glass: 20px;
+  --radius-glass-sm: 12px;
+  --radius-glass-lg: 24px;
 
   --transition-fast: 150ms ease;
   --transition-base: 250ms ease;
   --transition-slow: 400ms ease;
+
+  --glass-bg: rgba(255, 255, 255, 0.18);
+  --glass-border: rgba(255, 255, 255, 0.25);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  --glass-blur: 18px;
 }
 
 /* ========================================
@@ -40,38 +57,85 @@
   }
 
   body {
-    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    font-family: 'IBM Plex Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     color: var(--color-text);
     background-color: var(--color-background);
-    line-height: 1.6;
+    line-height: 1.75;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0em;
   }
 
   /* ========================================
-     Headings
+     Headings — IBM Plex Sans throughout
      ======================================== */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+    font-family: 'IBM Plex Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-weight: 600;
-    line-height: 1.25;
-    color: #111827;
+    color: var(--color-dark);
   }
 
   h1 {
-    font-size: 2.5rem;
-    letter-spacing: -0.02em;
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 32px;
   }
 
   h2 {
-    font-size: 2rem;
-    letter-spacing: -0.01em;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 28px;
   }
 
   h3 {
-    font-size: 1.5rem;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    margin-bottom: 24px;
   }
 
   h4 {
-    font-size: 1.25rem;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+
+  h5 {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.005em;
+  }
+
+  h6 {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: 0em;
+  }
+
+  /* ========================================
+     Responsive Headings
+     ======================================== */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    h1 { font-size: 44px; }
+    h2 { font-size: 36px; }
+    h3 { font-size: 28px; }
+  }
+
+  @media (max-width: 767px) {
+    h1 { font-size: 36px; }
+    h2 { font-size: 30px; }
+    h3 { font-size: 24px; }
+    h4 { font-size: 20px; }
+    body { font-size: 16px; }
+    .text-sm-mobile { font-size: 14px; }
   }
 
   /* ========================================
@@ -79,6 +143,36 @@
      ======================================== */
   p {
     color: var(--color-text-light);
+    line-height: 1.75;
+    letter-spacing: 0em;
+  }
+
+  /* ========================================
+     Lists
+     ======================================== */
+  ul, ol {
+    line-height: 1.8;
+  }
+
+  /* ========================================
+     Technical / Monospace Content
+     ======================================== */
+  code, kbd, samp, pre {
+    font-family: 'IBM Plex Mono', 'JetBrains Mono', 'SFMono-Regular', Consolas, Monaco, monospace;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.65;
+    letter-spacing: 0em;
+  }
+
+  code {
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  pre {
+    font-size: 14px;
+    font-weight: 400;
     line-height: 1.7;
   }
 
@@ -117,31 +211,553 @@
     @apply py-16 sm:py-20 lg:py-24;
   }
 
-  .gradient-primary {
-    background: linear-gradient(135deg, #006B4C 0%, #18B790 100%);
+  /* ========================================
+     Gradients — Subtle, neutral-first
+     ======================================== */
+  .gradient-subtle {
+    background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 50%, #E2E8F0 100%);
   }
 
   .gradient-dark {
-    background: linear-gradient(135deg, #124036 0%, #006B4C 100%);
+    background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
   }
 
-  .text-gradient {
-    background: linear-gradient(135deg, #006B4C 0%, #18B790 100%);
+  .gradient-blue {
+    background: linear-gradient(135deg, #2563EB 0%, #60A5FA 100%);
+  }
+
+  .gradient-finance {
+    background: linear-gradient(135deg, #047857 0%, #10B981 100%);
+  }
+
+  .gradient-education {
+    background: linear-gradient(135deg, #C2410C 0%, #F97316 100%);
+  }
+
+  .text-gradient-blue {
+    background: linear-gradient(135deg, #2563EB 0%, #60A5FA 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
+  .text-gradient-finance {
+    background: linear-gradient(135deg, #047857 0%, #10B981 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-education {
+    background: linear-gradient(135deg, #C2410C 0%, #F97316 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ========================================
+     Glassmorphism — Premium Crystal System
+     ======================================== */
+  .glass {
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  }
+
+  .glass-light {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  }
+
+  .glass-heavy {
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Premium frosted glass for cards — with crystal inner highlight */
+  .glass-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    box-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.04),
+      0 12px 48px rgba(0, 0, 0, 0.03);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+  }
+
+  /* Crystal top-edge highlight reflection */
+  .glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 5%,
+      rgba(255, 255, 255, 0.8) 30%,
+      rgba(255, 255, 255, 0.9) 50%,
+      rgba(255, 255, 255, 0.8) 70%,
+      transparent 95%
+    );
+    pointer-events: none;
+  }
+
+  /* Subtle inner corner shine */
+  .glass-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(
+      circle at top right,
+      rgba(255, 255, 255, 0.3) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  .glass-card:hover {
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.08),
+      0 20px 60px rgba(0, 0, 0, 0.06);
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.82);
+  }
+
+  /* ========================================
+     Premium Glass Navigation Bar
+     ======================================== */
+  .glass-nav-premium {
+    position: relative;
+    background: rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 20px;
+    box-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.06),
+      0 12px 48px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+  }
+
+  /* Nav top crystal highlight */
+  .glass-nav-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 10%,
+      rgba(255, 255, 255, 0.7) 30%,
+      rgba(255, 255, 255, 0.9) 50%,
+      rgba(255, 255, 255, 0.7) 70%,
+      transparent 90%
+    );
+    pointer-events: none;
+  }
+
+  .glass-nav-premium.scrolled {
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.08),
+      0 16px 48px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Previous glass-nav (kept for backward compat) */
+  .glass-nav {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  /* ========================================
+     Metallic Accents & Crystal Dividers
+     ======================================== */
+  .metallic-divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--color-chrome) 20%,
+      var(--color-silver) 50%,
+      var(--color-chrome) 80%,
+      transparent 100%
+    );
+  }
+
+  /* Premium crystal ribbon — full-width section divider */
+  .crystal-divider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    pointer-events: none;
+  }
+
+  .crystal-divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--color-chrome) 15%,
+      var(--color-silver) 50%,
+      var(--color-chrome) 85%,
+      transparent 100%
+    );
+  }
+
+  .crystal-divider-orb {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin: 0 20px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow:
+      0 4px 16px rgba(0, 0, 0, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .crystal-divider-orb::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.1) 100%);
+    pointer-events: none;
+  }
+
+  .crystal-divider-orb::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    background: linear-gradient(
+      -45deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.35) 45%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0.35) 55%,
+      transparent 70%
+    );
+    background-size: 200% 200%;
+    background-position: 0% 0%;
+    animation: orbShimmer 5s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .crystal-divider-orb-inner {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-chrome) 0%, var(--color-silver) 100%);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Light variant for dark backgrounds */
+  .crystal-divider-light .crystal-divider-line {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.35) 15%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0.35) 85%,
+      transparent 100%
+    );
+  }
+
+  .crystal-divider-light .crystal-divider-orb {
+    background: rgba(255, 255, 255, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    box-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
+
+  .crystal-divider-light .crystal-divider-orb::before {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.1) 100%);
+  }
+
+  .crystal-divider-light .crystal-divider-orb-inner {
+    background: linear-gradient(135deg, #FFFFFF 0%, rgba(255, 255, 255, 0.6) 100%);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  }
+
+  /* ========================================
+     Brand-color tinted divider orbs
+     ======================================== */
+  /* Blue — for Technology section dividers */
+  .crystal-divider-orb--blue {
+    border-color: rgba(37, 99, 235, 0.3);
+    box-shadow:
+      0 4px 16px rgba(0, 0, 0, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8),
+      0 0 0 1px rgba(37, 99, 235, 0.08);
+  }
+
+  .crystal-divider-orb--blue .crystal-divider-orb-inner {
+    background: linear-gradient(135deg, #60A5FA 0%, #2563EB 100%);
+    box-shadow: 0 1px 4px rgba(37, 99, 235, 0.2);
+  }
+
+  .crystal-divider-orb--blue::before {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.12) 0%, rgba(255, 255, 255, 0.1) 100%);
+  }
+
+  /* Green — for Finance section dividers */
+  .crystal-divider-orb--green {
+    border-color: rgba(16, 185, 129, 0.3);
+    box-shadow:
+      0 4px 16px rgba(0, 0, 0, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8),
+      0 0 0 1px rgba(16, 185, 129, 0.08);
+  }
+
+  .crystal-divider-orb--green .crystal-divider-orb-inner {
+    background: linear-gradient(135deg, #34D399 0%, #10B981 100%);
+    box-shadow: 0 1px 4px rgba(16, 185, 129, 0.2);
+  }
+
+  .crystal-divider-orb--green::before {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(255, 255, 255, 0.1) 100%);
+  }
+
+  /* Orange — for Education section dividers */
+  .crystal-divider-orb--orange {
+    border-color: rgba(249, 115, 22, 0.3);
+    box-shadow:
+      0 4px 16px rgba(0, 0, 0, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8),
+      0 0 0 1px rgba(249, 115, 22, 0.08);
+  }
+
+  .crystal-divider-orb--orange .crystal-divider-orb-inner {
+    background: linear-gradient(135deg, #FB923C 0%, #F97316 100%);
+    box-shadow: 0 1px 4px rgba(249, 115, 22, 0.2);
+  }
+
+  .crystal-divider-orb--orange::before {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.12) 0%, rgba(255, 255, 255, 0.1) 100%);
+  }
+
+  .metallic-border {
+    border: 1px solid var(--color-silver);
+  }
+
+  .metallic-shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .metallic-shine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.15) 50%,
+      transparent 70%
+    );
+    animation: glassShimmer 3s ease-in-out infinite;
+  }
+
+  /* Crystal reflection overlay — static by default */
+  .crystal-reflection {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .crystal-reflection::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      transparent 35%,
+      rgba(255, 255, 255, 0.18) 48%,
+      rgba(255, 255, 255, 0.22) 50%,
+      rgba(255, 255, 255, 0.18) 52%,
+      transparent 65%
+    );
+    background-size: 200% 200%;
+    background-position: 0% 0%;
+    pointer-events: none;
+  }
+
+  /* Animated variant — slow glass shimmer sweep */
+  .crystal-reflection--animated::after {
+    animation: crystalShimmer 7s ease-in-out infinite;
+  }
+
+  /* Light-background variant — chrome metallic shimmer for white glass cards */
+  .crystal-reflection--light-bg::after {
+    background: linear-gradient(
+      135deg,
+      transparent 30%,
+      rgba(199, 205, 216, 0.25) 45%,
+      rgba(216, 222, 233, 0.35) 50%,
+      rgba(199, 205, 216, 0.25) 55%,
+      transparent 70%
+    );
+    background-size: 200% 200%;
+    background-position: 0% 0%;
+    animation: crystalShimmer 7s ease-in-out infinite;
+  }
+
+  /* ========================================
+     Cards
+     ======================================== */
   .card-base {
-    @apply bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300;
+    position: relative;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    box-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.04),
+      0 12px 48px rgba(0, 0, 0, 0.03);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+  }
+
+  .card-base::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 5%,
+      rgba(255, 255, 255, 0.8) 30%,
+      rgba(255, 255, 255, 0.9) 50%,
+      rgba(255, 255, 255, 0.8) 70%,
+      transparent 95%
+    );
+    pointer-events: none;
+  }
+
+  .card-base::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(
+      circle at top right,
+      rgba(255, 255, 255, 0.3) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  .card-base:hover {
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.08),
+      0 20px 60px rgba(0, 0, 0, 0.06);
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.82);
   }
 
   .card-hover {
-    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+    @apply transition-all duration-300 hover:-translate-y-1;
   }
 
+  .card-hover:hover {
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.08),
+      0 20px 60px rgba(0, 0, 0, 0.06);
+  }
+
+  /* ========================================
+     Buttons Base
+     ======================================== */
   .btn-base {
-    @apply inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    @apply inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  /* ========================================
+     Section Badges
+     ======================================== */
+  .badge-blue {
+    @apply inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase rounded-full;
+    background: rgba(37, 99, 235, 0.1);
+    color: #2563EB;
+  }
+
+  .badge-green {
+    @apply inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase rounded-full;
+    background: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+  }
+
+  .badge-orange {
+    @apply inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase rounded-full;
+    background: rgba(249, 115, 22, 0.1);
+    color: #F97316;
+  }
+
+  /* ========================================
+     Icon containers by service category
+     ======================================== */
+  .icon-blue {
+    @apply rounded-xl flex items-center justify-center;
+    background: rgba(37, 99, 235, 0.1);
+    color: #2563EB;
+  }
+
+  .icon-green {
+    @apply rounded-xl flex items-center justify-center;
+    background: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+  }
+
+  .icon-orange {
+    @apply rounded-xl flex items-center justify-center;
+    background: rgba(249, 115, 22, 0.1);
+    color: #F97316;
   }
 }
 
@@ -162,24 +778,99 @@
     text-wrap: balance;
   }
 
+  .text-gradient-primary {
+    background: linear-gradient(135deg, #2563EB 0%, #60A5FA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 }
 
 /* ========================================
-   Custom Scrollbar
+   Animations
+   ======================================== */
+@keyframes orbShimmer {
+  0% {
+    background-position: 0% 0%;
+    opacity: 0.4;
+  }
+  25% {
+    opacity: 0.8;
+  }
+  50% {
+    background-position: 100% 100%;
+    opacity: 0.4;
+  }
+  75% {
+    opacity: 0.7;
+  }
+  100% {
+    background-position: 0% 0%;
+    opacity: 0.4;
+  }
+}
+
+@keyframes crystalShimmer {
+  0% {
+    background-position: -100% -100%;
+    opacity: 0.3;
+  }
+  25% {
+    opacity: 0.7;
+  }
+  50% {
+    background-position: 200% 200%;
+    opacity: 0.3;
+  }
+  75% {
+    opacity: 0.6;
+  }
+  100% {
+    background-position: -100% -100%;
+    opacity: 0.3;
+  }
+}
+
+@keyframes glassShimmer {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  40% {
+    opacity: 0;
+  }
+  60% {
+    transform: translate(50%, 50%) rotate(180deg);
+    opacity: 0;
+  }
+  80% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ========================================
+   Custom Scrollbar — Neutral
    ======================================== */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #E9ECEF;
+  background: #F1F5F9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #006B4C;
+  background: #94A3B8;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #005B3F;
+  background: #64748B;
 }

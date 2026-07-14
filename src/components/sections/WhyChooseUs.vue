@@ -18,45 +18,41 @@
           <!-- Card -->
           <div
             :class="[
-              'rounded-2xl p-8 transition-all duration-300 h-full',
+              'rounded-[20px] p-8 transition-all duration-300 h-full crystal-reflection',
               darkBg
-                ? 'bg-white/5 hover:bg-white/10 border border-white/10'
-                : 'card-base hover:-translate-y-1 hover:shadow-xl',
+                ? 'glass-light backdrop-blur-sm'
+                : 'glass-card',
             ]"
           >
             <!-- Icon -->
             <div
-              :class="[
-                'w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300',
-                darkBg
-                  ? 'bg-white/10 group-hover:bg-secondary/20'
-                  : 'bg-primary-50 group-hover:bg-primary-100',
-              ]"
+              class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110"
+              :class="darkBg ? 'bg-white/10 group-hover:bg-primary/20' : 'icon-blue'"
             >
               <Icon
                 :name="item.icon"
                 :size="28"
-                :color="darkBg ? '#18B790' : '#006B4C'"
+                :color="darkBg ? '#60A5FA' : '#2563EB'"
               />
             </div>
 
             <!-- Number -->
             <div
               v-if="item.number"
-              class="text-4xl font-heading font-bold mb-2"
-              :class="darkBg ? 'text-white' : 'text-primary'"
+              class="stat-secondary font-heading font-bold mb-2"
+              :class="darkBg ? 'text-white' : 'text-primary text-gradient-blue'"
             >
               {{ item.number }}
             </div>
 
             <h4
-              class="font-heading font-semibold text-lg mb-2"
+              class="font-heading font-semibold h5 mb-2"
               :class="darkBg ? 'text-white' : 'text-dark'"
             >
               {{ item.title }}
             </h4>
             <p
-              class="text-sm leading-relaxed"
+              class="body-md"
               :class="darkBg ? 'text-gray-400' : 'text-text-light'"
             >
               {{ item.description }}

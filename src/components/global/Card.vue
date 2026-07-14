@@ -2,14 +2,14 @@
   <div
     :class="[
       'card-base overflow-hidden group',
-      hoverable ? 'hover:-translate-y-1 hover:shadow-xl cursor-pointer' : '',
+      hoverable ? 'hover:-translate-y-1 cursor-pointer' : '',
       animated ? 'opacity-0 animate-slide-up' : '',
     ]"
     :style="animated ? { animationDelay: `${delay}ms`, animationFillMode: 'forwards' } : {}"
     v-bind="$attrs"
   >
     <!-- Image -->
-    <div v-if="$slots.image || image" class="relative overflow-hidden aspect-video">
+    <div v-if="$slots.image || image" class="relative overflow-hidden aspect-video rounded-t-[20px]">
       <slot name="image">
         <img
           :src="image"
@@ -19,32 +19,32 @@
         />
       </slot>
       <!-- Overlay -->
-      <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div class="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
     </div>
 
     <!-- Content -->
-    <div :class="['p-6', !image && !$slots.image ? 'pt-6' : '']">
+    <div :class="['p-6 sm:p-8', !image && !$slots.image ? 'pt-6 sm:pt-8' : '']">
       <!-- Badge -->
       <span
         v-if="badge"
-        class="inline-block px-2.5 py-0.5 text-xs font-medium rounded-full mb-3"
-        :class="badgeVariant === 'primary' ? 'bg-primary-50 text-primary' : 'bg-secondary-50 text-secondary'"
+        class="inline-block px-2.5 py-0.5 badge uppercase rounded-full mb-3"
+        :class="badgeClasses"
       >
         {{ badge }}
       </span>
 
       <!-- Title -->
-      <h3 class="font-heading font-semibold text-dark text-lg mb-2 group-hover:text-primary transition-colors duration-200">
+      <h3 class="font-heading font-semibold text-dark h5 mb-2 group-hover:text-primary transition-colors duration-200">
         <slot name="title">{{ title }}</slot>
       </h3>
 
       <!-- Description -->
-      <p v-if="description || $slots.default" class="text-text-light text-sm leading-relaxed">
+      <p v-if="description || $slots.default" class="text-text-light body-md">
         <slot>{{ description }}</slot>
       </p>
 
       <!-- Footer / Link -->
-      <div v-if="$slots.footer || to" class="mt-4 pt-4 border-t border-gray-100">
+      <div v-if="$slots.footer || to" class="mt-4 pt-4 border-t border-gray-200/50">
         <slot name="footer">
           <router-link
             v-if="to"
@@ -63,7 +63,9 @@
 </template>
 
 <script setup>
-defineProps({
+import { computed } from 'vue'
+
+const props = defineProps({
   title: {
     type: String,
     default: '',
@@ -83,7 +85,7 @@ defineProps({
   badgeVariant: {
     type: String,
     default: 'primary',
-    validator: (value) => ['primary', 'secondary'].includes(value),
+    validator: (value) => ['primary', 'finance', 'education'].includes(value),
   },
   to: {
     type: [String, Object],
@@ -101,5 +103,14 @@ defineProps({
     type: Number,
     default: 0,
   },
+})
+
+const badgeClasses = computed(() => {
+  const map = {
+    primary: 'bg-primary-50 text-primary',
+    finance: 'bg-finance-50 text-finance',
+    education: 'bg-education-50 text-education',
+  }
+  return map[props.badgeVariant]
 })
 </script>

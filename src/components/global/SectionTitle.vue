@@ -3,7 +3,8 @@
     <!-- Badge -->
     <span
       v-if="badge"
-      class="inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase rounded-full bg-primary-50 text-primary mb-4"
+      class="inline-block px-3 py-1 badge uppercase rounded-full mb-4"
+      :class="badgeClasses"
     >
       {{ badge }}
     </span>
@@ -13,7 +14,7 @@
       :class="[
         titleSize,
         animated ? 'animate-fade-in' : '',
-        gradient ? 'leading-relaxed text-gradient pb-1' : 'text-dark'
+        gradient ? 'text-gradient-blue' : 'text-dark'
       ]"
       :style="animated ? { animationDelay: '0.1s' } : {}"
     >
@@ -23,7 +24,7 @@
     <!-- Subtitle -->
     <p
       v-if="subtitle"
-      class="mt-4 text-text-light max-w-2xl"
+      class="mt-4 text-text-light max-w-2xl body-md"
       :class="[alignment === 'center' ? 'mx-auto text-center' : 'text-left', animated ? 'animate-fade-in' : '']"
       :style="animated ? { animationDelay: '0.2s' } : {}"
     >
@@ -34,7 +35,7 @@
     <div
       v-if="showLine"
       class="mt-6 h-1 rounded-full w-20"
-      :class="[alignment === 'center' ? 'mx-auto' : '', gradient ? 'gradient-primary' : 'bg-primary']"
+      :class="[alignment === 'center' ? 'mx-auto' : '', lineClasses]"
     />
   </div>
 </template>
@@ -77,6 +78,12 @@ const props = defineProps({
     default: 'lg',
     validator: (value) => ['sm', 'md', 'lg', 'xl'].includes(value),
   },
+  /** 'blue' | 'green' | 'orange' - category color variant */
+  color: {
+    type: String,
+    default: 'blue',
+    validator: (value) => ['blue', 'green', 'orange'].includes(value),
+  },
 })
 
 const alignmentClasses = computed(() => [
@@ -85,11 +92,29 @@ const alignmentClasses = computed(() => [
 
 const titleSize = computed(() => {
   const sizes = {
-    sm: 'text-2xl sm:text-3xl',
-    md: 'text-3xl sm:text-4xl',
-    lg: 'text-3xl sm:text-4xl lg:text-5xl',
-    xl: 'text-4xl sm:text-5xl lg:text-6xl',
+    sm: 'text-h4',
+    md: 'text-h3',
+    lg: 'text-h2',
+    xl: 'text-h1',
   }
   return sizes[props.size]
+})
+
+const badgeClasses = computed(() => {
+  const map = {
+    blue: 'badge-blue',
+    green: 'badge-green',
+    orange: 'badge-orange',
+  }
+  return map[props.color]
+})
+
+const lineClasses = computed(() => {
+  const map = {
+    blue: 'bg-primary',
+    green: 'bg-finance',
+    orange: 'bg-education',
+  }
+  return map[props.color]
 })
 </script>

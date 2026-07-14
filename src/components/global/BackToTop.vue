@@ -9,7 +9,7 @@
   >
     <button
       v-if="visible"
-      class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full gradient-primary text-white shadow-lg hover:shadow-xl hover:scale-110 active:scale-95 transition-all duration-200 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-2"
+      class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full gradient-blue text-white shadow-glass hover:shadow-lg hover:scale-110 active:scale-95 transition-all duration-200 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-2"
       @click="scrollToTop"
       aria-label="Back to top"
     >

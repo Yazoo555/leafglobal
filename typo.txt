@@ -1,0 +1,207 @@
+===============================================
+  TYPOGRAPHY SYSTEM — Leaf Global Consulting Group
+  Document generated: July 14, 2026
+===============================================
+
+
+1. FONT FAMILY
+   ---------------------------------------------------------------
+   The project uses a single font family throughout:
+   "Inter" — a clean, modern sans-serif typeface.
+
+   Fallback stack:
+   Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif
+
+   Font configuration in tailwind.config.js:
+     fontFamily.sans:   ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif']
+     fontFamily.heading: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif']
+
+   Both sans and heading font families are identical — Inter is used
+   everywhere for a unified, clean look.
+
+   Loaded via Google Fonts with weights: 300, 400, 500, 600, 700, 800
+
+
+2. FONT WEIGHTS USED
+   ---------------------------------------------------------------
+   weight-300: Light       — Used sparingly for subtle text
+   weight-400: Regular     — Body text, paragraphs, descriptions
+   weight-500: Medium      — Buttons, labels, badges, nav links
+   weight-600: Semibold    — Headings (h1-h6), card titles, nav items
+   weight-700: Bold        — Hero headings, stat numbers, section titles
+   weight-800: ExtraBold   — Available but not heavily used
+
+
+3. FONT SIZES
+   ---------------------------------------------------------------
+   Tailwind default sizes used:
+     text-xs:    0.75rem   (12px) — Badges, subtexts, footer links
+     text-sm:    0.875rem  (14px) — Card descriptions, form labels, nav items
+     text-base:  1rem      (16px) — Body text, button text (lg size)
+     text-lg:    1.125rem  (18px) — Card headings, description paragraphs
+     text-xl:    1.25rem   (20px) — Subsection headings
+     text-2xl:   1.5rem    (24px) — Smaller section titles
+     text-3xl:   1.875rem  (30px) — Section titles (responsive)
+     text-4xl:   2.25rem   (36px) — Hero title (responsive), section headings
+     text-5xl:   3rem      (48px) — Hero title on larger screens
+     text-6xl:   3.75rem   (60px) — Largest heading size (xl variant)
+
+   Custom font sizes defined in tailwind.config.js:
+     text-2xs:   0.625rem  (10px)  — lineHeight: 0.875rem (14px)
+     text-hero:  3.5rem    (56px)  — lineHeight: 1.1, letterSpacing: -0.03em
+     text-display: 2.5rem  (40px)  — lineHeight: 1.15, letterSpacing: -0.02em
+
+
+4. HEADING STYLES (Base CSS in main.css)
+   ---------------------------------------------------------------
+   h1, h2, h3, h4, h5, h6:
+     font-family: Inter, system-ui, ...
+     font-weight: 600
+     line-height: 1.25
+     color: #0F172A (dark)
+
+   h1:
+     font-size: 2.5rem (40px)
+     letter-spacing: -0.02em
+
+   h2:
+     font-size: 2rem (32px)
+     letter-spacing: -0.01em
+
+   h3:
+     font-size: 1.5rem (24px)
+
+   h4:
+     font-size: 1.25rem (20px)
+
+
+5. SECTION TITLE COMPONENT SIZES
+   ---------------------------------------------------------------
+   SectionTitle.vue supports 4 sizes via the "size" prop:
+     sm: text-2xl sm:text-3xl
+     md: text-3xl sm:text-4xl
+     lg: text-3xl sm:text-4xl lg:text-5xl   (default)
+     xl: text-4xl sm:text-5xl lg:text-6xl
+
+
+6. LINE HEIGHTS
+   ---------------------------------------------------------------
+   Base body text:         line-height: 1.6  (body element)
+   Paragraphs:             line-height: 1.7  (p element)
+   Headings:               line-height: 1.25
+   Hero heading:           line-height: 1.1  (custom text-hero)
+   Display heading:        line-height: 1.15 (custom text-display)
+   Relaxed text:           line-height: 1.625 (Tailwind leading-relaxed)
+   Card descriptions:      line-height: 1.625 (Tailwind leading-relaxed)
+   Badges:                 line-height: standard (text-xs default)
+
+
+7. LETTER SPACING
+   ---------------------------------------------------------------
+   Hero heading (text-hero):      -0.03em (tight tracking)
+   Display heading (text-display): -0.02em
+   h1:                            -0.02em
+   h2:                            -0.01em
+   Badge text:                    0.05em (Tailwind tracking-wider, uppercase)
+   Section badges:                0.05em (tracking-wider uppercase)
+
+
+8. TEXT STYLES & GRADIENTS
+   ---------------------------------------------------------------
+   text-gradient-blue:
+     background: linear-gradient(135deg, #2563EB 0%, #60A5FA 100%)
+     -webkit-background-clip: text
+     -webkit-text-fill-color: transparent
+
+   text-gradient-finance:
+     background: linear-gradient(135deg, #047857 0%, #10B981 100%)
+     -webkit-background-clip: text
+     -webkit-text-fill-color: transparent
+
+   text-gradient-education:
+     background: linear-gradient(135deg, #C2410C 0%, #F97316 100%)
+     -webkit-background-clip: text
+     -webkit-text-fill-color: transparent
+
+   text-gradient-primary (utility layer):
+     background: linear-gradient(135deg, #2563EB 0%, #60A5FA 100%)
+     -webkit-background-clip: text
+     -webkit-text-fill-color: transparent
+
+
+9. TEXT WRAPPING
+   ---------------------------------------------------------------
+   text-balance: text-wrap: balance (utility class)
+
+
+10. PARAGRAPH & LINK STYLES (Base CSS)
+    ---------------------------------------------------------------
+    p:
+      color: #64748B (text-light)
+      line-height: 1.7
+
+    a:
+      color: #2563EB (primary)
+      transition: color 150ms ease
+      hover color: #60A5FA (primary-light)
+
+
+11. SELECTION STYLE
+    ---------------------------------------------------------------
+    ::selection:
+      background-color: #2563EB
+      color: #FFFFFF
+
+
+12. SCROLLBAR TYPOGRAPHY CONTEXT
+    ---------------------------------------------------------------
+    Custom scrollbar width: 8px
+    Scrollbar styling does not affect text rendering
+
+
+13. RESPONSIVE TYPOGRAPHY BREAKPOINTS
+    ---------------------------------------------------------------
+    xs:   475px  (custom breakpoint)
+    sm:   640px  (Tailwind default)
+    md:   768px  (Tailwind default)
+    lg:   1024px (Tailwind default)
+    xl:   1280px (Tailwind default)
+    2xl:  1536px (Tailwind default)
+    3xl:  1792px (custom breakpoint)
+
+    Typical responsive pattern:
+    - Mobile:   text-3xl (30px)
+    - Tablet:   text-4xl (36px)
+    - Desktop:  text-5xl (48px) or text-hero (56px)
+
+
+14. ANIMATION-RELATED TYPOGRAPHY
+    ---------------------------------------------------------------
+    Fade-in:  opacity 0 -> 1, 0.6s ease-out
+    Slide-up: opacity 0, translateY(30px) -> opacity 1, translateY(0), 0.6s
+    Scale-in: opacity 0, scale(0.95) -> opacity 1, scale(1), 0.4s
+
+
+15. BUTTON TYPOGRAPHY
+    ---------------------------------------------------------------
+    Button sizes and their text properties:
+      xs: text-xs   (12px), px-3 py-1.5
+      sm: text-sm   (14px), px-4 py-2
+      md: text-sm   (14px), px-5 py-2.5
+      lg: text-base (16px), px-6 py-3
+      xl: text-lg   (18px), px-8 py-4
+
+    All buttons use:
+      font-weight: 500 (medium)
+      rounded-xl (border-radius)
+      inline-flex items-center justify-center
+
+
+16. BADGE TYPOGRAPHY
+    ---------------------------------------------------------------
+    text-xs (12px)
+    font-weight: 600 (semibold)
+    letter-spacing: 0.05em (tracking-wider)
+    text-transform: uppercase
+    rounded-full
+    px-3 py-1

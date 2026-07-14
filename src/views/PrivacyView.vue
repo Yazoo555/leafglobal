@@ -2,37 +2,41 @@
   <div>
     <!-- Hero Banner -->
     <section class="relative pt-32 pb-20 overflow-hidden">
-      <div class="absolute inset-0 gradient-dark opacity-95" />
-      <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djItSDI0di0yaDEyek0zNiAyNHYySDI0di0yaDEyeiIvPjwvZz48L2c+PC9zdmc+')] opacity-30" />
+      <div class="absolute inset-0 bg-white" />
+      <div class="absolute inset-0 gradient-subtle opacity-60" />
+      <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiM2NDc0ODgiIGZpbGwtb3BhY2l0eT0iMC4wNCI+PHBhdGggZD0iTTM2IDM0djItSDI0di0yaDEyek0zNiAyNHYySDI0di0yaDEyeiIvPjwvZz48L2c+PC9zdmc+')] opacity-30" />
+
+      <div class="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-primary/5 blur-3xl" />
 
       <div class="container-custom relative z-10 text-center">
-        <span class="inline-block px-4 py-1.5 text-xs font-semibold tracking-wider uppercase rounded-full bg-white/10 text-secondary mb-6 backdrop-blur-sm">
+        <span class="inline-block px-4 py-1.5 badge uppercase rounded-full glass text-dark/70 mb-6">
           Legal
         </span>
-        <h1 class="text-4xl sm:text-5xl lg:text-display font-heading font-bold text-white max-w-3xl mx-auto">
+        <h1 class="text-display-lg lg:text-display-xl font-heading font-bold text-dark max-w-3xl mx-auto">
           Privacy<br/>
-          <span class="text-gradient">Policy</span>
+          <span class="text-gradient-blue">Policy</span>
         </h1>
-        <p class="mt-6 text-lg text-gray-300 max-w-2xl mx-auto">
+        <p class="mt-6 body-lg text-text-light max-w-2xl mx-auto">
           We are committed to protecting your privacy and handling your personal information with transparency and care.
         </p>
       </div>
-      <div class="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-secondary/10 blur-3xl" />
     </section>
 
     <!-- Content -->
     <section class="section-padding bg-white">
       <div class="container-custom">
-        <div class="max-w-3xl mx-auto prose prose-sm sm:prose">
-          <p class="text-text-light text-sm mb-8">Last updated: July 2025</p>
+        <div class="max-w-3xl mx-auto">
+          <div class="glass-card p-8 sm:p-10">
+            <p class="text-text-light body-sm mb-8">Last updated: July 2025</p>
 
-          <div class="space-y-10">
-            <div v-for="section in sections" :key="section.title">
-              <h2 class="text-2xl font-heading font-bold text-dark mb-4">{{ section.title }}</h2>
-              <div class="space-y-3">
-                <p v-for="(paragraph, idx) in section.paragraphs" :key="idx" class="text-text-light leading-relaxed">
-                  {{ paragraph }}
-                </p>
+            <div class="space-y-10">
+              <div v-for="section in sections" :key="section.title">
+                <h2 class="text-h3 font-heading font-bold text-dark mb-4">{{ section.title }}</h2>
+                <div class="space-y-3">
+                  <p v-for="(paragraph, idx) in section.paragraphs" :key="idx" class="text-text-light body-lg">
+                    {{ paragraph }}
+                  </p>
+                </div>
               </div>
             </div>
           </div>

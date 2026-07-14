@@ -2,24 +2,28 @@
   <div>
     <!-- Hero / Mission -->
     <section class="relative pt-32 pb-20 overflow-hidden">
-      <div class="absolute inset-0 gradient-dark opacity-95" />
-      <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djItSDI0di0yaDEyek0zNiAyNHYySDI0di0yaDEyeiIvPjwvZz48L2c+PC9zdmc+')] opacity-30" />
+      <div class="absolute inset-0 bg-white" />
+      <div class="absolute inset-0 gradient-subtle opacity-60" />
+      <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiM2NDc0ODgiIGZpbGwtb3BhY2l0eT0iMC4wNCI+PHBhdGggZD0iTTM2IDM0djItSDI0di0yaDEyek0zNiAyNHYySDI0di0yaDEyeiIvPjwvZz48L2c+PC9zdmc+')] opacity-30" />
+
+      <!-- Glass decorative elements -->
+      <div class="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-primary/5 blur-3xl" />
+      <div class="absolute left-20 bottom-10 w-72 h-72 rounded-full bg-finance/5 blur-3xl" />
 
       <div class="container-custom relative z-10">
         <div class="max-w-3xl">
-          <span class="inline-block px-4 py-1.5 text-xs font-semibold tracking-wider uppercase rounded-full bg-white/10 text-secondary mb-6 backdrop-blur-sm">
+          <span class="inline-block px-4 py-1.5 badge uppercase rounded-full glass text-dark/70 mb-6">
             About Us
           </span>
-          <h1 class="text-4xl sm:text-5xl lg:text-display font-heading font-bold text-white leading-tight">
+          <h1 class="text-display-lg lg:text-display-xl font-heading font-bold text-dark">
             Empowering Organisations<br/>
-            <span class="text-gradient inline-block pb-1">Through Expert Consulting</span>
+            <span class="text-gradient-blue inline-block pb-1">Through Expert Consulting</span>
           </h1>
-          <p class="mt-6 text-lg text-gray-300 max-w-2xl leading-relaxed">
+          <p class="mt-6 body-lg text-text-light max-w-2xl">
             Leaf Global Consulting Group brings together experienced professionals across Education, Law, IT, and Finance to provide expert consulting and training that builds capability and drives results.
           </p>
         </div>
       </div>
-      <div class="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-secondary/10 blur-3xl" />
     </section>
 
     <!-- Story & Numbers -->
@@ -50,10 +54,10 @@
 
           <!-- Stats Grid -->
           <div class="grid grid-cols-2 gap-6">
-            <div v-for="stat in stats" :key="stat.label" class="card-base p-8 text-center">
-              <div class="text-3xl sm:text-4xl font-heading font-bold text-primary">{{ stat.value }}</div>
-              <div class="text-sm text-text-light mt-2">{{ stat.label }}</div>
-              <div class="text-xs text-text-light mt-1">{{ stat.subtext }}</div>
+            <div v-for="stat in stats" :key="stat.label" class="glass-card p-8 text-center">
+              <div class="stat-primary font-heading font-bold text-primary">{{ stat.value }}</div>
+              <div class="body-md text-text-light mt-2">{{ stat.label }}</div>
+              <div class="caption text-text-light mt-1">{{ stat.subtext }}</div>
             </div>
           </div>
         </div>
@@ -61,7 +65,7 @@
     </section>
 
     <!-- Values -->
-    <section class="section-padding bg-background">
+    <section class="section-padding bg-background-secondary">
       <div class="container-custom">
         <SectionTitle
           badge="Our Values"
@@ -72,12 +76,12 @@
         />
 
         <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div v-for="(value, index) in values" :key="value.title" class="card-base p-8 text-center hover:-translate-y-1 transition-all duration-300">
-            <div class="w-16 h-16 mx-auto rounded-2xl gradient-primary flex items-center justify-center mb-6">
+          <div v-for="(value, index) in values" :key="value.title" class="glass-card p-8 text-center hover:-translate-y-1 transition-all duration-300">
+            <div class="w-16 h-16 mx-auto rounded-2xl gradient-blue flex items-center justify-center mb-6 shadow-glass">
               <Icon :name="value.icon" size="28" color="white" />
             </div>
-            <h4 class="font-heading font-semibold text-dark mb-2">{{ value.title }}</h4>
-            <p class="text-sm text-text-light">{{ value.description }}</p>
+            <h4 class="font-heading font-semibold text-dark h6 mb-2">{{ value.title }}</h4>
+            <p class="body-md text-text-light">{{ value.description }}</p>
           </div>
         </div>
       </div>
@@ -96,20 +100,19 @@
 
         <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div v-for="(member, index) in team" :key="member.name" class="text-center group">
-            <!-- Avatar -->
-            <div class="w-32 h-32 mx-auto rounded-full gradient-primary flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-105">
-              <span class="text-4xl font-heading font-bold text-white">{{ member.initials }}</span>
+            <div class="w-32 h-32 mx-auto rounded-full gradient-blue flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-105 shadow-glass">
+              <span class="text-display-sm font-heading font-bold text-white">{{ member.initials }}</span>
             </div>
-            <h4 class="font-heading font-semibold text-dark">{{ member.name }}</h4>
-            <p class="text-sm text-primary font-medium">{{ member.role }}</p>
-            <p class="text-xs text-text-light mt-1">{{ member.description }}</p>
+            <h4 class="font-heading font-semibold text-dark h6">{{ member.name }}</h4>
+            <p class="body-md text-primary font-medium">{{ member.role }}</p>
+            <p class="caption text-text-light mt-1">{{ member.description }}</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Timeline / Milestones -->
-    <section class="section-padding bg-background">
+    <section class="section-padding bg-background-secondary">
       <div class="container-custom">
         <SectionTitle
           badge="Milestones"
@@ -121,17 +124,15 @@
 
         <div class="mt-16 max-w-3xl mx-auto">
           <div class="relative">
-            <!-- Timeline line -->
-            <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-primary-100" />
+            <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-primary-200" />
 
             <div v-for="(milestone, index) in milestones" :key="milestone.year" class="relative pl-16 pb-12 last:pb-0">
-              <!-- Dot -->
-              <div class="absolute left-4 top-1 w-5 h-5 rounded-full border-4 border-primary bg-white" />
+              <div class="absolute left-4 top-1 w-5 h-5 rounded-full border-4 border-primary bg-white shadow-sm" />
 
-              <div class="card-base p-6">
-                <span class="text-xs font-bold text-primary uppercase tracking-wider">{{ milestone.year }}</span>
-                <h4 class="font-heading font-semibold text-dark mt-1">{{ milestone.title }}</h4>
-                <p class="text-sm text-text-light mt-2">{{ milestone.description }}</p>
+              <div class="glass-card p-6">
+                <span class="body-sm font-bold text-primary uppercase tracking-wider">{{ milestone.year }}</span>
+                <h4 class="font-heading font-semibold text-dark mt-1 h6">{{ milestone.title }}</h4>
+                <p class="body-md text-text-light mt-2">{{ milestone.description }}</p>
               </div>
             </div>
           </div>
@@ -149,10 +150,10 @@
           size="md"
         />
         <div class="flex flex-wrap gap-4 justify-center mt-8">
-          <Button variant="secondary" size="lg" @click="openContact">
+          <Button variant="glass-primary" size="lg" @click="openContact">
             Get in Touch
           </Button>
-          <Button variant="outline" size="lg" class="!border-white !text-white hover:!bg-white/10" @click="openServices">
+          <Button variant="glass" size="lg" class="!text-white !border-white/30 hover:!bg-white/10" @click="openServices">
             View Services
           </Button>
         </div>

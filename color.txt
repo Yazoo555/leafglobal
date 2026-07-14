@@ -1,0 +1,203 @@
+===============================================
+  COLOR SYSTEM — Leaf Global Consulting Group
+  Document generated: July 14, 2026
+===============================================
+
+
+1. PRIMARY COLOR (Blue — Technology)
+   Used for: Primary brand, links, buttons, focus rings, icon backgrounds
+   ---------------------------------------------------------------
+   primary-DEFAULT:  #2563EB   (Main brand blue — 60% of interface)
+   primary-50:       #EFF6FF
+   primary-100:      #DBEAFE
+   primary-200:      #BFDBFE
+   primary-300:      #93C5FD
+   primary-400:      #60A5FA
+   primary-500:      #3B82F6
+   primary-600:      #2563EB   (Same as DEFAULT)
+   primary-700:      #1D4ED8
+   primary-800:      #1E40AF
+   primary-900:      #1E3A8A
+
+
+2. FINANCE COLOR (Green — Audit & Finance)
+   Used for: Finance/audit sections, compliance, financial governance
+   ---------------------------------------------------------------
+   finance-DEFAULT:  #10B981   (Main finance green — 30% of interface)
+   finance-50:       #ECFDF5
+   finance-100:      #D1FAE5
+   finance-200:      #A7F3D0
+   finance-300:      #6EE7B7
+   finance-400:      #34D399
+   finance-500:      #10B981   (Same as DEFAULT)
+   finance-600:      #059669
+   finance-700:      #047857
+   finance-800:      #065F46
+   finance-900:      #064E3B
+
+
+3. EDUCATION COLOR (Orange — Learning & Training)
+   Used for: Education sections, CTA buttons, training programs
+   ---------------------------------------------------------------
+   education-DEFAULT: #F97316  (Main education orange — 10% of interface)
+   education-50:      #FFF7ED
+   education-100:     #FFEDD5
+   education-200:     #FED7AA
+   education-300:     #FDBA74
+   education-400:     #FB923C
+   education-500:     #F97316  (Same as DEFAULT)
+   education-600:     #EA580C
+   education-700:     #C2410C
+   education-800:     #9A3412
+   education-900:     #7C2D12
+
+
+4. METALLIC / CHROME ACCENTS
+   Used for: Decorative dividers, icons, highlights, metallic ribbons
+   ---------------------------------------------------------------
+   chrome-DEFAULT:   #C7CDD8
+   chrome-light:     #D8DEE9
+   chrome-steel:     #9FA8B8
+   chrome-white:     #FFFFFF
+
+
+5. DARK PALETTE
+   Used for: Footer, hero overlays, dark sections, headings
+   ---------------------------------------------------------------
+   dark-DEFAULT:     #0F172A
+   dark-50:          #F8FAFC
+   dark-100:         #F1F5F9
+   dark-200:         #E2E8F0
+   dark-300:         #CBD5E1
+   dark-400:         #94A3B8
+   dark-500:         #64748B
+   dark-600:         #475569
+   dark-700:         #334155
+   dark-800:         #1E293B
+   dark-900:         #0F172A
+
+
+6. BACKGROUND SYSTEM
+   Used for: Page backgrounds, section backgrounds (never plain white)
+   ---------------------------------------------------------------
+   background-DEFAULT:   #F8FAFC  (Light gray — main page bg)
+   background-secondary: #F1F5F9  (Slightly darker — alternating sections)
+   background-dark:      #0F172A  (Dark — dark sections like footer)
+   background-dark-alt:  #1E293B  (Dark alternative)
+
+
+7. SURFACE COLORS
+   Used for: Card backgrounds, glass effects
+   ---------------------------------------------------------------
+   surface-DEFAULT:  #FFFFFF
+   surface-glass:    rgba(255, 255, 255, 0.18)
+
+
+8. TEXT COLORS
+   Used for: Body text, headings, muted text
+   ---------------------------------------------------------------
+   text-DEFAULT:     #1E293B  (Dark — primary body text)
+   text-light:       #64748B  (Gray — secondary/muted text)
+   text-dark:        #0F172A  (Near-black — headings)
+   text-white:       #F8FAFC  (Off-white — text on dark backgrounds)
+
+
+9. CSS CUSTOM PROPERTIES (main.css :root)
+   ---------------------------------------------------------------
+   --color-primary:          #2563EB
+   --color-primary-light:    #60A5FA
+   --color-primary-dark:     #1D4ED8
+   --color-finance:          #10B981
+   --color-education:        #F97316
+   --color-dark:             #0F172A
+   --color-dark-alt:         #1E293B
+   --color-background:       #F8FAFC
+   --color-background-secondary: #F1F5F9
+   --color-text:             #1E293B
+   --color-text-light:       #64748B
+   --color-surface:          #FFFFFF
+   --color-chrome:           #C7CDD8
+   --color-silver:           #D8DEE9
+   --color-steel:            #9FA8B8
+
+
+10. GRADIENT DEFINITIONS
+    ---------------------------------------------------------------
+    gradient-subtle:     linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 50%, #E2E8F0 100%)
+    gradient-dark:       linear-gradient(135deg, #0F172A 0%, #1E293B 100%)
+    gradient-blue:       linear-gradient(135deg, #2563EB 0%, #60A5FA 100%)
+    gradient-finance:    linear-gradient(135deg, #047857 0%, #10B981 100%)
+    gradient-education:  linear-gradient(135deg, #C2410C 0%, #F97316 100%)
+
+
+11. TEXT GRADIENT DEFINITIONS
+    ---------------------------------------------------------------
+    text-gradient-blue:      linear-gradient(135deg, #2563EB 0%, #60A5FA 100%)
+    text-gradient-finance:   linear-gradient(135deg, #047857 0%, #10B981 100%)
+    text-gradient-education: linear-gradient(135deg, #C2410C 0%, #F97316 100%)
+
+
+12. GLASS / TRANSPARENCY COLORS
+    ---------------------------------------------------------------
+    Glass background:          rgba(255, 255, 255, 0.18)
+    Glass light background:    rgba(255, 255, 255, 0.12)
+    Glass heavy background:    rgba(255, 255, 255, 0.22)
+    Glass card background:     rgba(255, 255, 255, 0.72)
+    Glass card hover:          rgba(255, 255, 255, 0.82)
+    Glass nav premium:         rgba(255, 255, 255, 0.28)
+    Glass nav scrolled:        rgba(255, 255, 255, 0.35)
+    Glass border:              rgba(255, 255, 255, 0.25)
+    Glass card border:         rgba(255, 255, 255, 0.5)
+
+
+13. BADGE COLORS (Light tinted backgrounds)
+    ---------------------------------------------------------------
+    badge-blue:    bg: rgba(37, 99, 235, 0.1),   text: #2563EB
+    badge-green:   bg: rgba(16, 185, 129, 0.1),  text: #10B981
+    badge-orange:  bg: rgba(249, 115, 22, 0.1),  text: #F97316
+
+
+14. ICON CONTAINER COLORS (Light tinted backgrounds)
+    ---------------------------------------------------------------
+    icon-blue:    bg: rgba(37, 99, 235, 0.1),   color: #2563EB
+    icon-green:   bg: rgba(16, 185, 129, 0.1),  color: #10B981
+    icon-orange:  bg: rgba(249, 115, 22, 0.1),  color: #F97316
+
+
+15. CRYSTAL DIVIDER ORB TINTS
+    ---------------------------------------------------------------
+    Blue tint:    border: rgba(37, 99, 235, 0.3),   inner: linear-gradient(135deg, #60A5FA, #2563EB)
+    Green tint:   border: rgba(16, 185, 129, 0.3),  inner: linear-gradient(135deg, #34D399, #10B981)
+    Orange tint:  border: rgba(249, 115, 22, 0.3),  inner: linear-gradient(135deg, #FB923C, #F97316)
+
+
+16. SCROLLBAR COLORS
+    ---------------------------------------------------------------
+    Track:    #F1F5F9
+    Thumb:    #94A3B8
+    Hover:    #64748B
+
+
+17. THEME-COLOR META TAG
+    ---------------------------------------------------------------
+    #2563EB (Primary blue — mobile browser toolbar)
+
+
+18. SELECTION COLORS
+    ---------------------------------------------------------------
+    Background:  #2563EB (Primary blue)
+    Text:        #FFFFFF
+
+
+19. ADDITIONAL INLINE COLORS (Used in components)
+    ---------------------------------------------------------------
+    #1E3A8A     — IT Training card dark header bg
+    #E2E8F0     — Gradient subtle endpoint
+    #FDFDFD     — SVG logo background
+    #115A80     — SVG logo path fill
+    #468B08     — SVG logo path fill
+    yellow-400  — Star rating filled color
+    gray-200    — Star rating empty color
+    red-400/500 — Form validation error states
+    gray-500    — Footer copyright & links
+    green-500   — Error icon in loading states

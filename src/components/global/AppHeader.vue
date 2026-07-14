@@ -1,28 +1,29 @@
 <template>
   <header
     ref="headerRef"
-    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-    :class="[
-      isScrolled
-        ? 'bg-white/95 backdrop-blur-md shadow-sm'
-        : 'bg-transparent',
-    ]"
+    class="fixed top-0 left-0 right-0 z-50"
   >
-    <nav class="container-custom">
-      <div class="flex items-center justify-between h-16 sm:h-20">
+    <nav
+      class="mx-auto w-full max-w-[calc(100%-1.5rem)] sm:max-w-[calc(100%-3rem)] lg:max-w-[calc(100%-4rem)] xl:max-w-[1400px] transition-all duration-300"
+      :class="[
+        isScrolled
+          ? 'glass-nav-premium scrolled'
+          : 'glass-nav-premium',
+      ]"
+    >
+      <div class="flex items-center justify-between h-16 sm:h-20 px-4 sm:px-6">
         <!-- ========== LOGO (left) ========== -->
         <router-link
           to="/"
           class="flex items-center gap-3 transition-colors duration-200 z-10"
-          :class="isScrolled ? 'text-dark' : 'text-white'"
         >
           <img
-            src="/logo.png"
+            src="/logo/thislogo.png"
             alt="Leaf Global Consulting Group"
-            class="h-[75px] sm:h-[90px] w-auto object-contain shrink-0"
+            class="h-[70px] sm:h-[85px] w-auto object-contain shrink-0 drop-shadow-sm"
             fetchpriority="high"
           />
-          <span class="text-lg sm:text-xl font-bold font-heading leading-tight">
+          <span class="h5 font-bold font-heading leading-tight text-dark">
             Leaf Global<br/>Consulting Group
           </span>
         </router-link>
@@ -35,12 +36,12 @@
               v-if="!item.children"
               :to="item.path"
               :aria-current="route.path === item.path ? 'page' : undefined"
-              class="relative px-3 xl:px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 group"
+              class="relative px-3 xl:px-4 py-2 nav font-medium rounded-lg transition-colors duration-200 group"
               :class="linkClasses(item)"
               @mouseenter="prefetchRoute(item.prefetchName)"
             >
               {{ item.label }}
-              <span class="absolute bottom-0 left-3 right-3 h-0.5 transform scale-x-0 transition-transform duration-200 rounded-full" :class="[isScrolled ? 'bg-primary' : 'bg-white', $route.path === item.path ? 'scale-x-100' : 'group-hover:scale-x-100']" />
+              <span class="absolute bottom-0 left-3 right-3 h-0.5 transform scale-x-0 transition-transform duration-200 rounded-full"                :class="['bg-primary', $route.path === item.path ? 'scale-x-100' : 'group-hover:scale-x-100']" />
             </router-link>
 
             <!-- Dropdown trigger -->
@@ -51,7 +52,7 @@
               @mouseleave="openDropdown = null"
             >
               <button
-                class="relative flex items-center gap-1.5 px-3 xl:px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 group whitespace-nowrap"
+                class="relative flex items-center gap-1.5 px-3 xl:px-4 py-2 nav font-medium rounded-lg transition-colors duration-200 group whitespace-nowrap"
                 :class="linkClasses(item)"
                 :aria-expanded="openDropdown === item.label"
                 aria-haspopup="true"
@@ -77,12 +78,12 @@
               >
                 <div
                   v-if="openDropdown === item.label"
-                  class="absolute top-full left-1/2 -translate-x-1/2 pt-3"
+                  class="absolute top-full left-1/2 -translate-x-1/2"
                 >
-                  <div class="bg-white rounded-xl shadow-xl border border-gray-100 py-2 min-w-[220px]">
+                  <div class="glass-heavy rounded-[20px] py-3 min-w-[220px] mt-3">
                     <template v-for="child in item.children" :key="child.label">
                       <!-- Divider -->
-                      <hr v-if="child.divider" class="my-1 mx-3 border-gray-100" />
+                      <hr v-if="child.divider" class="my-1 mx-3 border-white/20" />
 
                       <!-- Sub-dropdown trigger -->
                       <div
@@ -92,8 +93,8 @@
                         @mouseleave="openSubDropdown = null"
                       >
                         <div
-                          class="flex items-center justify-between px-4 py-2.5 text-sm rounded-lg mx-1 cursor-default"
-                          :class="child.highlight ? 'bg-primary-50 text-primary font-semibold' : 'text-text hover:bg-gray-50'"
+                          class="flex items-center justify-between px-4 py-2.5 body-md rounded-lg mx-1 cursor-default"
+                          :class="child.highlight ? 'bg-primary-50 text-primary font-semibold' : 'text-text hover:bg-primary-50'"
                         >
                           <span class="flex items-center gap-2">
                             <span v-if="child.highlight" class="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
@@ -115,14 +116,14 @@
                         >
                           <div
                             v-if="openSubDropdown === child.label"
-                            class="absolute top-0 right-full mr-2"
+                            class="absolute top-0 right-full"
                           >
-                            <div class="bg-white rounded-xl shadow-xl border border-gray-100 py-2 min-w-[240px]">
+                            <div class="glass-heavy rounded-[20px] py-2 min-w-[240px] mr-2">
                               <router-link
                                 v-for="sub in child.children"
                                 :key="sub.label"
                                 :to="sub.path"
-                                class="block px-4 py-2.5 text-sm text-text hover:bg-primary-50 hover:text-primary transition-colors duration-150 mx-1 rounded-lg"
+                                class="block px-4 py-2.5 body-md text-text hover:bg-primary-50 hover:text-primary transition-colors duration-150 mx-1 rounded-lg"
                                 @click="openDropdown = null; openSubDropdown = null"
                               >
                                 {{ sub.label }}
@@ -136,8 +137,8 @@
                       <router-link
                         v-else
                         :to="child.path"
-                        class="flex items-center gap-2 px-4 py-2.5 text-sm rounded-lg mx-1 transition-colors duration-150"
-                        :class="child.highlight ? 'bg-primary-50 text-primary font-semibold' : 'text-text hover:bg-gray-50 hover:text-primary'"
+                        class="flex items-center gap-2 px-4 py-2.5 body-md rounded-lg mx-1 transition-colors duration-150"
+                        :class="child.highlight ? 'bg-primary-50 text-primary font-semibold' : 'text-text hover:bg-primary-50 hover:text-primary'"
                         @click="openDropdown = null"
                       >
                         <span v-if="child.highlight" class="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
@@ -156,31 +157,28 @@
           <!-- Desktop CTA -->
           <router-link
             to="/contact"
-            class="hidden lg:inline-flex btn-base px-5 py-2.5 text-sm font-medium rounded-lg bg-primary text-white hover:bg-primary-600 active:bg-primary-700 shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-2"
+            class="hidden lg:inline-flex btn-base px-5 py-2.5 btn-md font-medium rounded-xl bg-primary text-white hover:bg-primary-700 active:bg-primary-800 shadow-sm hover:shadow-glass transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-2"
           >
             Get Started
           </router-link>
 
           <!-- Mobile toggle button -->
           <button
-            class="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-lg transition-colors duration-200 z-10"
-            :class="isScrolled ? 'hover:bg-gray-100' : 'hover:bg-white/10'"
+            class="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-lg transition-colors duration-200 z-10 hover:bg-primary-50"
             @click="toggleMobileMenu"
             :aria-label="mobileOpen ? 'Close menu' : 'Open menu'"
           >
             <div class="w-6 h-5 relative flex flex-col justify-between">
               <span
-                class="block h-0.5 w-full rounded transition-all duration-300 origin-center"
-                :class="mobileOpen ? 'bg-dark' : (isScrolled ? 'bg-dark' : 'bg-white')"
+                class="block h-0.5 w-full rounded transition-all duration-300 origin-center bg-dark"
                 :style="mobileOpen ? 'transform: rotate(45deg) translate(3px, 3px); width: 24px;' : ''"
               />
               <span
-                class="block h-0.5 w-full rounded transition-all duration-300"
-                :class="mobileOpen ? 'bg-dark opacity-0' : (isScrolled ? 'bg-dark' : 'bg-white')"
+                class="block h-0.5 w-full rounded transition-all duration-300 bg-dark"
+                :class="mobileOpen ? 'opacity-0' : ''"
               />
               <span
-                class="block h-0.5 w-full rounded transition-all duration-300 origin-center"
-                :class="mobileOpen ? 'bg-dark' : (isScrolled ? 'bg-dark' : 'bg-white')"
+                class="block h-0.5 w-full rounded transition-all duration-300 origin-center bg-dark"
                 :style="mobileOpen ? 'transform: rotate(-45deg) translate(3px, -3px); width: 24px;' : ''"
               />
             </div>
@@ -200,7 +198,7 @@
         @click="mobileOpen = false"
       >
         <!-- Backdrop -->
-        <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+        <div class="absolute inset-0 bg-dark/60 backdrop-blur-sm" />
 
         <!-- Slide-out panel -->
         <div
@@ -215,8 +213,8 @@
                 <router-link
                   v-if="!item.children"
                   :to="item.path"
-                  class="block px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-150"
-                  :class="$route.path === item.path ? 'bg-primary-50 text-primary' : 'text-text hover:bg-gray-50 hover:text-primary'"
+                  class="block px-4 py-3 rounded-lg nav font-medium transition-colors duration-150"
+                  :class="$route.path === item.path ? 'bg-primary-50 text-primary' : 'text-text hover:bg-primary-50 hover:text-primary'"
                   @click="mobileOpen = false"
                 >
                   {{ item.label }}
@@ -225,8 +223,8 @@
                 <!-- Accordion trigger -->
                 <div v-else>
                   <button
-                    class="flex items-center justify-between w-full px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-150"
-                    :class="$route.path.startsWith(item.pathPrefix || '') ? 'bg-primary-50 text-primary' : 'text-text hover:bg-gray-50 hover:text-primary'"
+                    class="flex items-center justify-between w-full px-4 py-3 rounded-lg nav font-medium transition-colors duration-150"
+                    :class="$route.path.startsWith(item.pathPrefix || '') ? 'bg-primary-50 text-primary' : 'text-text hover:bg-primary-50 hover:text-primary'"
                     @click="toggleAccordion(item.label)"
                   >
                     {{ item.label }}
@@ -256,8 +254,8 @@
                           <!-- Sub-accordion -->
                           <div v-if="child.children">
                             <button
-                              class="flex items-center justify-between w-full px-4 py-2.5 rounded-lg text-sm transition-colors duration-150"
-                              :class="child.highlight ? 'text-primary font-semibold' : 'text-text-light hover:text-primary hover:bg-gray-50'"
+                              class="flex items-center justify-between w-full px-4 py-2.5 body-md transition-colors duration-150"
+                              :class="child.highlight ? 'text-primary font-semibold' : 'text-text-light hover:text-primary hover:bg-primary-50'"
                               @click.stop="toggleSubAccordion(child.label)"
                             >
                               <span class="flex items-center gap-2">
@@ -288,7 +286,7 @@
                                     v-for="sub in child.children"
                                     :key="sub.label"
                                     :to="sub.path"
-                                    class="block px-4 py-2.5 rounded-lg text-sm text-text-light hover:bg-primary-50 hover:text-primary transition-colors duration-150"
+                                    class="block px-4 py-2.5 body-md rounded-lg text-text-light hover:bg-primary-50 hover:text-primary transition-colors duration-150"
                                     @click="mobileOpen = false"
                                   >
                                     {{ sub.label }}
@@ -302,8 +300,8 @@
                           <router-link
                             v-else
                             :to="child.path"
-                            class="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm transition-colors duration-150"
-                            :class="child.highlight ? 'text-primary font-semibold bg-primary-50' : 'text-text-light hover:text-primary hover:bg-gray-50'"
+                            class="flex items-center gap-2 px-4 py-2.5 body-md transition-colors duration-150"
+                            :class="child.highlight ? 'text-primary font-semibold bg-primary-50' : 'text-text-light hover:text-primary hover:bg-primary-50'"
                             @click="mobileOpen = false"
                           >
                             <span v-if="child.highlight" class="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
@@ -318,10 +316,10 @@
             </div>
 
             <!-- Mobile CTA -->
-            <div class="mt-6 pt-6 border-t border-gray-100">
+            <div class="mt-6 pt-6 border-t border-gray-200">
               <router-link
                 to="/contact"
-                class="flex items-center justify-center w-full px-5 py-3 text-sm font-medium rounded-lg bg-primary text-white hover:bg-primary-600 transition-colors duration-200"
+                class="flex items-center justify-center w-full px-5 py-3 btn-md font-medium rounded-xl bg-primary text-white hover:bg-primary-700 transition-colors duration-200"
                 @click="mobileOpen = false"
               >
                 Get Started
@@ -426,7 +424,6 @@ const handleScroll = () => {
 const toggleMobileMenu = () => {
   mobileOpen.value = !mobileOpen.value
   if (!mobileOpen.value) {
-    // Reset accordions when closing
     openAccordion.value = null
     openSubAccordion.value = null
   }
@@ -441,20 +438,14 @@ const toggleSubAccordion = (label) => {
   openSubAccordion.value = openSubAccordion.value === label ? null : label
 }
 
-// Compute link classes for desktop nav items
 const linkClasses = (item) => {
   const active = item.path ? route.path === item.path : route.path.startsWith(item.pathPrefix || 'no-match')
   return [
-    isScrolled.value
-      ? 'text-text hover:text-primary hover:bg-gray-50'
-      : 'text-white/90 hover:text-white hover:bg-white/10',
-    active
-      ? (isScrolled.value ? 'text-primary' : 'text-white')
-      : '',
+    'text-text hover:text-primary hover:bg-primary-50/60',
+    active ? 'text-primary' : '',
   ]
 }
 
-// Close mobile on route change
 watch(() => route.path, () => {
   mobileOpen.value = false
   openDropdown.value = null
@@ -463,7 +454,6 @@ watch(() => route.path, () => {
   openSubAccordion.value = null
 })
 
-// Close dropdowns on Escape
 const handleKeydown = (e) => {
   if (e.key === 'Escape') {
     openDropdown.value = null
@@ -474,7 +464,6 @@ const handleKeydown = (e) => {
   }
 }
 
-// Lock body scroll when mobile menu is open
 watch(mobileOpen, (val) => {
   if (val) {
     document.body.style.overflow = 'hidden'
