@@ -4,14 +4,10 @@
     class="fixed top-0 left-0 right-0 z-50"
   >
     <nav
-      class="mx-auto w-full max-w-[calc(100%-1.5rem)] sm:max-w-[calc(100%-3rem)] lg:max-w-[calc(100%-4rem)] xl:max-w-[1400px] transition-all duration-300"
-      :class="[
-        isScrolled
-          ? 'glass-nav-premium scrolled'
-          : 'glass-nav-premium',
-      ]"
+      class="w-full transition-all duration-300"
+      :class="[isScrolled ? 'glass-nav-scrolled' : 'bg-white/95 backdrop-blur-sm border-b border-gray-200/50']"
     >
-      <div class="flex items-center justify-between h-16 sm:h-20 px-4 sm:px-6">
+      <div class="flex items-center justify-between h-16 sm:h-20 px-4 sm:px-6 lg:px-8 max-w-[1400px] mx-auto">
         <!-- ========== LOGO (left) ========== -->
         <router-link
           to="/"
@@ -205,7 +201,7 @@
           class="absolute top-0 right-0 h-full w-[min(85vw,380px)] bg-white shadow-2xl overflow-y-auto"
           @click.stop
         >
-          <div class="pt-24 pb-8 px-6">
+          <div class="pt-20 pb-8 px-6">
             <!-- Mobile nav items -->
             <div class="space-y-1">
               <template v-for="(item, idx) in navItems" :key="item.label">

@@ -124,6 +124,14 @@ export default {
         '2xs': ['0.625rem', { lineHeight: '0.875rem' }],
         'hero': ['3.5rem', { lineHeight: '1.1', letterSpacing: '-0.03em' }],
         'display': ['2.5rem', { lineHeight: '1.15', letterSpacing: '-0.02em' }],
+        'display-lg': ['3rem', { lineHeight: '1.1', letterSpacing: '-0.03em' }],
+        'display-xl': ['3.5rem', { lineHeight: '1.1', letterSpacing: '-0.03em' }],
+        'h1': ['2.5rem', { lineHeight: '1.25', letterSpacing: '-0.02em' }],
+        'h2': ['2rem', { lineHeight: '1.25', letterSpacing: '-0.01em' }],
+        'h3': ['1.5rem', { lineHeight: '1.25' }],
+        'h4': ['1.25rem', { lineHeight: '1.25' }],
+        'h5': ['1.125rem', { lineHeight: '1.25' }],
+        'h6': ['1rem', { lineHeight: '1.25' }],
       },
 
       spacing: {

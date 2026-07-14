@@ -67,17 +67,16 @@
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-weight: 600;
     color: var(--color-dark);
+    line-height: 1.25;
   }
 
   h1 {
     font-size: 2.5rem;
-    line-height: 1.25;
     letter-spacing: -0.02em;
   }
 
   h2 {
     font-size: 2rem;
-    line-height: 1.25;
     letter-spacing: -0.01em;
   }
 
@@ -87,6 +86,14 @@
 
   h4 {
     font-size: 1.25rem;
+  }
+
+  h5 {
+    font-size: 1.125rem;
+  }
+
+  h6 {
+    font-size: 1rem;
   }
 
   p {
@@ -259,24 +266,21 @@
     background: rgba(255, 255, 255, 0.82);
   }
 
+
+
   /* ========================================
-     Premium Glass Navigation Bar
+     Glass Navigation — Scrolled state with top-edge crystal highlight
      ======================================== */
-  .glass-nav-premium {
+  .glass-nav-scrolled {
     position: relative;
-    background: rgba(255, 255, 255, 0.28);
-    backdrop-filter: blur(22px);
-    -webkit-backdrop-filter: blur(22px);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    border-radius: 20px;
-    box-shadow:
-      0 4px 24px rgba(0, 0, 0, 0.06),
-      0 12px 48px rgba(0, 0, 0, 0.04);
-    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
 
-  /* Nav top crystal highlight */
-  .glass-nav-premium::before {
+  .glass-nav-scrolled::before {
     content: '';
     position: absolute;
     top: 0;
@@ -285,28 +289,13 @@
     height: 1px;
     background: linear-gradient(
       90deg,
-      transparent 10%,
+      transparent 5%,
       rgba(255, 255, 255, 0.7) 30%,
       rgba(255, 255, 255, 0.9) 50%,
       rgba(255, 255, 255, 0.7) 70%,
-      transparent 90%
+      transparent 95%
     );
     pointer-events: none;
-  }
-
-  .glass-nav-premium.scrolled {
-    background: rgba(255, 255, 255, 0.35);
-    box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.08),
-      0 16px 48px rgba(0, 0, 0, 0.05);
-  }
-
-  /* Previous glass-nav (kept for backward compat) */
-  .glass-nav {
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   }
 
   /* ========================================
@@ -676,6 +665,97 @@
     @apply rounded-xl flex items-center justify-center;
     background: rgba(249, 115, 22, 0.1);
     color: #F97316;
+  }
+
+  /* ========================================
+     Typography Utility Classes
+     ======================================== */
+
+  /* Body text sizes */
+  .body-sm {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .body-md {
+    font-size: 1rem;
+    line-height: 1.625;
+  }
+
+  .body-lg {
+    font-size: 1.125rem;
+    line-height: 1.75;
+  }
+
+  .caption {
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+
+  /* Label — small uppercase for form labels & section headers */
+  .label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Nav item — used in nav menus */
+  .nav {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  /* Badge base — small uppercase with letter-spacing */
+  .badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* Heading classes for use as class-only (e.g., on different element) */
+  .h4 {
+    font-size: 1.25rem;
+    line-height: 1.25;
+  }
+
+  .h5 {
+    font-size: 1.125rem;
+    line-height: 1.25;
+  }
+
+  .h6 {
+    font-size: 1rem;
+    line-height: 1.25;
+  }
+
+  /* Stat number sizes */
+  .stat-primary {
+    font-size: 2.5rem;
+    line-height: 1.1;
+  }
+
+  .stat-secondary {
+    font-size: 1.5rem;
+    line-height: 1.1;
+  }
+
+  /* Button text sizes */
+  .btn-sm {
+    font-size: 0.875rem;
+  }
+
+  .btn-md {
+    font-size: 0.875rem;
+  }
+
+  .btn-lg {
+    font-size: 1rem;
+  }
+
+  .btn-xl {
+    font-size: 1.125rem;
   }
 }
 
