@@ -80,7 +80,7 @@
           <div class="lg:col-span-3">
             <span class="badge-blue mb-4 inline-block">Overview</span>
             <h2 class="text-h3 lg:text-h2 font-heading font-bold text-dark mb-4">
-              What Is<br class="sm:hidden" />
+              What Is<br />
               <span class="text-gradient-blue">Advisory Sales?</span>
             </h2>
             <p class="body-lg text-text-light mb-6">
@@ -331,8 +331,9 @@
             Book a Discovery Call
             <template #icon><Icon name="arrow-right" size="20" /></template>
           </Button>
-          <Button variant="glass" size="xl" class="!text-white !border-white/30 hover:!bg-white/10" @click="router.push('/services')">
+          <Button variant="glass-primary" size="xl" class="!bg-white !text-primary hover:!bg-white/90" @click="router.push('/services')">
             Explore Our Services
+            <template #icon><Icon name="arrow-right" size="20" /></template>
           </Button>
         </div>
       </div>

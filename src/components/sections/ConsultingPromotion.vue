@@ -9,7 +9,7 @@
       <div v-scroll-reveal="{ animation: 'slide-up', delay: 0 }" class="text-center max-w-3xl mx-auto mb-14">
         <span class="badge-blue mb-4 inline-block">Professional Consulting</span>
         <h2 class="text-h3 lg:text-h2 font-heading font-bold text-dark">
-          Expert Guidance.<br class="sm:hidden" />
+          Expert Guidance.<br />
           <span class="text-gradient-blue">Tangible Results.</span>
         </h2>
         <p class="mt-4 body-lg text-text-light">
@@ -90,12 +90,13 @@
                 <template #icon><Icon name="arrow-right" size="18" /></template>
               </Button>
               <Button
-                variant="glass"
+                variant="glass-primary"
                 size="lg"
-                class="!text-white !border-white/30 hover:!bg-white/10"
+                class="!bg-white !text-primary hover:!bg-white/90"
                 @click="$emit('secondary-click')"
               >
                 Contact Us for a Quote
+                <template #icon><Icon name="arrow-right" size="18" /></template>
               </Button>
             </div>
           </div>

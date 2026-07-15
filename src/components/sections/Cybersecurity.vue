@@ -12,7 +12,7 @@
           <div>
             <span class="badge-blue mb-4 inline-block">Cybersecurity</span>
             <h2 class="text-h3 lg:text-h2 font-heading font-bold text-dark">
-              Protecting Your<br class="sm:hidden" />
+              Protecting Your<br />
               <span class="text-gradient-blue">Digital Future</span>
             </h2>
             <p class="mt-4 body-lg text-text-light">

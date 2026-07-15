@@ -9,7 +9,7 @@
       <div v-scroll-reveal="{ animation: 'slide-up', delay: 0 }" class="text-center max-w-3xl mx-auto mb-14">
         <span class="badge-blue mb-4 inline-block">Job Ready Portal</span>
         <h2 class="text-h3 lg:text-h2 font-heading font-bold text-dark">
-          Your Pathway to<br class="sm:hidden" />
+          Your Pathway to<br />
           <span class="text-gradient-blue">Career Success</span>
         </h2>
         <p class="mt-4 body-lg text-text-light">
@@ -88,7 +88,7 @@
           Enrol Now
           <template #icon><Icon name="arrow-right" size="20" /></template>
         </Button>
-        <p class="caption text-text-light/60 mt-3">No obligation. Free career consultation included.</p>
+
       </div>
     </div>
   </section>

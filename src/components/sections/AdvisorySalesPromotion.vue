@@ -79,7 +79,7 @@
           <span class="badge-blue mb-4 inline-block">Advisory Sales</span>
 
           <h2 class="text-h3 lg:text-h2 font-heading font-bold text-dark mb-4">
-            Drive Growth<br class="sm:hidden" />
+            Drive Growth<br />
             <span class="text-gradient-blue">with Expert Guidance</span>
           </h2>
 

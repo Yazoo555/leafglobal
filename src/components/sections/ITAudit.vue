@@ -9,7 +9,7 @@
       <div v-scroll-reveal="{ animation: 'slide-up', delay: 0 }" class="text-center max-w-3xl mx-auto mb-14">
         <span class="badge-blue mb-4 inline-block">IT Audit</span>
         <h2 class="text-h3 lg:text-h2 font-heading font-bold text-dark">
-          Understanding<br class="sm:hidden" />
+          Understanding<br />
           <span class="text-gradient-blue">IT Audit & Assurance</span>
         </h2>
         <p class="mt-4 body-lg text-text-light">
