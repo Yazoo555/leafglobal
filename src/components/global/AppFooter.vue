@@ -10,7 +10,7 @@
         <div class="sm:col-span-2 lg:col-span-1">
           <router-link to="/" class="inline-flex items-center gap-3 mb-4 text-white">
             <img
-              src="/logo/thislogo.png"
+              src="/logo.svg"
               alt="Leaf Global Consulting Group"
               class="h-[85px] sm:h-[100px] w-auto object-contain shrink-0"
             />

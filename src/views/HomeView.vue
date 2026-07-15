@@ -1,210 +1,147 @@
 <template>
   <div>
-    <!-- Hero Section — Neutral Crystal -->
+    <!-- Hero Section -->
     <HeroSection
       title="Secure. Scale. Succeed."
       titleBreak
       highlight-text="with Leaf Global Consulting"
       badge="Trusted by 100+ Organisations"
       description="We help organisations build capability, ensure compliance, and achieve sustainable growth through expert consulting and training across Education, Law, IT, and Finance."
-      :primary-cta="{ text: 'Explore Services', variant: 'glass-primary' }"
-      :secondary-cta="{ text: 'Contact Us' }"
+      :primary-cta="{ text: 'Book a Consultation', variant: 'glass-primary' }"
+      :secondary-cta="{ text: 'Explore Our Services' }"
       :trust-indicators="trustIndicators"
-      @primary-click="scrollToSection('technology')"
-      @secondary-click="scrollToSection('contact')"
+      @primary-click="router.push('/contact')"
+      @secondary-click="router.push('/services')"
     />
 
-    <!-- Technology Services (Blue) -->
-    <section class="section-padding bg-white">
-      <div class="container-custom">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <span class="badge-blue mb-4 inline-block">Technology</span>
-            <h2 class="text-h3 lg:text-h2 font-heading font-bold text-dark mb-4">IT & Technology Consulting</h2>
-            <p class="text-text-light body-lg mb-6">Strategic technology advisory, digital transformation, cybersecurity, and IT training to help your organisation leverage technology for competitive advantage.</p>
-            <ul class="space-y-3 mb-8">
-              <li v-for="point in techPoints" :key="point" class="flex items-start gap-3">
-                <Icon name="check-circle" size="18" class="text-primary mt-0.5 shrink-0" />
-                <span class="body-md text-text-light">{{ point }}</span>
-              </li>
-            </ul>
-            <Button variant="blue" size="md" @click="scrollToSection('services')">
-              Explore Technology Services
-              <template #icon><Icon name="arrow-right" size="16" /></template>
-            </Button>
-          </div>
-          <div class="glass-card p-8 lg:p-10 crystal-reflection crystal-reflection--light-bg">
-            <div class="w-16 h-16 rounded-2xl gradient-blue flex items-center justify-center mb-6">
-              <Icon name="code" size="32" color="white" />
-            </div>
-            <h3 class="text-h4 font-heading font-semibold text-dark mb-3">Full-Spectrum IT Services</h3>
-            <p class="body-md text-text-light mb-4">From strategic consulting to hands-on training, our technology practice covers every aspect of digital excellence.</p>
-            <div class="grid grid-cols-2 gap-3">
-              <div v-for="service in techServices" :key="service" class="flex items-center gap-2 body-md text-text-light">
-                <span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                {{ service }}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- 2. Consulting Promotion -->
+    <ConsultingPromotion
+      @primary-click="router.push('/contact')"
+      @secondary-click="router.push('/contact')"
+    />
 
-    <!-- Crystal Divider (blue tint — after Technology section) -->
-    <div class="crystal-divider py-4 lg:py-6">
-      <div class="crystal-divider-line"></div>
-      <div class="crystal-divider-orb crystal-divider-orb--blue">
-        <div class="crystal-divider-orb-inner"></div>
-      </div>
-      <div class="crystal-divider-line"></div>
-    </div>
+    <!-- 3. Digital Transformation & Technology Solutions -->
+    <CrystalDivider variant="blue" padding="sm" />
 
-    <!-- Finance & Audit (Green) -->
-    <section class="section-padding bg-background-secondary">
-      <div class="container-custom">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div class="lg:order-2">
-            <span class="badge-green mb-4 inline-block">Finance & Audit</span>
-            <h2 class="text-h3 lg:text-h2 font-heading font-bold text-dark mb-4">Audit, Finance & Compliance</h2>
-            <p class="text-text-light body-lg mb-6">Expert financial consulting, audit readiness, risk management, and compliance training to strengthen your organisation's financial governance and integrity.</p>
-            <ul class="space-y-3 mb-8">
-              <li v-for="point in financePoints" :key="point" class="flex items-start gap-3">
-                <Icon name="check-circle" size="18" class="text-finance mt-0.5 shrink-0" />
-                <span class="body-md text-text-light">{{ point }}</span>
-              </li>
-            </ul>
-            <Button variant="finance" size="md" @click="scrollToSection('services')">
-              Explore Finance Services
-              <template #icon><Icon name="arrow-right" size="16" /></template>
-            </Button>
-          </div>
-          <div class="glass-card p-8 lg:p-10 lg:order-1 crystal-reflection crystal-reflection--light-bg">
-            <div class="w-16 h-16 rounded-2xl gradient-finance flex items-center justify-center mb-6">
-              <Icon name="bar-chart" size="32" color="white" />
-            </div>
-            <h3 class="text-h4 font-heading font-semibold text-dark mb-3">Financial Integrity</h3>
-            <p class="body-md text-text-light mb-4">Building trust through transparent financial practices, robust controls, and expert guidance.</p>
-            <div class="grid grid-cols-2 gap-3">
-              <div v-for="service in financeServices" :key="service" class="flex items-center gap-2 body-md text-text-light">
-                <span class="w-1.5 h-1.5 rounded-full bg-finance shrink-0" />
-                {{ service }}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <ServiceSection
+      color="blue"
+      badge="Digital Transformation"
+      title="Digital Transformation & Technology Solutions"
+      description="End-to-end technology consulting that helps your organisation modernise systems, adopt emerging technologies, and build lasting digital capability. From cloud migration and AI readiness to managed services and automation, we deliver practical guidance every step of the way."
+      :points="techPoints"
+      :services="techServices"
+      icon="code"
+      card-title="Full-Spectrum Digital Solutions"
+      card-description="Comprehensive technology services spanning cloud, infrastructure, AI, automation, and strategy — delivered by experienced consultants who understand your business and your goals."
+      btn-text="Explore Digital Solutions"
+      @cta-click="router.push('/services')"
+    />
 
-    <!-- Crystal Divider (green tint — after Finance section) -->
-    <div class="crystal-divider py-4 lg:py-6">
-      <div class="crystal-divider-line"></div>
-      <div class="crystal-divider-orb crystal-divider-orb--green">
-        <div class="crystal-divider-orb-inner"></div>
-      </div>
-      <div class="crystal-divider-line"></div>
-    </div>
+    <!-- 4. Business Advisory & Financial Consulting -->
+    <CrystalDivider variant="green" padding="sm" />
 
-    <!-- Education & Training (Orange) -->
-    <section class="section-padding bg-white">
-      <div class="container-custom">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <span class="badge-orange mb-4 inline-block">Education & Training</span>
-            <h2 class="text-h3 lg:text-h2 font-heading font-bold text-dark mb-4">Learning & Professional Development</h2>
-            <p class="text-text-light body-lg mb-6">Comprehensive education consulting, curriculum development, training programs, and professional development designed to build lasting capability.</p>
-            <ul class="space-y-3 mb-8">
-              <li v-for="point in educationPoints" :key="point" class="flex items-start gap-3">
-                <Icon name="check-circle" size="18" class="text-education mt-0.5 shrink-0" />
-                <span class="body-md text-text-light">{{ point }}</span>
-              </li>
-            </ul>
-            <Button variant="education" size="md" @click="scrollToSection('services')">
-              Explore Education Services
-              <template #icon><Icon name="arrow-right" size="16" /></template>
-            </Button>
-          </div>
-          <div class="glass-card p-8 lg:p-10 crystal-reflection crystal-reflection--light-bg">
-            <div class="w-16 h-16 rounded-2xl gradient-education flex items-center justify-center mb-6">
-              <Icon name="star" size="32" color="white" />
-            </div>
-            <h3 class="text-h4 font-heading font-semibold text-dark mb-3">Building Capability</h3>
-            <p class="body-md text-text-light mb-4">Empowering individuals and organisations through tailored learning experiences.</p>
-            <div class="grid grid-cols-2 gap-3">
-              <div v-for="service in educationServices" :key="service" class="flex items-center gap-2 body-md text-text-light">
-                <span class="w-1.5 h-1.5 rounded-full bg-education shrink-0" />
-                {{ service }}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <ServiceSection
+      color="green"
+      badge="Business Advisory"
+      title="Business Advisory & Financial Consulting"
+      description="Strategic business and financial consulting that strengthens governance, drives operational excellence, and ensures compliance. We help organisations build robust frameworks, manage risk effectively, and achieve sustainable performance improvement."
+      :points="financePoints"
+      :services="financeServices"
+      icon="bar-chart"
+      card-title="Strategic Business Advisory"
+      card-description="Integrated advisory services combining business strategy, financial expertise, and governance to help your organisation navigate complexity and achieve lasting results."
+      btn-text="Explore Business Advisory"
+      reversed
+      bg-class="bg-background-secondary"
+      @cta-click="router.push('/services')"
+    />
 
-    <!-- Crystal Divider (orange tint — after Education section) -->
-    <div class="crystal-divider py-4 lg:py-6">
-      <div class="crystal-divider-line"></div>
-      <div class="crystal-divider-orb crystal-divider-orb--orange">
-        <div class="crystal-divider-orb-inner"></div>
-      </div>
-      <div class="crystal-divider-line"></div>
-    </div>
+    <!-- 5. Education, Training & Workforce Development -->
+    <CrystalDivider variant="orange" padding="sm" />
 
-    <!-- Impact Stats — Color-coded on neutral background -->
+    <ServiceSection
+      color="orange"
+      badge="Workforce Development"
+      title="Education, Training & Workforce Development"
+      description="Comprehensive workforce development solutions that build organisational capability through professional development, corporate training, and industry-aligned programs. We help individuals and organisations prepare for the future of work."
+      :points="educationPoints"
+      :services="educationServices"
+      icon="star"
+      card-title="Workforce Capability Solutions"
+      card-description="End-to-end workforce development services combining education consulting, professional certifications, and industry-aligned training to build the skills your organisation needs to thrive."
+      btn-text="Explore Workforce Solutions"
+      @cta-click="router.push('/services')"
+    />
+
+    <!-- 6. Advisory Sales Promotion -->
+    <CrystalDivider variant="blue" padding="sm" />
+
+    <AdvisorySalesPromotion @consult-click="router.push('/contact')" />
+
+    <!-- 7. Job Ready Portal -->
+    <CrystalDivider variant="neutral" padding="sm" />
+
+    <JobReadyPortal @enroll-click="router.push('/contact')" />
+
+    <!-- 8. IT Audit -->
+    <CrystalDivider variant="neutral" padding="sm" />
+
+    <ITAudit
+      @audit-click="router.push('/contact')"
+      @learn-click="router.push('/services')"
+    />
+
+    <!-- 9. Cybersecurity -->
+    <CrystalDivider variant="neutral" padding="sm" />
+
+    <Cybersecurity
+      @security-click="router.push('/contact')"
+      @learn-click="router.push('/services')"
+    />
+
+    <!-- 10. Impact Statistics -->
+    <CrystalDivider variant="neutral" padding="md" />
+
     <ImpactStats
       :stats="colorCodedStats"
     />
 
-    <!-- Crystal Divider -->
-    <div class="crystal-divider py-6 lg:py-8">
-      <div class="crystal-divider-line"></div>
-      <div class="crystal-divider-orb">
-        <div class="crystal-divider-orb-inner"></div>
-      </div>
-      <div class="crystal-divider-line"></div>
-    </div>
+    <!-- 11. Why Choose Leaf Global -->
+    <CrystalDivider variant="neutral" padding="md" />
 
-    <!-- Why Choose Us — Neutral -->
     <WhyChooseUs
       badge="Why Leaf Global Consulting"
       title="Integrated Expertise, Delivered"
       subtitle="We bring together deep consulting knowledge, strategic insight, and a commitment to your success across four key disciplines."
     />
 
-    <!-- Crystal Divider -->
-    <div class="crystal-divider py-6 lg:py-8">
-      <div class="crystal-divider-line"></div>
-      <div class="crystal-divider-orb">
-        <div class="crystal-divider-orb-inner"></div>
-      </div>
-      <div class="crystal-divider-line"></div>
-    </div>
+    <!-- 12. Testimonials -->
+    <CrystalDivider variant="neutral" padding="md" />
 
-    <!-- Testimonials — Neutral Glass -->
     <Testimonials
       badge="Client Success"
       title="Trusted by Industry Leaders"
       subtitle="Hear from organisations that have partnered with us to transform their capability and performance."
       dark-bg
     />
-
-    <!-- Contact Section -->
-    <ContactSection
-      id="contact"
-      badge="Get In Touch"
-      title="Ready to Get Started?"
-      subtitle="Let's discuss how Leaf Global Consulting Group can help empower your organisation."
-    />
   </div>
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
 import HeroSection from '@/components/sections/HeroSection.vue'
+import ConsultingPromotion from '@/components/sections/ConsultingPromotion.vue'
+import AdvisorySalesPromotion from '@/components/sections/AdvisorySalesPromotion.vue'
+import JobReadyPortal from '@/components/sections/JobReadyPortal.vue'
+import ITAudit from '@/components/sections/ITAudit.vue'
+import Cybersecurity from '@/components/sections/Cybersecurity.vue'
+import ServiceSection from '@/components/sections/ServiceSection.vue'
+import CrystalDivider from '@/components/sections/CrystalDivider.vue'
 import WhyChooseUs from '@/components/sections/WhyChooseUs.vue'
 import ImpactStats from '@/components/sections/ImpactStats.vue'
 import Testimonials from '@/components/sections/Testimonials.vue'
-import ContactSection from '@/components/sections/ContactSection.vue'
-import Icon from '@/components/global/Icon.vue'
-import Button from '@/components/global/Button.vue'
+
+const router = useRouter()
 
 const trustIndicators = [
   { label: '100+ Organisations Served', iconColor: '#2563EB' },
@@ -213,42 +150,45 @@ const trustIndicators = [
 ]
 
 const techPoints = [
-  'IT strategy and digital transformation advisory',
-  'Cybersecurity and infrastructure assessment',
-  'Cloud services and technology procurement',
-  'Custom technical training and capability building',
+  'Digital strategy and end-to-end transformation roadmaps',
+  'Cloud solutions, managed services, and infrastructure modernisation',
+  'AI readiness, automation, and intelligent business systems',
+  'Technology strategy, architecture, and capability building',
 ]
 
 const techServices = [
-  'IT Strategy', 'Digital Transformation',
-  'Cyber Security', 'Cloud Services',
-  'Infrastructure', 'Tech Training',
+  'Digital Transformation', 'Cloud Solutions',
+  'Infrastructure', 'Business Systems',
+  'AI Readiness', 'Automation',
+  'Technology Strategy', 'Managed Services',
 ]
 
 const financePoints = [
-  'Financial planning and analysis',
-  'Risk management framework development',
-  'Compliance and audit readiness',
-  'Governance and internal controls',
+  'Business strategy development and execution planning',
+  'Governance frameworks and operational excellence',
+  'Financial advisory, risk management, and compliance',
+  'Performance improvement and organisational transformation',
 ]
 
 const financeServices = [
-  'Audit Readiness', 'Risk Management',
-  'Financial Planning', 'Compliance',
-  'Governance', 'Internal Controls',
+  'Business Strategy', 'Governance',
+  'Financial Advisory', 'Compliance',
+  'Operational Excellence', 'Risk Management',
+  'Performance Improvement',
 ]
 
 const educationPoints = [
-  'Curriculum development and instructional design',
-  'Training program design and delivery',
-  'Professional development for educators',
-  'Quality assurance and assessment',
+  'Professional development and corporate training programs',
+  'Workforce readiness and career pathway design',
+  'Industry skills development and education consulting',
+  'Professional certifications and capability building',
 ]
 
 const educationServices = [
-  'Curriculum Design', 'Training Programs',
-  'Professional Dev', 'Workshops',
-  'Certifications', 'Quality Assurance',
+  'Professional Development', 'Corporate Training',
+  'Workforce Readiness', 'Career Pathways',
+  'Industry Skills', 'Education Consulting',
+  'Professional Certifications',
 ]
 
 const colorCodedStats = [
@@ -258,8 +198,5 @@ const colorCodedStats = [
   { value: 98, prefix: '', suffix: '%', label: 'Client Retention', subtext: 'Year over year', color: 'green' },
 ]
 
-const scrollToSection = (id) => {
-  const el = document.getElementById(id)
-  if (el) el.scrollIntoView({ behavior: 'smooth' })
-}
+
 </script>

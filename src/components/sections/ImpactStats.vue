@@ -1,10 +1,10 @@
 <template>
-  <section v-scroll-reveal="'fade-in'" class="section-padding bg-white">
+  <section aria-label="Company impact statistics" v-scroll-reveal="'fade-in'" class="section-padding bg-white">
     <div class="container-custom">
       <div class="text-center mb-12">
-        <span class="badge-blue mb-4 inline-block">Company Achievements</span>
+        <span class="badge-blue mb-4 inline-block">Our Track Record</span>
         <h2 class="text-h3 lg:text-h2 font-heading font-bold text-dark">Our Impact by the Numbers</h2>
-        <p class="text-text-light body-md mt-3 max-w-2xl mx-auto">Measurable results that reflect our commitment to excellence across every engagement.</p>
+        <p class="text-text-light body-md mt-3 max-w-2xl mx-auto">Real results from real engagements, across every practice and industry we serve.</p>
       </div>
 
       <div v-scroll-reveal.stagger="'slide-up'" class="grid grid-cols-2 md:grid-cols-4 gap-6">

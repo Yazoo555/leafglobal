@@ -4,6 +4,7 @@
     class="fixed top-0 left-0 right-0 z-50"
   >
     <nav
+      aria-label="Main navigation"
       class="w-full transition-all duration-300"
       :class="[isScrolled ? 'glass-nav-scrolled' : 'bg-white/95 backdrop-blur-sm border-b border-gray-200/50']"
     >
@@ -14,7 +15,7 @@
           class="flex items-center gap-3 transition-colors duration-200 z-10"
         >
           <img
-            src="/logo/thislogo.png"
+            src="/logo.svg"
             alt="Leaf Global Consulting Group"
             class="h-[70px] sm:h-[85px] w-auto object-contain shrink-0 drop-shadow-sm"
             fetchpriority="high"
@@ -32,7 +33,7 @@
               v-if="!item.children"
               :to="item.path"
               :aria-current="route.path === item.path ? 'page' : undefined"
-              class="relative px-3 xl:px-4 py-2 nav font-medium rounded-lg transition-colors duration-200 group"
+              class="relative px-3 xl:px-4 py-2 nav font-medium rounded-lg transition-colors duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-300 focus-visible:ring-offset-2"
               :class="linkClasses(item)"
               @mouseenter="prefetchRoute(item.prefetchName)"
             >
@@ -48,7 +49,7 @@
               @mouseleave="openDropdown = null"
             >
               <button
-                class="relative flex items-center gap-1.5 px-3 xl:px-4 py-2 nav font-medium rounded-lg transition-colors duration-200 group whitespace-nowrap"
+                class="relative flex items-center gap-1.5 px-3 xl:px-4 py-2 nav font-medium rounded-lg transition-colors duration-200 group whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-300 focus-visible:ring-offset-2"
                 :class="linkClasses(item)"
                 :aria-expanded="openDropdown === item.label"
                 aria-haspopup="true"
@@ -88,9 +89,15 @@
                         @mouseenter="openSubDropdown = child.label"
                         @mouseleave="openSubDropdown = null"
                       >
-                        <div
-                          class="flex items-center justify-between px-4 py-2.5 body-md rounded-lg mx-1 cursor-default"
+                        <button
+                          class="flex items-center justify-between w-full px-4 py-2.5 body-md rounded-lg mx-1 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-300 focus-visible:ring-offset-2"
                           :class="child.highlight ? 'bg-primary-50 text-primary font-semibold' : 'text-text hover:bg-primary-50'"
+                          @click="toggleSubDropdownKeyboard(child.label)"
+                          @mouseenter="openSubDropdown = child.label"
+                          @keydown.enter.prevent="toggleSubDropdownKeyboard(child.label)"
+                          @keydown.space.prevent="toggleSubDropdownKeyboard(child.label)"
+                          :aria-expanded="openSubDropdown === child.label"
+                          aria-haspopup="true"
                         >
                           <span class="flex items-center gap-2">
                             <span v-if="child.highlight" class="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
@@ -99,7 +106,7 @@
                           <svg class="w-3.5 h-3.5 text-text-light -rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                           </svg>
-                        </div>
+                        </button>
 
                         <!-- Sub-dropdown panel (flyout to the right) -->
                         <transition
@@ -187,9 +194,11 @@
     <transition
       enter-active-class="transition-all duration-300 ease-out"
       leave-active-class="transition-all duration-250 ease-in"
-    >
-      <div
+    >        <div
         v-if="mobileOpen"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation menu"
         class="fixed inset-0 z-40 lg:hidden"
         @click="mobileOpen = false"
       >
@@ -432,6 +441,10 @@ const toggleAccordion = (label) => {
 
 const toggleSubAccordion = (label) => {
   openSubAccordion.value = openSubAccordion.value === label ? null : label
+}
+
+const toggleSubDropdownKeyboard = (label) => {
+  openSubDropdown.value = openSubDropdown.value === label ? null : label
 }
 
 const linkClasses = (item) => {

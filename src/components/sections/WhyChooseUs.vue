@@ -1,5 +1,5 @@
 <template>
-  <section v-scroll-reveal="'fade-in'" :class="['section-padding', darkBg ? 'gradient-dark' : 'bg-white']">
+  <section aria-label="Why choose us" v-scroll-reveal="'fade-in'" :class="['section-padding', darkBg ? 'gradient-dark' : 'bg-white']">
     <div class="container-custom">
       <SectionTitle
         :badge="badge"
@@ -18,10 +18,10 @@
           <!-- Card -->
           <div
             :class="[
-              'rounded-[20px] p-8 transition-all duration-300 h-full crystal-reflection',
+              'p-8 rounded-[20px] transition-all duration-300 h-full',
               darkBg
-                ? 'glass-light backdrop-blur-sm'
-                : 'glass-card',
+                ? 'glass-light backdrop-blur-sm crystal-reflection'
+                : 'glass-card crystal-reflection crystal-reflection--light-bg',
             ]"
           >
             <!-- Icon -->
@@ -77,8 +77,8 @@ defineProps({
     default: () => [
       {
         icon: 'zap',
-        title: 'Multi-Discipline Expertise',
-        description: 'We bring together specialists across Education, Law, IT, and Finance to provide holistic consulting and training solutions.',
+        title: 'Multi-Disciplinary Expertise',
+        description: 'We bring together specialists across Education, Law, IT, and Finance to provide integrated consulting and training solutions.',
         number: '01',
       },
       {

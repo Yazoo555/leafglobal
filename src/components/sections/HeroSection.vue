@@ -1,5 +1,5 @@
 <template>
-  <section class="relative min-h-screen flex items-center overflow-hidden bg-background">
+  <section aria-label="Hero" class="relative min-h-screen flex items-center overflow-hidden bg-background">
     <!-- Crystal gradient background -->
     <div class="absolute inset-0 gradient-subtle opacity-90" />
     <div class="absolute inset-0" :style="patternStyle" />
@@ -74,59 +74,79 @@
           </div>
         </div>
 
-        <!-- Right: Large Floating Crystal Cards -->
+        <!-- Right: Premium Advisory Sales Flyer -->
         <div v-scroll-reveal="{ animation: 'slide-up', delay: 200 }" class="hidden lg:block relative">
           <div class="relative w-full aspect-[5/4]">
-            <!-- Main large glass card - Technology -->
-            <div class="glass-card absolute top-[3%] left-[3%] right-[3%] p-8 animate-float crystal-reflection crystal-reflection--animated" style="animation-delay: 1s; animation-duration: 7s;">
-              <div class="flex items-center gap-3 mb-4">
-                <div class="w-12 h-12 rounded-2xl gradient-blue flex items-center justify-center shadow-glass-sm">
-                  <Icon name="briefcase" size="24" color="white" />
-                </div>
-                <div>
-                  <p class="body-md font-semibold text-dark">Global Technology Consulting</p>
-                  <p class="caption text-text-light">Digital transformation & IT strategy</p>
-                </div>
-              </div>
-              <div class="metallic-divider my-4" />
-              <p class="body-sm text-text-light">Driving innovation through expert technology advisory and digital solutions across industries worldwide.</p>
-              <div class="mt-4 pt-4 border-t border-white/30 flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-primary animate-glow-pulse" />
-                <span class="caption text-primary font-medium">Active engagement</span>
-              </div>
-            </div>
+            <router-link
+              to="/advisory-sales"
+              class="glass-card absolute top-[3%] left-[3%] right-[3%] p-0 overflow-hidden group block animate-float crystal-reflection crystal-reflection--animated"
+              style="animation-delay: 1s; animation-duration: 7s;"
+            >
+              <!-- Flyer Cover -->
+              <div class="gradient-blue px-8 py-10 text-center relative">
+                <div class="absolute top-[-20%] right-[-10%] w-[160px] h-[160px] rounded-full bg-white/[0.06] blur-[35px]" />
+                <div class="absolute bottom-[-15%] left-[-5%] w-[120px] h-[120px] rounded-full bg-white/[0.04] blur-[25px]" />
 
-            <!-- Finance card - elevated -->
-            <div class="glass-card absolute bottom-[5%] left-[-5%] w-[48%] p-6 animate-float crystal-reflection crystal-reflection--animated" style="animation-delay: 2.5s; animation-duration: 8s;">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-2xl gradient-finance flex items-center justify-center shadow-glass-sm">
-                  <Icon name="bar-chart" size="20" color="white" />
-                </div>
-                <div>
-                  <p class="body-md font-semibold text-dark">Audit & Finance</p>
-                  <p class="caption text-text-light">Financial integrity & compliance</p>
-                </div>
-              </div>
-              <div class="mt-3 flex items-center gap-2">
-                <span class="caption text-finance font-medium">98% client retention</span>
-              </div>
-            </div>
+                <div class="relative z-10">
+                  <!-- Flyer badge -->
+                  <span class="inline-block px-3 py-1 badge uppercase rounded-full bg-white/15 text-white/90 mb-5">
+                    Enterprise Advisory
+                  </span>
 
-            <!-- Education card - elevated -->
-            <div class="glass-card absolute bottom-[5%] right-[-5%] w-[48%] p-6 animate-float crystal-reflection crystal-reflection--animated" style="animation-delay: 4s; animation-duration: 6s;">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-2xl gradient-education flex items-center justify-center shadow-glass-sm">
-                  <Icon name="star" size="20" color="white" />
-                </div>
-                <div>
-                  <p class="body-md font-semibold text-dark">Education & Training</p>
-                  <p class="caption text-text-light">Learning & professional development</p>
+                  <!-- Flyer icon -->
+                  <div class="w-14 h-14 mx-auto rounded-2xl bg-white/15 flex items-center justify-center mb-4 shadow-glass-sm backdrop-blur-sm">
+                    <Icon name="briefcase" size="28" color="white" />
+                  </div>
+
+                  <h3 class="text-h3 font-heading font-bold text-white mb-2">
+                    Advisory Sales<br />
+                    <span class="text-white/80 text-h4">for Australian Businesses</span>
+                  </h3>
+
+                  <p class="body-sm text-white/70 max-w-xs mx-auto mb-5">
+                    Strategic advisory, lead generation, and business development services tailored for the Australian enterprise market.
+                  </p>
+
+                  <div class="flex flex-wrap items-center justify-center gap-3 text-white/60 caption">
+                    <span class="flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-white/40" />
+                      Local Expertise
+                    </span>
+                    <span class="flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-white/40" />
+                      Enterprise Focus
+                    </span>
+                    <span class="flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-white/40" />
+                      Proven Results
+                    </span>
+                  </div>
                 </div>
               </div>
-              <div class="mt-3 flex items-center gap-2">
-                <span class="caption text-education font-medium">200+ programs delivered</span>
+
+              <!-- Flyer Body -->
+              <div class="p-6">
+                <div class="grid grid-cols-3 gap-4 mb-4">
+                  <div class="text-center">
+                    <div class="text-h4 font-heading font-bold text-primary">100+</div>
+                    <p class="caption text-text-light">Enterprise Clients</p>
+                  </div>
+                  <div class="text-center">
+                    <div class="text-h4 font-heading font-bold text-finance">98%</div>
+                    <p class="caption text-text-light">Retention Rate</p>
+                  </div>
+                  <div class="text-center">
+                    <div class="text-h4 font-heading font-bold text-education">15+</div>
+                    <p class="caption text-text-light">Industries Served</p>
+                  </div>
+                </div>
+
+                <div class="flex items-center justify-center gap-2 text-primary caption font-medium group-hover:gap-3 transition-all duration-200">
+                  View Advisory Sales Package
+                  <Icon name="arrow-right" size="14" class="transition-transform duration-200 group-hover:translate-x-1" />
+                </div>
               </div>
-            </div>
+            </router-link>
           </div>
         </div>
       </div>

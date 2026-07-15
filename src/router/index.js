@@ -32,6 +32,11 @@ const routes = [
     component: () => import('@/views/TermsView.vue'),
   },
   {
+    path: '/advisory-sales',
+    name: 'advisory-sales',
+    component: () => import('@/views/AdvisorySalesView.vue'),
+  },
+  {
     path: '/:pathMatch(.*)*',
     redirect: '/',
   },

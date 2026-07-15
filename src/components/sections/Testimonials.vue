@@ -1,5 +1,5 @@
 <template>
-  <section v-scroll-reveal="'fade-in'"    class="section-padding"
+  <section aria-label="Client testimonials" v-scroll-reveal="'fade-in'"    class="section-padding"
     :class="[darkBg ? 'gradient-dark' : 'bg-background', darkBg ? 'pb-0' : '']">
     <div class="container-custom">
       <SectionTitle
@@ -59,6 +59,7 @@
           <div class="overflow-hidden">
             <div
               class="flex transition-transform duration-300 ease-out"
+              aria-live="polite"
               :style="{ transform: `translateX(-${currentSlide * 100}%)` }"
             >
               <div
@@ -122,13 +123,7 @@
     </div>
 
     <!-- Crystal Divider (light variant) — inside dark section for visibility -->
-    <div v-if="darkBg" class="crystal-divider crystal-divider-light py-6 lg:py-8">
-      <div class="crystal-divider-line"></div>
-      <div class="crystal-divider-orb">
-        <div class="crystal-divider-orb-inner"></div>
-      </div>
-      <div class="crystal-divider-line"></div>
-    </div>
+    <CrystalDivider v-if="darkBg" variant="light" padding="md" />
   </section>
 </template>
 
@@ -136,6 +131,7 @@
 import { ref, computed } from 'vue'
 import SectionTitle from '@/components/global/SectionTitle.vue'
 import Icon from '@/components/global/Icon.vue'
+import CrystalDivider from '@/components/sections/CrystalDivider.vue'
 
 const props = defineProps({
   badge: { type: String, default: 'Testimonials' },
