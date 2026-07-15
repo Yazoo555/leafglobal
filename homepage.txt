@@ -1,410 +1,1108 @@
-===============================================
-  HOMEPAGE STRUCTURE — Leaf Global Consulting Group
-  Document generated: July 14, 2026
-===============================================
-
-
-1. PAGE ENTRY POINT
-   ---------------------------------------------------------------
-   File: src/views/HomeView.vue
-   Layout: Wrapped in src/layouts/DefaultLayout.vue
-
-   DefaultLayout structure:
-     <AppHeader />        — Fixed glass navigation bar
-     <main>               — Page content (with loading/error states)
-       <HeroSection />    — Hero
-       ...sections...     — Body
-     </main>
-     <AppFooter />        — Dark footer with 4-column grid
-     <BackToTop />        — Floating scroll-to-top button
-
-
-2. HOMEPAGE SECTION ORDER (Top to Bottom)
-   ---------------------------------------------------------------
-   The homepage is composed of the following sections in order:
-
-   1. HeroSection              — Full-screen hero with floating crystal cards
-   2. Technology Section       — IT & Technology Consulting (inline, not a component)
-   3. Crystal Divider (blue)   — Decorative divider
-   4. Finance Section          — Audit, Finance & Compliance (inline)
-   5. Crystal Divider (green)  — Decorative divider
-   6. Education Section        — Learning & Professional Development (inline)
-   7. Crystal Divider (orange) — Decorative divider
-   8. ImpactStats              — Animated counter statistics
-   9. Crystal Divider          — Neutral decorative divider
-   10. WhyChooseUs             — 4-column value proposition cards
-   11. Crystal Divider         — Neutral decorative divider
-   12. Testimonials            — Client success stories (dark bg)
-   13. ContactSection          — Contact form + info panel
-
-
-3. DETAILED SECTION BREAKDOWN
-   ===============================================================
-
-
-   ── SECTION 1: HeroSection ──────────────────────────────────────
-   File: src/components/sections/HeroSection.vue
-   Layout: Full-screen, min-h-screen, flex items-center
-
-   Background:
-     - gradient-subtle overlay (F8FAFC -> F1F5F9 -> E2E8F0)
-     - SVG dot pattern overlay
-     - 3 large floating colored blur orbs (primary, finance, education)
-     - 3 small geometric crystal accents (circles, diamonds)
-     - 3 horizontal metallic divider ribbons
-
-   Content (2-column grid on lg):
-     LEFT COLUMN:
-       - Glass badge: "Trusted by 100+ Organisations"
-       - Hero heading: "Secure. Scale. Succeed." (text-hero size)
-       - Gradient blue subheading: "with Leaf Global Consulting"
-       - Description paragraph
-       - 2 CTA buttons: "Explore Services" (glass-primary), "Contact Us" (glass)
-       - 3 trust indicators with colored icons (blue, green, orange)
-
-     RIGHT COLUMN (desktop only, hidden on mobile):
-       - 3 floating glass cards stacked/overlapping:
-         1. Main card — "Global Technology Consulting" (blue gradient icon)
-         2. Bottom-left card — "Audit & Finance" (green gradient icon)
-         3. Bottom-right card — "Education & Training" (orange gradient icon)
-       - All cards have crystal-reflection animation
-       - Each card has a status indicator (glowing dot + text)
-
-   Animations: Slide-up reveal on all left elements, float animation on right cards
-
-
-   ── SECTION 2: Technology Services ──────────────────────────────
-   File: Inline in HomeView.vue (not a separate component)
-   Background: bg-white
-   Layout: 2-column grid (lg:grid-cols-2)
-
-   Content:
-     LEFT:
-       - Blue badge: "Technology"
-       - Heading: "IT & Technology Consulting"
-       - Description paragraph
-       - 4 bullet points with blue check-circle icons:
-         * IT strategy and digital transformation advisory
-         * Cybersecurity and infrastructure assessment
-         * Cloud services and technology procurement
-         * Custom technical training and capability building
-       - Blue button: "Explore Technology Services"
-
-     RIGHT:
-       - Glass card with crystal-reflection
-       - Blue gradient icon container (code icon, white)
-       - Heading: "Full-Spectrum IT Services"
-       - Description text
-       - 2x2 grid of service dots:
-         IT Strategy, Digital Transformation, Cyber Security,
-         Cloud Services, Infrastructure, Tech Training
-
-
-   ── CRYSTAL DIVIDER (Blue) ──────────────────────────────────────
-   Color: Blue-tinted orb (primary-600 inner gradient)
-   Structure: line — orb — line
-
-
-   ── SECTION 3: Finance & Audit ──────────────────────────────────
-   Background: bg-background-secondary (#F1F5F9)
-   Layout: 2-column grid (lg:grid-cols-2), order-reversed on lg
-
-   Content:
-     LEFT (lg:order-2):
-       - Green badge: "Finance & Audit"
-       - Heading: "Audit, Finance & Compliance"
-       - Description paragraph
-       - 4 bullet points with green check-circle icons:
-         * Financial planning and analysis
-         * Risk management framework development
-         * Compliance and audit readiness
-         * Governance and internal controls
-       - Green button: "Explore Finance Services"
-
-     RIGHT (lg:order-1):
-       - Glass card with crystal-reflection
-       - Green gradient icon container (bar-chart icon, white)
-       - Heading: "Financial Integrity"
-       - Description text
-       - 2x2 grid of service dots:
-         Audit Readiness, Risk Management, Financial Planning,
-         Compliance, Governance, Internal Controls
-
-
-   ── CRYSTAL DIVIDER (Green) ─────────────────────────────────────
-   Color: Green-tinted orb (finance-500 inner gradient)
-
-
-   ── SECTION 4: Education & Training ─────────────────────────────
-   Background: bg-white
-   Layout: 2-column grid (lg:grid-cols-2)
-
-   Content:
-     LEFT:
-       - Orange badge: "Education & Training"
-       - Heading: "Learning & Professional Development"
-       - Description paragraph
-       - 4 bullet points with orange check-circle icons:
-         * Curriculum development and instructional design
-         * Training program design and delivery
-         * Professional development for educators
-         * Quality assurance and assessment
-       - Orange button: "Explore Education Services"
-
-     RIGHT:
-       - Glass card with crystal-reflection
-       - Orange gradient icon container (star icon, white)
-       - Heading: "Building Capability"
-       - Description text
-       - 2x2 grid of service dots:
-         Curriculum Design, Training Programs, Professional Dev,
-         Workshops, Certifications, Quality Assurance
-
-
-   ── CRYSTAL DIVIDER (Orange) ────────────────────────────────────
-   Color: Orange-tinted orb (education-500 inner gradient)
-
-
-   ── SECTION 5: ImpactStats ──────────────────────────────────────
-   File: src/components/sections/ImpactStats.vue
-   Background: bg-white
-   Layout: 4-column grid (md:grid-cols-4)
-
-   Content:
-     - Blue badge: "Company Achievements"
-     - Heading: "Our Impact by the Numbers"
-     - Subtitle paragraph
-     - 4 stat cards with animated counters:
-       1. 100+ Clients Served      (blue, "Across 15+ industries")
-       2. 5+ Years Experience      (green, "Since 2020")
-       3. 200+ Projects Delivered  (orange, "On time & on budget")
-       4. 98% Client Retention     (green, "Year over year")
-
-   Features:
-     - Color-coded top borders on each card
-     - Number count-up animation (eased, 2000ms duration)
-     - IntersectionObserver triggers animation on scroll
-     - Numbers use tabular-nums for stable width
-
-
-   ── CRYSTAL DIVIDER (Neutral) ───────────────────────────────────
-   Color: Default chrome/silver orb
-
-
-   ── SECTION 6: WhyChooseUs ──────────────────────────────────────
-   File: src/components/sections/WhyChooseUs.vue
-   Background: bg-white
-   Layout: 4-column grid (lg:grid-cols-4)
-
-   Content:
-     - Badge: "Why Leaf Global Consulting"
-     - Heading: "Integrated Expertise, Delivered"
-     - Subtitle paragraph
-     - 4 value proposition cards:
-       1. "Multi-Discipline Expertise" (zap icon)
-          "We bring together specialists across Education, Law, IT, and Finance..."
-       2. "Tailored Approach" (users icon)
-          "Your organisation is unique..."
-       3. "Practical, Actionable Outcomes" (star icon)
-          "Every engagement is designed to deliver tangible results..."
-       4. "Proven Track Record" (trending-up icon)
-          "With 100+ successful engagements..."
-
-   Features:
-     - Cards numbered 01-04 with gradient blue number text
-     - Glass-card styling with crystal-reflection
-     - Hover: scale icon 110%
-
-
-   ── CRYSTAL DIVIDER (Neutral) ───────────────────────────────────
-   Color: Default chrome/silver orb
-
-
-   ── SECTION 7: Testimonials ─────────────────────────────────────
-   File: src/components/sections/Testimonials.vue
-   Background: gradient-dark (dark section)
-   Layout: 3-column grid (lg:grid-cols-3) on desktop, carousel on mobile
-
-   Content:
-     - Badge: "Client Success"
-     - Heading: "Trusted by Industry Leaders"
-     - Subtitle paragraph
-     - 3 testimonial cards (visibleCount defaults to 3):
-       1. Sarah Johnson, Director of Learning, EduFirst Institute
-       2. Michael Chen, General Counsel, LegalEdge Partners
-       3. Emily Rodriguez, CTO, DataFlow Systems
-       (2 more in data: David Park, Lisa Thompson)
-
-   Card structure:
-     - 5-star rating (yellow-400 stars)
-     - Quote icon (primary/20)
-     - Italic quote text
-     - Avatar (first initial, gradient-blue circle)
-     - Name + role
-     - Top border: 2px solid color-coded by index
-
-   Mobile features:
-     - Touch carousel with dot indicators
-     - Left/right navigation arrows
-     - Smooth transform transition
-
-   Includes a crystal-divider-light at the bottom (inside dark section)
-
-
-   ── SECTION 8: ContactSection ────────────────────────────────────
-   File: src/components/sections/ContactSection.vue
-   Background: bg-white
-   Layout: 5-column grid (lg:grid-cols-5)
-
-   Content:
-     - Badge: "Get In Touch"
-     - Heading: "Ready to Get Started?"
-     - Subtitle paragraph
-
-     LEFT (3/5 width) — Form Card:
-       - Glass card with "Send Us a Message" heading
-       - Form fields:
-         * Full Name (text, required)
-         * Email Address (email, required, validated)
-         * Subject (select dropdown with 7 options):
-           General Inquiry, Education, Law, IT, Finance,
-           Partnership, Careers
-         * Message (textarea, required)
-       - Privacy note + Submit button
-       - Success state: green check + thank you message
-
-     RIGHT (2/5 width) — Info Panel:
-       - 4 contact info cards in 2x2 grid:
-         1. Email: director@leafGlobal.com.au
-         2. Email: leaf.global@gmail.com
-         3. Phone: +61 0403 434 925
-         4. Address: 65 Murry St, Hobart, Australia
-       - Each card has icon-blue container + action link
-
-
-4. COMPONENT HIERARCHY
-   ---------------------------------------------------------------
-
-   HomeView.vue
-   ├── HeroSection.vue
-   │   ├── Button.vue (×2: glass-primary + glass)
-   │   └── Icon.vue (×multiple: briefcase, bar-chart, star, check-circle)
-   ├── [Inline] Technology Section
-   │   ├── Icon.vue (check-circle, code)
-   │   └── Button.vue (variant: blue)
-   ├── [Inline] Finance Section
-   │   ├── Icon.vue (check-circle, bar-chart)
-   │   └── Button.vue (variant: finance)
-   ├── [Inline] Education Section
-   │   ├── Icon.vue (check-circle, star)
-   │   └── Button.vue (variant: education)
-   ├── ImpactStats.vue
-   │   (No child components — self-contained)
-   ├── WhyChooseUs.vue
-   │   ├── SectionTitle.vue
-   │   └── Icon.vue (zap, users, star, trending-up)
-   ├── Testimonials.vue
-   │   ├── SectionTitle.vue
-   │   └── Icon.vue (quote, chevron-left, chevron-right)
-   └── ContactSection.vue
-       ├── SectionTitle.vue
-       ├── Button.vue (glass-primary, submit)
-       └── Icon.vue (mail, phone, map-pin, arrow-right)
-
-
-5. GLOBAL LAYOUT COMPONENTS
-   ---------------------------------------------------------------
-
-   DefaultLayout.vue
-   ├── AppHeader.vue
-   │   ├── Logo (img: /logo/thislogo.png)
-   │   ├── Desktop nav (dropdown menus with sub-dropdowns)
-   │   ├── Mobile nav (slide-out panel with accordion)
-   │   ├── CTA button: "Get Started" (links to /contact)
-   │   └── Hamburger toggle (animated X/collapse)
-   ├── <slot /> — Page content
-   ├── AppFooter.vue
-   │   ├── Metallic divider
-   │   ├── 4-column grid:
-   │   │   Col 1: Logo + tagline + social icons (glass-heavy)
-   │   │   Col 2: Quick Links (Home, About, Services, Contact)
-   │   │   Col 3: Specialisations (4 service links)
-   │   │   Col 4: Contact info (address, phone, 2 emails)
-   │   ├── Metallic divider
-   │   └── Bottom bar: Copyright + Privacy/Terms links
-   └── BackToTop.vue
-       └── Floating button (gradient-blue, appears at 400px scroll)
-
-
-6. DESIGN PATTERNS & RECURRING ELEMENTS
-   ---------------------------------------------------------------
-
-   a) Glassmorphism Cards (.glass-card):
-      - background: rgba(255,255,255,0.72)
-      - backdrop-filter: blur(20px)
-      - border: 1px solid rgba(255,255,255,0.5)
-      - border-radius: 20px
-      - Crystal top-edge highlight (::before)
-      - Corner radial gradient shine (::after)
-      - Hover: translateY(-4px), darker shadow
-
-   b) Crystal Dividers:
-      - Full-width horizontal line with centered orb
-      - Line: gradient from transparent to chrome to transparent
-      - Orb: 40px glass circle with inner dot + shimmer animation
-      - Color variants: blue, green, orange, neutral
-      - Light variant for dark backgrounds
-
-   c) Color-Coded Sections:
-      - Technology: blue (#2563EB) — badges, icons, borders, gradients
-      - Finance:    green (#10B981) — badges, icons, borders, gradients
-      - Education:  orange (#F97316) — badges, icons, borders, gradients
-
-   d) Alternating Backgrounds:
-      - white → background-secondary (#F1F5F9) → white → dark → white
-      - Creates visual rhythm and section separation
-
-   e) Section Pattern (Technology/Finance/Education):
-      - 2-column grid with glass-card on one side
-      - Badge + heading + description + bullet list + CTA button
-      - Glass card with gradient icon + title + service grid
-
-   f) Scroll Reveal Animations:
-      - v-scroll-reveal directive on sections
-      - v-scroll-reveal.stagger on grids for staggered entrance
-      - Fade-in, slide-up, scale-in variants
-
-
-7. COLOR ASSIGNMENT PER SECTION
-   ---------------------------------------------------------------
-   Hero:          Neutral (gradient-subtle) with all 3 accent blurs
-   Technology:    White bg, blue accents
-   Finance:       Secondary bg (#F1F5F9), green accents
-   Education:     White bg, orange accents
-   Impact Stats:  White bg, color-coded per stat (blue/green/orange)
-   Why Choose Us: White bg, blue accents
-   Testimonials:  Dark gradient bg (#0F172A → #1E293B)
-   Contact:       White bg, blue accents
-
-
+===============================================================================
+  COMPREHENSIVE HOMEPAGE ANALYSIS — Leaf Global Consulting Group
+  Project: service-website (Vue 3 + Tailwind CSS + Vite)
+  Document generated: July 15, 2026
+  Purpose: Primary reference for all future development work
+===============================================================================
+
+
+TABLE OF CONTENTS
+===============================================================================
+1.  PROJECT STRUCTURE & TECHNOLOGY STACK
+2.  CSS ARCHITECTURE & STYLING SYSTEM
+3.  DESIGN SYSTEM (Colors, Typography, Spacing)
+4.  GLOBAL LAYOUT COMPONENTS
+5.  HOMEPAGE SECTION BREAKDOWN (Top to Bottom)
+6.  REUSABLE UI COMPONENTS
+7.  ANIMATIONS & TRANSITIONS
+8.  RESPONSIVE BEHAVIOR
+9.  DESIGN PATTERNS & CONVENTIONS
+10. CODE CONVENTIONS & BEST PRACTICES
+
+
+===============================================================================
+1. PROJECT STRUCTURE & TECHNOLOGY STACK
+===============================================================================
+
+Framework:      Vue 3 (Composition API with <script setup>)
+Build Tool:     Vite
+CSS Framework:  Tailwind CSS 3.x
+Styling:        Custom CSS variables + Tailwind utilities + Component layer
+Routing:        Vue Router
+Icons:          Custom inline SVG icons (Icon.vue component)
+Animations:     Custom v-scroll-reveal directive + IntersectionObserver
+Fonts:          Inter (Google Fonts)
+
+Key Files:
+  index.html                      — Entry point
+  src/main.js                     — Vue app initialization
+  src/App.vue                     — Root component
+  src/router/index.js             — Route definitions
+  src/layouts/DefaultLayout.vue   — Main layout wrapper
+  src/views/HomeView.vue          — Homepage view
+  src/assets/css/main.css         — Global CSS (variables, components, animations)
+  tailwind.config.js              — Tailwind configuration
+  postcss.config.js               — PostCSS configuration
+  vite.config.js                  — Vite configuration
+
+Directory Structure:
+  src/
+  ├── assets/css/main.css         — Global CSS architecture
+  ├── components/
+  │   ├── global/                  — Reusable UI components
+  │   │   ├── AppHeader.vue        — Fixed glass navigation bar
+  │   │   ├── AppFooter.vue        — Dark footer with 4-column grid
+  │   │   ├── BackToTop.vue        — Floating scroll-to-top button
+  │   │   ├── Button.vue           — Multi-variant button component
+  │   │   ├── Card.vue             — Glass card component
+  │   │   ├── Container.vue        — Layout container wrapper
+  │   │   ├── Icon.vue             — Inline SVG icon system
+  │   │   └── SectionTitle.vue     — Section header with badge/title/subtitle
+  │   └── sections/                — Page section components
+  │       ├── HeroSection.vue      — Full-screen hero with floating crystal cards
+  │       ├── ImpactStats.vue      — Animated counter statistics
+  │       ├── WhyChooseUs.vue      — 4-column value proposition cards
+  │       ├── Testimonials.vue     — Client success stories
+  │       └── ContactSection.vue   — Contact form + info panel
+  ├── composables/
+  │   ├── useAnimation.js          — Scroll reveal + stagger utilities
+  │   ├── useMobile.js             — Mobile menu + breakpoint detection
+  │   ├── usePrefetch.js           — Route prefetching
+  │   └── useScroll.js             — Scroll utilities
+  ├── directives/
+  │   └── scrollReveal.js          — v-scroll-reveal directive
+  ├── layouts/
+  │   └── DefaultLayout.vue        — Main layout with header/footer
+  ├── router/
+  │   └── index.js                 — Route definitions
+  └── views/
+      ├── HomeView.vue             — Homepage
+      ├── AboutView.vue            — About page
+      ├── ServicesView.vue         — Services page
+      ├── ContactView.vue          — Contact page
+      ├── PrivacyView.vue          — Privacy policy
+      └── TermsView.vue            — Terms of service
+
+
+===============================================================================
+2. CSS ARCHITECTURE & STYLING SYSTEM
+===============================================================================
+
+File: src/assets/css/main.css
+
+The CSS is organized into three Tailwind layers:
+
+  2.1 BASE LAYER (@layer base)
+  ─────────────────────────────
+  - HTML: smooth scrolling, antialiased fonts
+  - Body: Inter font family, color: var(--color-text), bg: var(--color-background)
+  - Headings: Inter font, weight 600, color: var(--color-dark)
+  - Paragraphs: color: var(--color-text-light), line-height: 1.7
+  - Links: color: var(--color-primary), transition on hover
+  - Selection: blue background, white text
+
+  2.2 COMPONENT LAYER (@layer components)
+  ──────────────────────────────────────
+  Contains all reusable CSS classes:
+
+  Layout Classes:
+    .container-custom     — mx-auto, max-w-7xl, responsive padding
+    .section-padding      — py-16 sm:py-20 lg:py-24
+
+  Gradient Classes:
+    .gradient-subtle      — F8FAFC → F1F5F9 → E2E8F0 (hero background)
+    .gradient-dark        — #0F172A → #1E293B (dark sections)
+    .gradient-blue        — #2563EB → #60A5FA (technology/primary)
+    .gradient-finance     — #047857 → #10B981 (finance/green)
+    .gradient-education   — #C2410C → #F97316 (education/orange)
+    .text-gradient-blue   — Blue gradient text
+    .text-gradient-finance — Green gradient text
+    .text-gradient-education — Orange gradient text
+
+  Glassmorphism Classes:
+    .glass                — rgba(255,255,255,0.18), blur(18px)
+    .glass-light          — rgba(255,255,255,0.12), blur(12px)
+    .glass-heavy          — rgba(255,255,255,0.22), blur(24px)
+    .glass-card           — Premium frosted glass card (rgba(255,255,255,0.72), blur(20px))
+                           Includes ::before (top-edge highlight) and ::after (corner shine)
+                           Hover: translateY(-4px), darker shadow, bg increases to 0.82
+    .glass-nav-scrolled   — Navigation scrolled state with crystal top-edge highlight
+
+  Crystal Divider Classes:
+    .crystal-divider      — Full-width line + centered orb
+    .crystal-divider-line — Gradient line (transparent → chrome → silver → chrome → transparent)
+    .crystal-divider-orb  — 40px glass circle with inner dot + shimmer animation
+    .crystal-divider-orb--blue  — Blue-tinted orb (Technology)
+    .crystal-divider-orb--green — Green-tinted orb (Finance)
+    .crystal-divider-orb--orange — Orange-tinted orb (Education)
+    .crystal-divider-light — Light variant for dark backgrounds
+
+  Card Classes:
+    .card-base            — Same as glass-card (duplicate for clarity)
+    .card-hover           — Simple hover with translate-y and shadow
+
+  Button Base:
+    .btn-base             — inline-flex, items-center, rounded-xl, transition, focus ring
+
+  Badge Classes:
+    .badge-blue           — Blue badge (rgba(37,99,235,0.1) bg, #2563EB text)
+    .badge-green          — Green badge (rgba(16,185,129,0.1) bg, #10B981 text)
+    .badge-orange         — Orange badge (rgba(249,115,22,0.1) bg, #F97316 text)
+    .badge                — Base badge (0.75rem, 600 weight, uppercase, letter-spacing)
+
+  Icon Container Classes:
+    .icon-blue            — Blue icon container (rgba(37,99,235,0.1) bg)
+    .icon-green           — Green icon container (rgba(16,185,129,0.1) bg)
+    .icon-orange          — Orange icon container (rgba(249,115,22,0.1) bg)
+
+  Typography Classes:
+    .body-sm              — 0.875rem, line-height: 1.5
+    .body-md              — 1rem, line-height: 1.625
+    .body-lg              — 1.125rem, line-height: 1.75
+    .caption              — 0.75rem, line-height: 1.5
+    .label                — 0.75rem, 600 weight, uppercase, letter-spacing
+    .nav                  — 0.875rem, 500 weight
+    .h4, .h5, .h6         — Heading size classes
+    .stat-primary         — 2.5rem for stat numbers
+    .stat-secondary       — 1.5rem for smaller stat numbers
+    .btn-sm/md/lg/xl      — Button text sizes
+
+  Metallic Classes:
+    .metallic-divider     — 1px gradient line (chrome/silver)
+    .metallic-border      — 1px solid silver border
+    .metallic-shine       — Animated shine effect
+
+  Crystal Reflection:
+    .crystal-reflection   — Static diagonal highlight overlay
+    .crystal-reflection--animated — Animated shimmer sweep (7s)
+    .crystal-reflection--light-bg — Chrome metallic shimmer for white cards
+
+  2.3 UTILITY LAYER (@layer utilities)
+  ────────────────────────────────────
+    .scrollbar-hide       — Hide scrollbar
+    .text-balance         — text-wrap: balance
+    .text-gradient-primary — Primary gradient text
+
+  2.4 CSS VARIABLES (Custom Properties)
+  ─────────────────────────────────────
+  :root {
+    /* Colors */
+    --color-primary: #2563EB
+    --color-primary-light: #60A5FA
+    --color-primary-dark: #1D4ED8
+    --color-finance: #10B981
+    --color-education: #F97316
+    --color-dark: #0F172A
+    --color-dark-alt: #1E293B
+    --color-background: #F8FAFC
+    --color-background-secondary: #F1F5F9
+    --color-text: #1E293B
+    --color-text-light: #64748B
+    --color-surface: #FFFFFF
+    --color-chrome: #C7CDD8
+    --color-silver: #D8DEE9
+    --color-steel: #9FA8B8
+
+    /* Shadows */
+    --shadow-glass: 0 8px 32px rgba(0,0,0,0.06)
+    --shadow-glass-lg: 0 16px 48px rgba(0,0,0,0.08)
+    --shadow-glass-sm: 0 4px 16px rgba(0,0,0,0.04)
+    --shadow-metallic: 0 4px 24px rgba(37,99,235,0.15)
+    --shadow-premium: 0 20px 60px rgba(0,0,0,0.08)
+
+    /* Border Radius */
+    --radius-sm: 0.375rem
+    --radius-md: 0.5rem
+    --radius-lg: 0.75rem
+    --radius-xl: 1rem
+    --radius-glass: 20px
+    --radius-glass-sm: 12px
+    --radius-glass-lg: 24px
+
+    /* Transitions */
+    --transition-fast: 150ms ease
+    --transition-base: 250ms ease
+    --transition-slow: 400ms ease
+
+    /* Glass */
+    --glass-bg: rgba(255,255,255,0.18)
+    --glass-border: rgba(255,255,255,0.25)
+    --glass-shadow: 0 8px 32px rgba(0,0,0,0.06)
+    --glass-blur: 18px
+  }
+
+
+===============================================================================
+3. DESIGN SYSTEM
+===============================================================================
+
+  3.1 COLOR PALETTE
+  ─────────────────
+
+  Primary (Blue — 60% of interface):
+    DEFAULT:    #2563EB
+    50:         #EFF6FF
+    100:        #DBEAFE
+    200:        #BFDBFE
+    300:        #93C5FD
+    400:        #60A5FA
+    500:        #3B82F6
+    600:        #2563EB
+    700:        #1D4ED8
+    800:        #1E40AF
+    900:        #1E3A8A
+    Usage:      Buttons, links, badges, icons, gradients, focus rings
+
+  Finance (Green — Audit/Finance sections):
+    DEFAULT:    #10B981
+    50:         #ECFDF5
+    100:        #D1FAE5
+    200:        #A7F3D0
+    300:        #6EE7B7
+    400:        #34D399
+    500:        #10B981
+    600:        #059669
+    700:        #047857
+    800:        #065F46
+    900:        #064E3B
+    Usage:      Finance section badges, icons, divider orbs
+
+  Education (Orange — CTA, Education sections):
+    DEFAULT:    #F97316
+    50:         #FFF7ED
+    100:        #FFEDD5
+    200:        #FED7AA
+    300:        #FDBA74
+    400:        #FB923C
+    500:        #F97316
+    600:        #EA580C
+    700:        #C2410C
+    800:        #9A3412
+    900:        #7C2D12
+    Usage:      Education section badges, icons, divider orbs
+
+  Chrome/Metallic (Decorative accents):
+    DEFAULT:    #C7CDD8
+    light:      #D8DEE9
+    steel:      #9FA8B8
+    white:      #FFFFFF
+    Usage:      Dividers, metallic lines, glass highlights, scrollbar
+
+  Dark (Premium dark sections):
+    DEFAULT:    #0F172A
+    50:         #F8FAFC
+    100:        #F1F5F9
+    200:        #E2E8F0
+    300:        #CBD5E1
+    400:        #94A3B8
+    500:        #64748B
+    600:        #475569
+    700:        #334155
+    800:        #1E293B
+    900:        #0F172A
+    Usage:      Footer, dark sections, text
+
+  Background System:
+    DEFAULT:    #F8FAFC (main background)
+    secondary:  #F1F5F9 (alternating sections)
+    dark:       #0F172A (dark sections)
+    dark-alt:   #1E293B (dark alt)
+
+  Surface:
+    DEFAULT:    #FFFFFF
+    glass:      rgba(255,255,255,0.18)
+
+  Text:
+    DEFAULT:    #1E293B (primary text)
+    light:      #64748B (secondary text)
+    dark:       #0F172A (heading text)
+    white:      #F8FAFC (text on dark)
+
+
+  3.2 TYPOGRAPHY
+  ──────────────
+
+  Font Family:
+    Primary:    'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif
+    Heading:    Same as primary (Inter)
+
+  Font Sizes (Tailwind config):
+    2xs:        0.625rem / 0.875rem
+    hero:       3.5rem / 1.1 (letter-spacing: -0.03em)
+    display:    2.5rem / 1.15 (letter-spacing: -0.02em)
+    display-lg: 3rem / 1.1 (letter-spacing: -0.03em)
+    display-xl: 3.5rem / 1.1 (letter-spacing: -0.03em)
+    h1:         2.5rem / 1.25 (letter-spacing: -0.02em)
+    h2:         2rem / 1.25 (letter-spacing: -0.01em)
+    h3:         1.5rem / 1.25
+    h4:         1.25rem / 1.25
+    h5:         1.125rem / 1.25
+    h6:         1rem / 1.25
+
+  Typography Classes:
+    body-sm:    0.875rem / 1.5
+    body-md:    1rem / 1.625
+    body-lg:    1.125rem / 1.75
+    caption:    0.75rem / 1.5
+    label:      0.75rem, 600 weight, uppercase, 0.05em letter-spacing
+    nav:        0.875rem, 500 weight
+    badge:      0.75rem, 600 weight, 0.05em letter-spacing, uppercase
+
+  Font Weights:
+    Regular:    400
+    Medium:     500
+    Semibold:   600
+    Bold:       700
+
+
+  3.3 SPACING SYSTEM
+  ──────────────────
+
+  Custom Spacing (Tailwind):
+    18:     4.5rem (72px)
+    22:     5.5rem (88px)
+    30:     7.5rem (120px)
+    72:     18rem (288px)
+    84:     21rem (336px)
+    96:     24rem (384px)
+
+  Section Padding:
+    .section-padding:   py-16 (mobile) → py-20 (sm) → py-24 (lg)
+
+  Container:
+    .container-custom:  max-w-7xl (80rem/1280px), responsive padding
+                        px-4 (mobile) → px-6 (sm) → px-8 (lg)
+
+
+  3.4 BORDER RADIUS
+  ──────────────────
+
+  Standard:
+    sm:     0.375rem (6px)
+    md:     0.5rem (8px)
+    lg:     0.75rem (12px)
+    xl:     1rem (16px)
+
+  Glass/Premium:
+    glass:      20px (cards, modals)
+    glass-sm:   12px (smaller elements)
+    glass-lg:   24px (larger containers)
+
+  Component-specific:
+    Buttons:    rounded-xl (1rem / 16px)
+    Cards:      rounded-[20px] (20px)
+    Icons:      rounded-2xl (1rem)
+    Badges:     rounded-full (9999px)
+
+
+  3.5 SHADOWS
+  ────────────
+
+  Standard Tailwind:
+    shadow-sm, shadow, shadow-md, shadow-lg, shadow-xl, shadow-2xl
+
+  Custom Glass Shadows:
+    glass:      0 8px 32px rgba(0,0,0,0.06)
+    glass-lg:   0 16px 48px rgba(0,0,0,0.08)
+    glass-sm:   0 4px 16px rgba(0,0,0,0.04)
+    metallic:   0 4px 24px rgba(37,99,235,0.15)
+    premium:    0 20px 60px rgba(0,0,0,0.08)
+
+
+  3.6 BREAKPOINTS
+  ────────────────
+
+  Custom:
+    xs:     475px
+    3xl:    1792px
+
+  Standard Tailwind:
+    sm:     640px
+    md:     768px
+    lg:     1024px
+    xl:     1280px
+    2xl:    1536px
+
+
+===============================================================================
+4. GLOBAL LAYOUT COMPONENTS
+===============================================================================
+
+  4.1 DefaultLayout.vue
+  ─────────────────────
+  Structure:
+    <div class="min-h-dvh flex flex-col bg-background">
+      <AppHeader />
+      <main class="flex-1">
+        <transition name="layout-page" mode="out-in">
+          <!-- Loading spinner -->
+          <!-- Error state with retry -->
+          <!-- Page content via <slot /> -->
+        </transition>
+      </main>
+      <AppFooter />
+      <BackToTop v-if="showBackToTop" />
+    </div>
+
+  Features:
+    - Shows loading spinner during page transitions
+    - Error state with retry button for chunk load errors
+    - Back-to-top button appears after 400px scroll
+    - Page transition animation: opacity + translateY
+
+
+  4.2 AppHeader.vue
+  ─────────────────
+  Type: Fixed glass navigation bar
+  Position: top-0, z-50
+
+  States:
+    Default:    bg-white/95, backdrop-blur-sm, border-b border-gray-200/50
+    Scrolled:   glass-nav-scrolled (rgba(255,255,255,0.7), blur(24px))
+
+  Structure:
+    [Logo] [Desktop Nav (center)] [CTA + Mobile Toggle (right)]
+
+  Logo:
+    - Image: /logo/thislogo.png (70px mobile, 85px desktop)
+    - Text: "Leaf Global Consulting Group" (h5, bold)
+
+  Desktop Navigation (hidden on mobile):
+    - Horizontal links with hover underline animation
+    - Dropdown menus with glass-heavy styling (20px radius)
+    - Sub-dropdowns that fly out to the right
+    - Active state: text-primary with scale-x-100 underline
+
+  Mobile Navigation (< 1024px):
+    - Hamburger button with animated X/collapse
+    - Slide-out panel from right (85vw or 380px max)
+    - Accordion-style nested menus
+    - Backdrop blur overlay
+    - Body scroll lock when open
+
+  CTA Button:
+    - "Get Started" — bg-primary, white text, rounded-xl
+
+  Nav Items:
+    Home, About (dropdown), Services (dropdown with sub-dropdowns), Contact Us
+
+  Transitions:
+    Dropdown: enter/leave with opacity + translateY
+    Sub-dropdown: enter/leave with opacity + translateX
+    Mobile panel: slide from right
+
+
+  4.3 AppFooter.vue
+  ─────────────────
+  Type: Dark footer with 4-column grid
+  Background: bg-dark (#0F172A)
+
+  Structure:
+    <div class="container-custom">
+      <metallic-divider />
+      <grid class="grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 py-16">
+        Col 1: Logo + tagline + social icons (glass-heavy)
+        Col 2: Quick Links (Home, About, Services, Contact)
+        Col 3: Specialisations (4 service links)
+        Col 4: Contact info (address, phone, 2 emails)
+      </grid>
+      <metallic-divider />
+      <bottom-bar> Copyright + Privacy/Terms links </bottom-bar>
+    </div>
+
+  Features:
+    - Metallic dividers at top and bottom
+    - Social icons with glass-heavy styling and blue hover
+    - Quick links with animated blue dash on hover
+
+
+  4.4 BackToTop.vue
+  ─────────────────
+  Type: Floating scroll-to-top button
+  Position: Fixed, bottom-right
+  Appears: After 400px scroll
+  Styling: gradient-blue background, white arrow icon
+
+
+===============================================================================
+5. HOMEPAGE SECTION BREAKDOWN (Top to Bottom)
+===============================================================================
+
+  The homepage (HomeView.vue) is composed of these sections in order:
+
+  ┌─────────────────────────────────────────────────────────────────┐
+  │ 1. HeroSection              — Full-screen hero                 │
+  │ 2. Technology Section       — IT & Technology Consulting       │
+  │ 3. Crystal Divider (blue)   — Blue-tinted divider             │
+  │ 4. Finance Section          — Audit, Finance & Compliance      │
+  │ 5. Crystal Divider (green)  — Green-tinted divider            │
+  │ 6. Education Section        — Learning & Professional Dev      │
+  │ 7. Crystal Divider (orange) — Orange-tinted divider           │
+  │ 8. ImpactStats              — Animated counter statistics      │
+  │ 9. Crystal Divider          — Neutral divider                  │
+  │ 10. WhyChooseUs             — 4-column value propositions      │
+  │ 11. Crystal Divider         — Neutral divider                  │
+  │ 12. Testimonials            — Client success stories (dark bg) │
+  │ 13. ContactSection          — Contact form + info panel        │
+  └─────────────────────────────────────────────────────────────────┘
+
+
+  ── SECTION 1: HeroSection ──────────────────────────────────────
+  File: src/components/sections/HeroSection.vue
+  Layout: Full-screen, min-h-screen, flex items-center
+
+  Background:
+    - gradient-subtle overlay (F8FAFC → F1F5F9 → E2E8F0)
+    - SVG dot pattern overlay (60x60 grid, 5% opacity)
+    - 3 large floating colored blur orbs (primary, finance, education)
+    - 3 small geometric crystal accents (circles, diamonds)
+    - 3 horizontal metallic divider ribbons
+
+  Content (2-column grid on lg):
+    LEFT COLUMN (max-w-xl):
+      - Glass badge: "Trusted by 100+ Organisations" (glass-heavy)
+      - Hero heading: "Secure. Scale. Succeed." (text-display-lg/text-display-xl)
+      - Gradient blue subheading: "with Leaf Global Consulting"
+      - Description paragraph
+      - 2 CTA buttons: "Explore Services" (glass-primary), "Contact Us" (glass)
+      - 3 trust indicators with colored icons (blue, green, orange)
+
+    RIGHT COLUMN (desktop only, hidden on mobile):
+      - 3 floating glass cards stacked/overlapping:
+        1. Main card — "Global Technology Consulting" (blue gradient icon)
+        2. Bottom-left card — "Audit & Finance" (green gradient icon)
+        3. Bottom-right card — "Education & Training" (orange gradient icon)
+      - All cards have crystal-reflection animation
+      - Each card has a status indicator (glowing dot + text)
+
+  Animations:
+    - Slide-up reveal on all left elements (v-scroll-reveal with delays)
+    - Float animation on right cards (6-8s duration, staggered delays)
+    - Glow-pulse on status indicators
+
+
+  ── SECTION 2: Technology Services ──────────────────────────────
+  File: Inline in HomeView.vue (not a separate component)
+  Background: bg-white
+  Layout: 2-column grid (lg:grid-cols-2), gap-16
+
+  Content:
+    LEFT:
+      - Blue badge: "Technology" (badge-blue)
+      - Heading: "IT & Technology Consulting" (text-h3 → text-h2)
+      - Description paragraph
+      - 4 bullet points with blue check-circle icons
+      - Blue button: "Explore Technology Services" (variant="blue")
+
+    RIGHT:
+      - Glass card with crystal-reflection--light-bg
+      - Blue gradient icon container (code icon, white)
+      - Heading: "Full-Spectrum IT Services"
+      - Description text
+      - 2x2 grid of service dots (6 items):
+        IT Strategy, Digital Transformation, Cyber Security,
+        Cloud Services, Infrastructure, Tech Training
+
+
+  ── CRYSTAL DIVIDER (Blue) ──────────────────────────────────────
+  Color: Blue-tinted orb (crystal-divider-orb--blue)
+  Structure: line — orb — line
+  Padding: py-4 lg:py-6
+
+
+  ── SECTION 3: Finance & Audit ──────────────────────────────────
+  File: Inline in HomeView.vue
+  Background: bg-background-secondary (#F1F5F9)
+  Layout: 2-column grid (lg:grid-cols-2), gap-16
+  Column order: Reversed on lg (glass card on left)
+
+  Content:
+    LEFT (lg:order-2):
+      - Green badge: "Finance & Audit" (badge-green)
+      - Heading: "Audit, Finance & Compliance"
+      - Description paragraph
+      - 4 bullet points with green check-circle icons
+      - Green button: "Explore Finance Services" (variant="finance")
+
+    RIGHT (lg:order-1):
+      - Glass card with crystal-reflection--light-bg
+      - Green gradient icon container (bar-chart icon, white)
+      - Heading: "Financial Integrity"
+      - Description text
+      - 2x2 grid of service dots (6 items):
+        Audit Readiness, Risk Management, Financial Planning,
+        Compliance, Governance, Internal Controls
+
+
+  ── CRYSTAL DIVIDER (Green) ─────────────────────────────────────
+  Color: Green-tinted orb (crystal-divider-orb--green)
+
+
+  ── SECTION 4: Education & Training ─────────────────────────────
+  File: Inline in HomeView.vue
+  Background: bg-white
+  Layout: 2-column grid (lg:grid-cols-2), gap-16
+
+  Content:
+    LEFT:
+      - Orange badge: "Education & Training" (badge-orange)
+      - Heading: "Learning & Professional Development"
+      - Description paragraph
+      - 4 bullet points with orange check-circle icons
+      - Orange button: "Explore Education Services" (variant="education")
+
+    RIGHT:
+      - Glass card with crystal-reflection--light-bg
+      - Orange gradient icon container (star icon, white)
+      - Heading: "Building Capability"
+      - Description text
+      - 2x2 grid of service dots (6 items):
+        Curriculum Design, Training Programs, Professional Dev,
+        Workshops, Certifications, Quality Assurance
+
+
+  ── CRYSTAL DIVIDER (Orange) ────────────────────────────────────
+  Color: Orange-tinted orb (crystal-divider-orb--orange)
+
+
+  ── SECTION 5: ImpactStats ──────────────────────────────────────
+  File: src/components/sections/ImpactStats.vue
+  Background: bg-white
+  Layout: 4-column grid (md:grid-cols-4), gap-6
+
+  Content:
+    - Blue badge: "Company Achievements"
+    - Heading: "Our Impact by the Numbers"
+    - Subtitle paragraph
+    - 4 stat cards with animated counters:
+      1. 100+ Clients Served      (blue, "Across 15+ industries")
+      2. 5+ Years Experience      (green, "Since 2020")
+      3. 200+ Projects Delivered  (orange, "On time & on budget")
+      4. 98% Client Retention     (green, "Year over year")
+
+  Features:
+    - Color-coded top borders on each card (2px solid)
+    - Number count-up animation (eased cubic, 2000ms duration)
+    - IntersectionObserver triggers animation on scroll (30% threshold)
+    - Numbers use tabular-nums for stable width
+
+
+  ── CRYSTAL DIVIDER (Neutral) ───────────────────────────────────
+  Color: Default chrome/silver orb
+  Padding: py-6 lg:py-8
+
+
+  ── SECTION 6: WhyChooseUs ──────────────────────────────────────
+  File: src/components/sections/WhyChooseUs.vue
+  Background: bg-white
+  Layout: 4-column grid (lg:grid-cols-4), gap-8
+
+  Content:
+    - Badge: "Why Leaf Global Consulting"
+    - Heading: "Integrated Expertise, Delivered"
+    - Subtitle paragraph
+    - 4 value proposition cards:
+      1. "Multi-Discipline Expertise" (zap icon, "01")
+      2. "Tailored Approach" (users icon, "02")
+      3. "Practical, Actionable Outcomes" (star icon, "03")
+      4. "Proven Track Record" (trending-up icon, "04")
+
+  Features:
+    - Cards numbered 01-04 with gradient blue number text
+    - Glass-card styling with crystal-reflection
+    - Hover: scale icon 110% (group-hover:scale-110)
+
+
+  ── CRYSTAL DIVIDER (Neutral) ───────────────────────────────────
+  Color: Default chrome/silver orb
+
+
+  ── SECTION 7: Testimonials ─────────────────────────────────────
+  File: src/components/sections/Testimonials.vue
+  Background: gradient-dark (dark section)
+  Layout: 3-column grid (lg:grid-cols-3) on desktop, carousel on mobile
+
+  Content:
+    - Badge: "Client Success"
+    - Heading: "Trusted by Industry Leaders"
+    - Subtitle paragraph
+    - 3 testimonial cards (visibleCount defaults to 3):
+      1. Sarah Johnson, Director of Learning, EduFirst Institute
+      2. Michael Chen, General Counsel, LegalEdge Partners
+      3. Emily Rodriguez, CTO, DataFlow Systems
+      (2 more in data: David Park, Lisa Thompson)
+
+  Card structure:
+    - 5-star rating (yellow-400 stars)
+    - Quote icon (primary/20)
+    - Italic quote text
+    - Avatar (first initial, gradient-blue circle)
+    - Name + role
+    - Top border: 2px solid color-coded by index
+
+  Mobile features:
+    - Touch carousel with dot indicators
+    - Left/right navigation arrows
+    - Smooth transform transition
+
+  Includes a crystal-divider-light at the bottom (inside dark section)
+
+
+  ── SECTION 8: ContactSection ────────────────────────────────────
+  File: src/components/sections/ContactSection.vue
+  Background: bg-white
+  Layout: 5-column grid (lg:grid-cols-5), gap-10
+
+  Content:
+    - Badge: "Get In Touch"
+    - Heading: "Ready to Get Started?"
+    - Subtitle paragraph
+
+    LEFT (3/5 width) — Form Card:
+      - Glass card with "Send Us a Message" heading
+      - Form fields:
+        * Full Name (text, required)
+        * Email Address (email, required, validated)
+        * Subject (select dropdown with 7 options):
+          General Inquiry, Education, Law, IT, Finance, Partnership, Careers
+        * Message (textarea, required)
+      - Privacy note + Submit button
+      - Success state: green check + thank you message
+
+    RIGHT (2/5 width) — Info Panel:
+      - 4 contact info cards in 2x2 grid:
+        1. Email: director@leafGlobal.com.au
+        2. Email: leaf.global@gmail.com
+        3. Phone: +61 0403 434 925
+        4. Address: 65 Murry St, Hobart, Australia
+      - Each card has icon-blue container + action link
+
+
+===============================================================================
+6. REUSABLE UI COMPONENTS
+===============================================================================
+
+  6.1 Button.vue
+  ──────────────
+  Props:
+    variant:    'glass' | 'glass-primary' | 'blue' | 'finance' | 'education' | 'outline' | 'ghost' | 'danger'
+    size:       'xs' | 'sm' | 'md' | 'lg' | 'xl'
+    disabled:   Boolean
+    loading:    Boolean (shows spinner)
+    fullWidth:  Boolean
+    tag:        String (default: 'button')
+
+  Variant Styles:
+    glass:          bg-white/80, backdrop-blur-sm, border, shadow-glass-sm
+    glass-primary:  bg-primary, white text, shadow-glass-sm
+    blue:           bg-primary, white text
+    finance:        bg-finance, white text
+    education:      bg-education, white text
+    outline:        border-2 border-primary/30, text-primary
+    ghost:          text-text-light, hover primary
+    danger:         bg-red-500, white text
+
+  Size Styles:
+    xs: px-3 py-1.5, btn-sm
+    sm: px-4 py-2, btn-sm
+    md: px-5 py-2.5, btn-md
+    lg: px-6 py-3, btn-lg
+    xl: px-8 py-4, btn-xl
+
+  Behavior:
+    - Hover: scale 101%
+    - Active: scale 98%
+    - Focus ring
+    - Loading state with spinner
+    - Disabled state with opacity 50%
+
+
+  6.2 Card.vue
+  ─────────────
+  Props:
+    title:        String
+    description:  String
+    image:        String (URL)
+    badge:        String
+    badgeVariant: 'primary' | 'finance' | 'education'
+    to:           String/Object (router-link)
+    hoverable:    Boolean (default: true)
+    animated:     Boolean
+    delay:        Number (ms)
+
+  Features:
+    - card-base styling (glass-card)
+    - Optional image with hover zoom
+    - Badge with color variants
+    - Title with hover color change
+    - Footer with "Learn More" link
+    - Animation support with delay
+
+
+  6.3 Icon.vue
+  ─────────────
+  Props:
+    name:     String (required) — icon name
+    size:     Number/String (default: 24) — pixels
+    color:    String (default: 'currentColor')
+
+  Available Icons:
+    Navigation:     menu, x, chevron-down, chevron-up, arrow-right, arrow-up
+    Social:         facebook, twitter, linkedin, instagram
+    Contact:        map-pin, phone, mail
+    Features:       check-circle, zap, shield, trending-up, users, star, briefcase, bar-chart, code, target
+    Hero:           play, chevron-right, chevron-left, quote, external-link, clock
+
+
+  6.4 SectionTitle.vue
+  ─────────────────────
+  Props:
+    title:      String (required)
+    subtitle:   String
+    badge:      String
+    alignment:  'center' | 'left' (default: 'center')
+    gradient:   Boolean (blue gradient text)
+    showLine:   Boolean (default: true)
+    animated:   Boolean
+    size:       'sm' | 'md' | 'lg' | 'xl' (default: 'lg')
+    color:      'blue' | 'green' | 'orange' (default: 'blue')
+
+  Features:
+    - Badge with color variants
+    - Title with size variants
+    - Optional subtitle
+    - Decorative colored line
+
+
+===============================================================================
+7. ANIMATIONS & TRANSITIONS
+===============================================================================
+
+  7.1 v-scroll-reveal Directive
+  ─────────────────────────────
+  Usage:
+    <div v-scroll-reveal>                        → fades in
+    <div v-scroll-reveal="'slide-up'">           → slide-up animation
+    <div v-scroll-reveal="{ animation: 'slide-up', delay: 200 }">
+    <div v-scroll-reveal.stagger>                → staggered children
+
+  Animation Types (Tailwind config):
+    fade-in:      opacity 0 → 1 (0.6s)
+    slide-up:     opacity 0 + translateY(30px) → visible (0.6s)
+    slide-down:   opacity 0 + translateY(-10px) → visible (0.3s)
+    scale-in:     opacity 0 + scale(0.95) → visible (0.4s)
+
+  Behavior:
+    - Uses IntersectionObserver
+    - Respects prefers-reduced-motion
+    - Triggers at 10% threshold, -60px root margin
+    - Unobserves after first trigger
+
+
+  7.2 Crystal Animations (CSS)
+  ─────────────────────────────
+  orbShimmer:      5s ease-in-out infinite — orb shimmer effect
+  crystalShimmer:  7s ease-in-out infinite — card reflection sweep
+  glassShimmer:    3s ease-in-out infinite — metallic shine effect
+
+  Tailwind Animations:
+    float:          6s ease-in-out infinite — vertical floating
+    glow-pulse:     2s ease-in-out infinite — opacity pulse
+    gradient-shift: 8s ease infinite — gradient background shift
+    glass-shimmer:  3s ease-in-out infinite — glass shimmer sweep
+
+
+  7.3 Page Transitions
+  ─────────────────────
+  Layout transition (DefaultLayout.vue):
+    Duration: 0.25s
+    Enter: opacity 0 → 1, translateY(10px) → 0
+    Leave: opacity 1 → 0, translateY(0) → -10px
+
+
+  7.4 Component Transitions
+  ─────────────────────────
+  Dropdown menus:
+    Enter: 0.2s ease-out, opacity 0 → 1, translateY(2 → 0)
+    Leave: 0.15s ease-in, opacity 1 → 0, translateY(0 → 2)
+
+  Mobile menu:
+    Enter: 0.3s ease-out, opacity + transform
+    Leave: 0.25s ease-in
+
+  Accordion menus:
+    Enter: 0.25s ease-out, max-h 0 → 600px, opacity 0 → 1
+    Leave: 0.2s ease-in, max-h 600px → 0
+
+  Contact form success:
+    Enter: 0.3s ease-out, opacity 0 → 1, scale 0.95 → 1
+    Leave: 0.2s ease-in
+
+
+  7.5 Hover Effects
+  ──────────────────
+  Glass cards:    translateY(-4px), darker shadow, bg increases
+  Buttons:        scale 101% (hover), scale 98% (active)
+  Nav links:      underline scale-x 0 → 1
+  Social icons:   scale 110%, translateY(-2px), blue bg
+  Card images:    scale 110%
+  Icon containers: scale 110%
+
+
+===============================================================================
 8. RESPONSIVE BEHAVIOR
-   ---------------------------------------------------------------
-   Mobile (< 640px):
-     - Single column layout throughout
-     - Hero: text centered, right cards hidden
-     - Trust indicators wrap
-     - Testimonials: carousel with dots + arrows
-     - Contact form: full width
-     - Nav: hamburger → slide-out panel with accordion
+===============================================================================
 
-   Tablet (640px - 1024px):
-     - 2-column grids where applicable
-     - Stats: 2-column grid
-     - Nav: still hamburger
+  8.1 Mobile (< 640px)
+  ─────────────────────
+  - Single column layout throughout
+  - Hero: text centered, right cards hidden
+  - Trust indicators wrap
+  - Stats: 2-column grid
+  - Testimonials: carousel with dots + arrows
+  - Contact form: full width
+  - Footer: stacked columns
+  - Nav: hamburger → slide-out panel with accordion
+  - Section padding: py-16
 
-   Desktop (> 1024px):
-     - Full 2-column or 4-column layouts
-     - Hero: 2-column with floating cards
-     - Nav: horizontal with dropdowns
-     - Testimonials: 3-column grid
-     - Contact: 3/5 + 2/5 split
+
+  8.2 Tablet (640px - 1024px)
+  ─────────────────────────────
+  - 2-column grids where applicable
+  - Stats: 2-column grid
+  - Footer: 2-column grid
+  - Nav: still hamburger
+  - Section padding: py-20
+
+
+  8.3 Desktop (> 1024px)
+  ──────────────────────
+  - Full 2-column or 4-column layouts
+  - Hero: 2-column with floating cards
+  - Nav: horizontal with dropdowns
+  - Testimonials: 3-column grid
+  - Contact: 3/5 + 2/5 split
+  - Footer: 4-column grid
+  - Section padding: py-24
+
+
+  8.4 Max Width
+  ──────────────
+  Container: max-w-7xl (1280px)
+  Header: max-w-[1400px]
+  Content: max-w-6xl (1152px)
+
+
+===============================================================================
+9. DESIGN PATTERNS & CONVENTIONS
+===============================================================================
+
+  9.1 Glassmorphism Pattern
+  ─────────────────────────
+  Used throughout for premium, modern feel:
+    - Background: rgba(255,255,255,0.72) for cards
+    - Backdrop blur: 20px
+    - Border: 1px solid rgba(255,255,255,0.5)
+    - Border radius: 20px
+    - Crystal top-edge highlight (::before)
+    - Corner radial gradient shine (::after)
+    - Hover: translateY(-4px), darker shadow
+
+  9.2 Crystal Divider Pattern
+  ───────────────────────────
+  Full-width section separators:
+    - Line: gradient from transparent to chrome to transparent
+    - Orb: 40px glass circle with inner dot + shimmer animation
+    - Color variants: blue, green, orange, neutral
+    - Light variant for dark backgrounds
+
+  9.3 Color-Coded Sections
+  ────────────────────────
+  Technology: Blue (#2563EB) — badges, icons, borders, gradients
+  Finance:    Green (#10B981) — badges, icons, borders, gradients
+  Education:  Orange (#F97316) — badges, icons, borders, gradients
+
+  9.4 Section Pattern (Technology/Finance/Education)
+  ──────────────────────────────────────────────────
+  - 2-column grid with glass-card on one side
+  - Badge + heading + description + bullet list + CTA button
+  - Glass card with gradient icon + title + service grid
+  - Color-coded divider after each section
+
+  9.5 Alternating Backgrounds
+  ───────────────────────────
+  white → background-secondary (#F1F5F9) → white → dark → white
+  Creates visual rhythm and section separation
+
+  9.6 Badge Pattern
+  ──────────────────
+  Small uppercase text with color-coded backgrounds:
+    badge-blue:    rgba(37,99,235,0.1) bg, #2563EB text
+    badge-green:   rgba(16,185,129,0.1) bg, #10B981 text
+    badge-orange:  rgba(249,115,22,0.1) bg, #F97316 text
+
+  9.7 Button Pattern
+  ───────────────────
+  Glass-primary for main CTAs, glass for secondary
+  Color variants for section-specific buttons
+
+  9.8 Card Pattern
+  ─────────────────
+  Glass cards with crystal-reflection overlay
+  Gradient icon containers
+  Service dot grids
+
+
+===============================================================================
+10. CODE CONVENTIONS & BEST PRACTICES
+===============================================================================
+
+  10.1 Vue Component Structure
+  ─────────────────────────────
+  - Use <script setup> with Composition API
+  - Define props with defaults and validators
+  - Use computed properties for derived state
+  - Use refs for reactive state
+  - Clean up observers/listeners in onUnmounted
+
+  10.2 CSS Organization
+  ──────────────────────
+  - Tailwind utilities for most styling
+  - Custom CSS classes in @layer components
+  - CSS variables for colors, shadows, radii, transitions
+  - Avoid inline styles (except for dynamic values)
+
+  10.3 Naming Conventions
+  ───────────────────────
+  - Components: PascalCase (Button.vue, Card.vue)
+  - Files: kebab-case (scrollReveal.js, useAnimation.js)
+  - CSS classes: kebab-case (glass-card, badge-blue)
+  - Tailwind classes: utility-first approach
+
+  10.4 Responsive Design
+  ──────────────────────
+  - Mobile-first approach
+  - Use Tailwind responsive prefixes (sm:, md:, lg:)
+  - Hide/show elements with hidden/block classes
+  - Test at all breakpoints
+
+  10.5 Accessibility
+  ───────────────────
+  - Use semantic HTML (header, main, footer, nav)
+  - Add aria-labels to icon buttons
+  - Support prefers-reduced-motion
+  - Focus states on interactive elements
+  - Proper heading hierarchy (h1 → h2 → h3)
+
+  10.6 Performance
+  ─────────────────
+  - Lazy load images with loading="lazy"
+  - Use IntersectionObserver for scroll animations
+  - Debounce resize events
+  - Use requestAnimationFrame for animations
+  - Respect prefers-reduced-motion
+
+
+===============================================================================
+END OF DOCUMENT
+===============================================================================
