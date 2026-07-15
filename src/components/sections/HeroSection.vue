@@ -63,15 +63,6 @@
             </Button>
           </div>
 
-          <!-- Trust indicators -->
-          <div v-if="trustIndicators && trustIndicators.length" class="mt-10 flex flex-wrap gap-6">
-            <div v-for="item in trustIndicators" :key="item.label" class="flex items-center gap-2">
-              <div class="w-6 h-6 rounded-full flex items-center justify-center" :class="item.iconBg || 'icon-blue'">
-                <Icon :name="item.icon || 'check-circle'" :size="14" :color="item.iconColor || '#2563EB'" />
-              </div>
-              <span class="body-md text-text-light">{{ item.label }}</span>
-            </div>
-          </div>
         </div>
 
         <!-- Right: Advisory Sales Flyer Image -->
@@ -124,7 +115,6 @@
 <script setup>
 import { computed } from 'vue'
 import Button from '@/components/global/Button.vue'
-import Icon from '@/components/global/Icon.vue'
 
 defineProps({
   title: { type: String, required: true },
@@ -134,7 +124,6 @@ defineProps({
   badge: { type: String, default: '' },
   primaryCta: { type: Object, default: null },
   secondaryCta: { type: Object, default: null },
-  trustIndicators: { type: Array, default: () => [] },
 })
 
 defineEmits(['primary-click', 'secondary-click'])

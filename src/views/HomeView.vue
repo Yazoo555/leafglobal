@@ -9,7 +9,6 @@
       description="We partner with Australian enterprises to deliver integrated consulting across technology, cybersecurity, business advisory, and workforce development. Our multi-disciplinary teams help organisations modernise systems, strengthen security posture, achieve compliance, and build lasting capability — through a single trusted partner."
       :primary-cta="{ text: 'Book a Consultation', variant: 'glass-primary' }"
       :secondary-cta="{ text: 'View All Services' }"
-      :trust-indicators="trustIndicators"
       @primary-click="router.push('/contact')"
       @secondary-click="router.push('/services')"
     />
@@ -124,12 +123,6 @@ import CrystalDivider from '@/components/sections/CrystalDivider.vue'
 import Testimonials from '@/components/sections/Testimonials.vue'
 
 const router = useRouter()
-
-const trustIndicators = [
-  { label: '100+ Enterprise Clients', iconColor: '#2563EB' },
-  { label: '99% Client Satisfaction', iconColor: '#10B981' },
-  { label: '7 Integrated Consulting Disciplines', iconColor: '#F97316' },
-]
 
 const techPoints = [
   'Digital strategy and end-to-end transformation roadmaps',
