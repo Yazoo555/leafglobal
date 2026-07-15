@@ -15,7 +15,7 @@
           class="flex items-center gap-3 transition-colors duration-200 z-10"
         >
           <img
-            src="/logo.svg"
+            src="/logo.png"
             alt="Leaf Global Consulting Group"
             class="h-[70px] sm:h-[85px] w-auto object-contain shrink-0 drop-shadow-sm"
             fetchpriority="high"
