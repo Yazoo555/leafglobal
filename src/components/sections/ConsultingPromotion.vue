@@ -63,16 +63,19 @@
             </span>
 
             <p class="text-h4 lg:text-h3 font-heading font-semibold text-white mb-2">
-              Tailored Daily Consulting
+              Starting from just
+              <span class="text-[2rem] lg:text-[2.5rem] font-bold tracking-tight">$1/day</span>
+              <span class="text-white/60 text-h5 lg:text-h4 align-top">*</span>
             </p>
 
             <p class="body-md text-white/70 max-w-xl mx-auto mb-2">
-              No minimum commitments. No hidden fees. Access expert consulting on your terms —
-              whether you need a single engagement or ongoing support.
+              Enterprise expertise without enterprise overhead. Whether you require a single
+              consultation, project-based advisory, or ongoing strategic support, we'll tailor
+              a consulting package that aligns with your business objectives.
             </p>
 
             <p class="body-sm text-white/50 max-w-lg mx-auto mb-8">
-              Contact us for a customised quote tailored to your organisation's unique requirements.
+              *Custom pricing applies depending on project scope, engagement model, and consulting requirements.
             </p>
 
             <!-- CTAs -->

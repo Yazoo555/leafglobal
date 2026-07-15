@@ -6,18 +6,35 @@
 
     <div class="container-custom relative z-10">
       <!-- Section Header -->
-      <div v-scroll-reveal="{ animation: 'slide-up', delay: 0 }" class="text-center max-w-3xl mx-auto mb-14">
-        <span class="badge-blue mb-4 inline-block">Cybersecurity</span>
-        <h2 class="text-h3 lg:text-h2 font-heading font-bold text-dark">
-          Protecting Your<br class="sm:hidden" />
-          <span class="text-gradient-blue">Digital Future</span>
-        </h2>
-        <p class="mt-4 body-lg text-text-light">
-          Comprehensive cybersecurity services designed to protect your organisation from
-          evolving threats. While an IT Audit identifies gaps and risks, our cybersecurity
-          practice implements the controls, monitoring, and response capabilities needed
-          to close those gaps and keep your business secure.
-        </p>
+      <div v-scroll-reveal="{ animation: 'slide-up', delay: 0 }" class="mb-14 lg:mb-16">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <!-- Header Text -->
+          <div>
+            <span class="badge-blue mb-4 inline-block">Cybersecurity</span>
+            <h2 class="text-h3 lg:text-h2 font-heading font-bold text-dark">
+              Protecting Your<br class="sm:hidden" />
+              <span class="text-gradient-blue">Digital Future</span>
+            </h2>
+            <p class="mt-4 body-lg text-text-light">
+              Comprehensive cybersecurity services designed to protect your organisation from
+              evolving threats. While an IT Audit identifies gaps and risks, our cybersecurity
+              practice implements the controls, monitoring, and response capabilities needed
+              to close those gaps and keep your business secure.
+            </p>
+          </div>
+
+          <!-- Header Image -->
+          <div class="order-first lg:order-last">
+            <div class="glass-card overflow-hidden p-2">
+              <img
+                src="/images/cybersecurity.jpg"
+                alt="Cybersecurity threat monitoring and network protection interface"
+                loading="lazy"
+                class="w-full h-56 sm:h-64 lg:h-72 object-cover rounded-glass-sm"
+              />
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- IT Audit + Cybersecurity Complement -->

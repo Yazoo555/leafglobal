@@ -2,13 +2,13 @@
   <div>
     <!-- Hero Section -->
     <HeroSection
-      title="Secure. Scale. Succeed."
+      title="Technology. Security. Advisory. Workforce."
       titleBreak
-      highlight-text="with Leaf Global Consulting"
-      badge="Trusted by 100+ Organisations"
-      description="We help organisations build capability, ensure compliance, and achieve sustainable growth through expert consulting and training across Education, Law, IT, and Finance."
+      highlight-text="Seven Disciplines, One Integrated Partner"
+      badge="Multi-Discipline Enterprise Consulting"
+      description="We partner with Australian enterprises to deliver integrated consulting across technology, cybersecurity, business advisory, and workforce development. Our multi-disciplinary teams help organisations modernise systems, strengthen security posture, achieve compliance, and build lasting capability — through a single trusted partner."
       :primary-cta="{ text: 'Book a Consultation', variant: 'glass-primary' }"
-      :secondary-cta="{ text: 'Explore Our Services' }"
+      :secondary-cta="{ text: 'View All Services' }"
       :trust-indicators="trustIndicators"
       @primary-click="router.push('/contact')"
       @secondary-click="router.push('/services')"
@@ -99,23 +99,7 @@
       @learn-click="router.push('/services')"
     />
 
-    <!-- 10. Impact Statistics -->
-    <CrystalDivider variant="neutral" padding="md" />
-
-    <ImpactStats
-      :stats="colorCodedStats"
-    />
-
-    <!-- 11. Why Choose Leaf Global -->
-    <CrystalDivider variant="neutral" padding="md" />
-
-    <WhyChooseUs
-      badge="Why Leaf Global Consulting"
-      title="Integrated Expertise, Delivered"
-      subtitle="We bring together deep consulting knowledge, strategic insight, and a commitment to your success across four key disciplines."
-    />
-
-    <!-- 12. Testimonials -->
+    <!-- 10. Testimonials -->
     <CrystalDivider variant="neutral" padding="md" />
 
     <Testimonials
@@ -137,16 +121,14 @@ import ITAudit from '@/components/sections/ITAudit.vue'
 import Cybersecurity from '@/components/sections/Cybersecurity.vue'
 import ServiceSection from '@/components/sections/ServiceSection.vue'
 import CrystalDivider from '@/components/sections/CrystalDivider.vue'
-import WhyChooseUs from '@/components/sections/WhyChooseUs.vue'
-import ImpactStats from '@/components/sections/ImpactStats.vue'
 import Testimonials from '@/components/sections/Testimonials.vue'
 
 const router = useRouter()
 
 const trustIndicators = [
-  { label: '100+ Organisations Served', iconColor: '#2563EB' },
+  { label: '100+ Enterprise Clients', iconColor: '#2563EB' },
   { label: '99% Client Satisfaction', iconColor: '#10B981' },
-  { label: '5+ Years Experience', iconColor: '#F97316' },
+  { label: '7 Integrated Consulting Disciplines', iconColor: '#F97316' },
 ]
 
 const techPoints = [
@@ -190,13 +172,5 @@ const educationServices = [
   'Industry Skills', 'Education Consulting',
   'Professional Certifications',
 ]
-
-const colorCodedStats = [
-  { value: 100, prefix: '', suffix: '+', label: 'Clients Served', subtext: 'Across 15+ industries', color: 'blue' },
-  { value: 5, prefix: '', suffix: '+', label: 'Years Experience', subtext: 'Since 2020', color: 'green' },
-  { value: 200, prefix: '', suffix: '+', label: 'Projects Delivered', subtext: 'On time & on budget', color: 'orange' },
-  { value: 98, prefix: '', suffix: '%', label: 'Client Retention', subtext: 'Year over year', color: 'green' },
-]
-
 
 </script>

@@ -74,77 +74,44 @@
           </div>
         </div>
 
-        <!-- Right: Premium Advisory Sales Flyer -->
-        <div v-scroll-reveal="{ animation: 'slide-up', delay: 200 }" class="hidden lg:block relative">
+        <!-- Right: Advisory Sales Flyer Image -->
+        <div v-scroll-reveal="{ animation: 'slide-up', delay: 200 }" class="hidden lg:block relative self-start">
           <div class="relative w-full aspect-[5/4]">
             <router-link
               to="/advisory-sales"
-              class="glass-card absolute top-[3%] left-[3%] right-[3%] p-0 overflow-hidden group block animate-float crystal-reflection crystal-reflection--animated"
+              class="glass-card absolute top-[3%] left-[3%] right-[3%] p-2 overflow-hidden group block animate-float crystal-reflection crystal-reflection--animated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-white/10 rounded-xl"
               style="animation-delay: 1s; animation-duration: 7s;"
+              aria-label="View Advisory Sales Package — Strategic advisory for Australian businesses"
             >
-              <!-- Flyer Cover -->
-              <div class="gradient-blue px-8 py-10 text-center relative">
-                <div class="absolute top-[-20%] right-[-10%] w-[160px] h-[160px] rounded-full bg-white/[0.06] blur-[35px]" />
-                <div class="absolute bottom-[-15%] left-[-5%] w-[120px] h-[120px] rounded-full bg-white/[0.04] blur-[25px]" />
-
-                <div class="relative z-10">
-                  <!-- Flyer badge -->
-                  <span class="inline-block px-3 py-1 badge uppercase rounded-full bg-white/15 text-white/90 mb-5">
-                    Enterprise Advisory
-                  </span>
-
-                  <!-- Flyer icon -->
-                  <div class="w-14 h-14 mx-auto rounded-2xl bg-white/15 flex items-center justify-center mb-4 shadow-glass-sm backdrop-blur-sm">
-                    <Icon name="briefcase" size="28" color="white" />
-                  </div>
-
-                  <h3 class="text-h3 font-heading font-bold text-white mb-2">
-                    Advisory Sales<br />
-                    <span class="text-white/80 text-h4">for Australian Businesses</span>
-                  </h3>
-
-                  <p class="body-sm text-white/70 max-w-xs mx-auto mb-5">
-                    Strategic advisory, lead generation, and business development services tailored for the Australian enterprise market.
-                  </p>
-
-                  <div class="flex flex-wrap items-center justify-center gap-3 text-white/60 caption">
-                    <span class="flex items-center gap-1.5">
-                      <span class="w-1.5 h-1.5 rounded-full bg-white/40" />
-                      Local Expertise
-                    </span>
-                    <span class="flex items-center gap-1.5">
-                      <span class="w-1.5 h-1.5 rounded-full bg-white/40" />
-                      Enterprise Focus
-                    </span>
-                    <span class="flex items-center gap-1.5">
-                      <span class="w-1.5 h-1.5 rounded-full bg-white/40" />
-                      Proven Results
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Flyer Body -->
-              <div class="p-6">
-                <div class="grid grid-cols-3 gap-4 mb-4">
-                  <div class="text-center">
-                    <div class="text-h4 font-heading font-bold text-primary">100+</div>
-                    <p class="caption text-text-light">Enterprise Clients</p>
-                  </div>
-                  <div class="text-center">
-                    <div class="text-h4 font-heading font-bold text-finance">98%</div>
-                    <p class="caption text-text-light">Retention Rate</p>
-                  </div>
-                  <div class="text-center">
-                    <div class="text-h4 font-heading font-bold text-education">15+</div>
-                    <p class="caption text-text-light">Industries Served</p>
-                  </div>
-                </div>
-
-                <div class="flex items-center justify-center gap-2 text-primary caption font-medium group-hover:gap-3 transition-all duration-200">
-                  View Advisory Sales Package
-                  <Icon name="arrow-right" size="14" class="transition-transform duration-200 group-hover:translate-x-1" />
-                </div>
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="/images/girlone-600.avif 600w, /images/girlone-1200.avif 1200w"
+                  sizes="(max-width: 1024px) 50vw, 600px"
+                />
+                <source
+                  type="image/webp"
+                  srcset="/images/girlone-600.webp 600w, /images/girlone-1200.webp 1200w"
+                  sizes="(max-width: 1024px) 50vw, 600px"
+                />
+                <source
+                  type="image/jpeg"
+                  srcset="/images/girlone-600.jpg 600w, /images/girlone-1200.jpg 1200w"
+                  sizes="(max-width: 1024px) 50vw, 600px"
+                />
+                <img
+                  src="/images/girlone-600.jpg"
+                  alt="Advisory Sales for Australian Businesses — Strategic advisory, lead generation, and business development services tailored for the Australian enterprise market"
+                  loading="eager"
+                  decoding="async"
+                  class="w-full h-full object-cover rounded-lg transition-transform duration-500 group-hover:scale-105 group-focus:scale-105" style="object-position: center 0%"
+                />
+              </picture>
+              <!-- Hover overlay -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg pointer-events-none" />
+              <!-- Bottom CTA label -->
+              <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm text-primary text-sm font-medium px-5 py-2 rounded-full opacity-0 group-hover:opacity-100 group-focus:opacity-100 translate-y-2 group-hover:translate-y-0 group-focus:translate-y-0 transition-all duration-300 pointer-events-none whitespace-nowrap shadow-glass-sm">
+                View Advisory Sales Package →
               </div>
             </router-link>
           </div>

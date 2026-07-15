@@ -42,9 +42,18 @@
 
         <!-- Glass Card Side -->
         <div
-          class="glass-card p-8 lg:p-10 crystal-reflection crystal-reflection--light-bg"
+          class="glass-card p-8 lg:p-10 crystal-reflection crystal-reflection--light-bg overflow-hidden"
           :class="reversed ? 'lg:order-1' : 'lg:order-2'"
         >
+          <!-- Optional Image -->
+          <img
+            v-if="image"
+            :src="image"
+            :alt="imageAlt"
+            loading="lazy"
+            class="w-full h-48 sm:h-56 lg:h-64 object-cover rounded-xl mb-6 shadow-glass-sm"
+          />
+
           <!-- Icon Container -->
           <div
             class="w-16 h-16 rounded-2xl flex items-center justify-center mb-6"
@@ -150,6 +159,16 @@ const props = defineProps({
   },
   /** Accessible label for the section landmark. Falls back to 'badge' prop if not provided. */
   ariaLabel: {
+    type: String,
+    default: '',
+  },
+  /** Optional image URL to display in the glass card area */
+  image: {
+    type: String,
+    default: '',
+  },
+  /** Alt text for the optional image */
+  imageAlt: {
     type: String,
     default: '',
   },
