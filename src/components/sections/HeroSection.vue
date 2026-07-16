@@ -1,5 +1,5 @@
 <template>
-  <section aria-label="Hero" class="relative min-h-screen flex items-center overflow-hidden bg-background">
+  <section aria-label="Hero" class="relative min-h-[calc(100vh-64px)] sm:min-h-[calc(100vh-80px)] flex flex-col justify-center overflow-hidden bg-background">
     <!-- Crystal gradient background -->
     <div class="absolute inset-0 gradient-subtle opacity-90" />
     <div class="absolute inset-0" :style="patternStyle" />
@@ -19,8 +19,8 @@
     <div class="absolute top-[55%] right-0 w-[300px] h-[1px] metallic-divider opacity-20" />
     <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[1px] metallic-divider opacity-15" />
 
-    <div class="container-custom relative z-10 pt-24 pb-16">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <div class="container-custom relative z-10 pt-20 sm:pt-24 pb-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
         <!-- Left: Content -->
         <div class="max-w-xl">
           <!-- Badge — premium glass -->
@@ -33,44 +33,34 @@
           </span>
 
           <!-- Heading -->
-          <h1 v-scroll-reveal="{ animation: 'slide-up', delay: 100 }" class="text-display-lg lg:text-display-xl font-heading font-bold text-dark">
+          <h1 v-scroll-reveal="{ animation: 'slide-up', delay: 100 }" class="text-display lg:text-display-lg font-heading font-bold text-dark">
             {{ title }}<br v-if="titleBreak" />
             <span v-if="highlightText" class="text-gradient-blue inline-block pb-1">{{ highlightText }}</span>
           </h1>
 
           <!-- Description -->
-          <p v-if="description" v-scroll-reveal="{ animation: 'slide-up', delay: 200 }" class="mt-6 body-lg text-text-light max-w-2xl">
+          <p v-if="description" v-scroll-reveal="{ animation: 'slide-up', delay: 200 }" class="mt-4 sm:mt-5 body-lg text-text-light max-w-2xl">
             {{ description }}
           </p>
 
-          <!-- CTA Buttons -->
-          <div v-if="primaryCta || secondaryCta" v-scroll-reveal="{ animation: 'slide-up', delay: 300 }" class="mt-10 flex flex-wrap gap-4">
-            <Button
-              v-if="primaryCta"
-              :variant="primaryCta.variant || 'glass-primary'"
-              size="lg"
-              @click="$emit('primary-click')"
+          <!-- Single CTA -->
+          <div v-if="ctaText" v-scroll-reveal="{ animation: 'slide-up', delay: 300 }" class="mt-6 sm:mt-8 flex flex-wrap">
+            <router-link
+              to="/contact"
+              class="btn-base px-6 py-3 btn-lg font-medium rounded-xl bg-primary text-white hover:bg-primary-700 active:bg-primary-800 shadow-sm hover:shadow-glass transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-2"
             >
-              {{ primaryCta.text }}
-            </Button>
-            <Button
-              v-if="secondaryCta"
-              variant="glass"
-              size="lg"
-              @click="$emit('secondary-click')"
-            >
-              {{ secondaryCta.text }}
-            </Button>
+              {{ ctaText }}
+            </router-link>
           </div>
 
         </div>
 
         <!-- Right: Advisory Sales Flyer Image -->
         <div v-scroll-reveal="{ animation: 'slide-up', delay: 200 }" class="hidden lg:block relative self-start">
-          <div class="relative w-full aspect-[5/4]">
+          <div class="relative w-full aspect-[2/3]">
             <router-link
               to="/advisory-sales"
-              class="glass-card absolute top-[3%] left-[3%] right-[3%] p-2 overflow-hidden group block animate-float crystal-reflection crystal-reflection--animated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-white/10 rounded-xl"
+              class="glass-card absolute inset-[3%] p-2 overflow-hidden group block animate-float crystal-reflection crystal-reflection--animated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-white/10 rounded-xl"
               style="animation-delay: 1s; animation-duration: 7s;"
               aria-label="View Advisory Sales Package — Strategic advisory for Australian businesses"
             >
@@ -98,11 +88,13 @@
                   class="w-full h-full object-cover rounded-lg transition-transform duration-500 group-hover:scale-105 group-focus:scale-105" style="object-position: center 0%"
                 />
               </picture>
-              <!-- Hover overlay -->
-              <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 rounded-lg pointer-events-none" />
-              <!-- Bottom CTA label -->
-              <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm text-primary text-sm font-medium px-5 py-2 rounded-full opacity-0 group-hover:opacity-100 group-focus:opacity-100 translate-y-2 group-hover:translate-y-0 group-focus:translate-y-0 transition-all duration-300 pointer-events-none whitespace-nowrap shadow-glass-sm">
-                View Advisory Sales Package →
+              <!-- Hover CTA glass bar at bottom -->
+              <div class="absolute bottom-0 left-0 right-0 p-2.5 bg-gradient-to-t from-black/45 via-black/15 to-transparent rounded-b-lg pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="bg-white/70 backdrop-blur-md rounded-lg px-3.5 py-2.5 shadow-glass-sm transition-all duration-300 group-hover:bg-white/90 group-hover:translate-y-[-2px] group-hover:shadow-glass">
+                  <div class="text-[0.7rem] font-semibold tracking-wide text-primary">Advisory Sales</div>
+                  <div class="text-[0.6rem] leading-snug text-text-light mt-0.5">Strategic Growth for Australian Businesses</div>
+                  <div class="text-[0.65rem] font-medium text-primary/60 group-hover:text-primary mt-1.5">View Advisory Sales →</div>
+                </div>
               </div>
             </router-link>
           </div>
@@ -114,7 +106,6 @@
 
 <script setup>
 import { computed } from 'vue'
-import Button from '@/components/global/Button.vue'
 
 defineProps({
   title: { type: String, required: true },
@@ -122,11 +113,8 @@ defineProps({
   highlightText: { type: String, default: '' },
   description: { type: String, default: '' },
   badge: { type: String, default: '' },
-  primaryCta: { type: Object, default: null },
-  secondaryCta: { type: Object, default: null },
+  ctaText: { type: String, default: '' },
 })
-
-defineEmits(['primary-click', 'secondary-click'])
 
 const patternStyle = computed(() => ({
   backgroundImage: `url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiM2NDc0ODgiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0djItSDI0di0yaDEyek0zNiAyNHYySDI0di0yaDEyeiIvPjwvZz48L2c+PC9zdmc+")`,

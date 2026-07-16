@@ -6,11 +6,8 @@
       titleBreak
       highlight-text="Seven Disciplines, One Integrated Partner"
       badge="Multi-Discipline Enterprise Consulting"
-      description="We partner with Australian enterprises to deliver integrated consulting across technology, cybersecurity, business advisory, and workforce development. Our multi-disciplinary teams help organisations modernise systems, strengthen security posture, achieve compliance, and build lasting capability — through a single trusted partner."
-      :primary-cta="{ text: 'Book a Consultation', variant: 'glass-primary' }"
-      :secondary-cta="{ text: 'View All Services' }"
-      @primary-click="router.push('/contact')"
-      @secondary-click="router.push('/services')"
+      description="Integrated consulting across technology, cybersecurity, business advisory and workforce development. We help enterprises modernise systems, strengthen security, achieve compliance and build lasting capability — through a single trusted partner."
+      cta-text="Get Started"
     />
 
     <!-- 2. Consulting Promotion -->

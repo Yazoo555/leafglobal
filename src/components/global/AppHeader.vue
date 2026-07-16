@@ -20,8 +20,9 @@
             class="h-[70px] sm:h-[85px] w-auto object-contain shrink-0 drop-shadow-sm"
             fetchpriority="high"
           />
-          <span class="h5 font-bold font-heading leading-tight text-dark">
-            Leaf Global<br/>Consulting Group
+          <span class="font-heading leading-tight text-dark">
+            <span class="text-[1.125rem] font-bold tracking-[0.01em]">Leaf Global</span><br/>
+            <span class="text-[0.8125rem] font-medium tracking-[0.09em]">Consulting Group</span>
           </span>
         </router-link>
 
@@ -33,7 +34,7 @@
               v-if="!item.children"
               :to="item.path"
               :aria-current="route.path === item.path ? 'page' : undefined"
-              class="relative px-3 xl:px-4 py-2 nav font-medium rounded-lg transition-colors duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-300 focus-visible:ring-offset-2"
+              class="relative px-3 xl:px-4 py-2 text-[0.9375rem] font-medium rounded-lg transition-colors duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-300 focus-visible:ring-offset-2"
               :class="linkClasses(item)"
               @mouseenter="prefetchRoute(item.prefetchName)"
             >
@@ -49,7 +50,7 @@
               @mouseleave="openDropdown = null"
             >
               <button
-                class="relative flex items-center gap-1.5 px-3 xl:px-4 py-2 nav font-medium rounded-lg transition-colors duration-200 group whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-300 focus-visible:ring-offset-2"
+                class="relative flex items-center gap-1.5 px-3 xl:px-4 py-2 text-[0.9375rem] font-medium rounded-lg transition-colors duration-200 group whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-300 focus-visible:ring-offset-2"
                 :class="linkClasses(item)"
                 :aria-expanded="openDropdown === item.label"
                 aria-haspopup="true"
@@ -157,13 +158,6 @@
 
         <!-- ========== CTA & MOBILE TOGGLE (right) ========== -->
         <div class="flex items-center gap-3">
-          <!-- Desktop CTA -->
-          <router-link
-            to="/contact"
-            class="hidden lg:inline-flex btn-base px-5 py-2.5 btn-md font-medium rounded-xl bg-primary text-white hover:bg-primary-700 active:bg-primary-800 shadow-sm hover:shadow-glass transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-2"
-          >
-            Get Started
-          </router-link>
 
           <!-- Mobile toggle button -->
           <button
@@ -320,16 +314,7 @@
               </template>
             </div>
 
-            <!-- Mobile CTA -->
-            <div class="mt-6 pt-6 border-t border-gray-200">
-              <router-link
-                to="/contact"
-                class="flex items-center justify-center w-full px-5 py-3 btn-md font-medium rounded-xl bg-primary text-white hover:bg-primary-700 transition-colors duration-200"
-                @click="mobileOpen = false"
-              >
-                Get Started
-              </router-link>
-            </div>
+
           </div>
         </div>
       </div>
