@@ -1,5 +1,5 @@
 <template>
-  <section aria-label="Hero" class="relative min-h-[calc(100vh-64px)] sm:min-h-[calc(100vh-80px)] flex flex-col justify-center overflow-hidden bg-background">
+  <section aria-label="Hero" class="relative min-h-[calc(100vh-64px)] sm:min-h-[calc(100vh-80px)] flex flex-col justify-start overflow-hidden bg-background">
     <!-- Crystal gradient background -->
     <div class="absolute inset-0 gradient-subtle opacity-90" />
     <div class="absolute inset-0" :style="patternStyle" />
@@ -19,7 +19,7 @@
     <div class="absolute top-[55%] right-0 w-[300px] h-[1px] metallic-divider opacity-20" />
     <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[1px] metallic-divider opacity-15" />
 
-    <div class="container-custom relative z-10 pt-20 sm:pt-24 pb-24">
+    <div class="container-custom relative z-10 pt-20 sm:pt-24 pb-20 sm:pb-24">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
         <!-- Left: Content -->
         <div class="max-w-xl">
@@ -33,13 +33,13 @@
           </span>
 
           <!-- Heading -->
-          <h1 v-scroll-reveal="{ animation: 'slide-up', delay: 100 }" class="text-display lg:text-display-lg font-heading font-bold text-dark">
+          <h1 v-scroll-reveal="{ animation: 'slide-up', delay: 100 }" class="text-display font-heading font-bold text-dark">
             {{ title }}<br v-if="titleBreak" />
             <span v-if="highlightText" class="text-gradient-blue inline-block pb-1">{{ highlightText }}</span>
           </h1>
 
           <!-- Description -->
-          <p v-if="description" v-scroll-reveal="{ animation: 'slide-up', delay: 200 }" class="mt-4 sm:mt-5 body-lg text-text-light max-w-2xl">
+          <p v-if="description" v-scroll-reveal="{ animation: 'slide-up', delay: 200 }" class="mt-3 sm:mt-4 body-lg text-text-light max-w-2xl">
             {{ description }}
           </p>
 
@@ -53,11 +53,36 @@
             </router-link>
           </div>
 
+          <!-- Stats strip: trust metrics -->
+          <div v-scroll-reveal="{ animation: 'slide-up', delay: 400 }" class="mt-10 sm:mt-12">
+            <div class="bg-white/40 backdrop-blur-sm rounded-xl border border-white/30 shadow-glass-sm p-5 sm:p-6">
+              <div class="flex items-center justify-center gap-6 sm:gap-12">
+                <!-- Stat 1: Disciplines -->
+                <div class="text-center">
+                  <span class="block text-4xl font-bold text-gradient-blue leading-none">7</span>
+                  <span class="block text-sm text-text-light mt-1 whitespace-nowrap">Disciplines</span>
+                </div>
+
+                <!-- Stat 2: Clients -->
+                <div class="text-center">
+                  <span class="block text-4xl font-bold text-gradient-blue leading-none">100+</span>
+                  <span class="block text-sm text-text-light mt-1 whitespace-nowrap">Clients</span>
+                </div>
+
+                <!-- Stat 3: Years -->
+                <div class="text-center">
+                  <span class="block text-4xl font-bold text-gradient-blue leading-none">10+</span>
+                  <span class="block text-sm text-text-light mt-1 whitespace-nowrap">Years</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
         <!-- Right: Advisory Sales Flyer Image -->
         <div v-scroll-reveal="{ animation: 'slide-up', delay: 200 }" class="hidden lg:block relative self-start">
-          <div class="relative w-full aspect-[2/3]">
+          <div class="relative w-full aspect-[3/4]">
             <router-link
               to="/advisory-sales"
               class="glass-card absolute inset-[3%] p-2 overflow-hidden group block animate-float crystal-reflection crystal-reflection--animated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-white/10 rounded-xl"
