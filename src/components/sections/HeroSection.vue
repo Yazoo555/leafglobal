@@ -113,12 +113,10 @@
                   class="w-full h-full object-cover rounded-lg transition-transform duration-500 group-hover:scale-105 group-focus:scale-105" style="object-position: center 0%"
                 />
               </picture>
-              <!-- Hover CTA glass bar at bottom -->
-              <div class="absolute bottom-0 left-0 right-0 p-2.5 bg-gradient-to-t from-black/45 via-black/15 to-transparent rounded-b-lg pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div class="bg-white/70 backdrop-blur-md rounded-lg px-3.5 py-2.5 shadow-glass-sm transition-all duration-300 group-hover:bg-white/90 group-hover:translate-y-[-2px] group-hover:shadow-glass">
-                  <div class="text-[0.7rem] font-semibold tracking-wide text-primary">Advisory Sales</div>
-                  <div class="text-[0.6rem] leading-snug text-text-light mt-0.5">Strategic Growth for Australian Businesses</div>
-                  <div class="text-[0.65rem] font-medium text-primary/60 group-hover:text-primary mt-1.5">View Advisory Sales →</div>
+              <!-- Hover overlay: single-line CTA -->
+              <div class="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/45 via-black/15 to-transparent rounded-b-lg pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="bg-white/70 backdrop-blur-md rounded-lg px-3.5 py-1.5 shadow-glass-sm transition-all duration-300 group-hover:bg-white/90 group-hover:translate-y-[-2px] group-hover:shadow-glass">
+                  <span class="text-sm font-medium text-primary">Explore Advisory Sales →</span>
                 </div>
               </div>
             </router-link>
