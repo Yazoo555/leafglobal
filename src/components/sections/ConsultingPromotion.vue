@@ -116,7 +116,7 @@ const benefits = [
   {
     icon: 'clock',
     title: 'Affordable Daily Consulting',
-    description: 'Access expert consulting at a predictable daily rate — no retainers, no surprises, just practical guidance when you need it.',
+    description: 'Expert consulting at a predictable daily rate — no retainers, no surprises.',
     iconBg: 'icon-blue',
     iconColor: '#2563EB',
     titleClass: 'group-hover:text-primary',
@@ -125,7 +125,7 @@ const benefits = [
   {
     icon: 'zap',
     title: 'Digital Transformation',
-    description: 'Practical technology roadmaps and modernisation initiatives that deliver measurable outcomes for your organisation — from systems upgrade to full digital strategy.',
+    description: 'Practical technology roadmaps and modernisation that deliver measurable outcomes for your organisation.',
     iconBg: 'icon-blue',
     iconColor: '#2563EB',
     titleClass: 'group-hover:text-primary',
@@ -134,7 +134,7 @@ const benefits = [
   {
     icon: 'code',
     title: 'Technology Consulting',
-    description: 'Expert IT advisory covering infrastructure, cloud services, systems integration, and technology procurement to optimise your operations.',
+    description: 'Expert IT advisory covering infrastructure, cloud, integration, and procurement to optimise operations.',
     iconBg: 'icon-blue',
     iconColor: '#2563EB',
     titleClass: 'group-hover:text-primary',
@@ -143,7 +143,7 @@ const benefits = [
   {
     icon: 'briefcase',
     title: 'Business Advisory',
-    description: 'Targeted business guidance covering strategic planning, process improvement, organisational design, and growth strategy — built for lasting results.',
+    description: 'Strategic business guidance covering planning, improvement, design, and growth — built for lasting results.',
     iconBg: 'icon-green',
     iconColor: '#10B981',
     titleClass: 'group-hover:text-finance',
@@ -152,7 +152,7 @@ const benefits = [
   {
     icon: 'users',
     title: 'SME Support',
-    description: 'Tailored consulting for small and medium enterprises — providing the practical expertise needed to scale operations, improve competitiveness, and build for growth.',
+    description: 'Tailored consulting for SMEs — practical expertise to scale operations and build for growth.',
     iconBg: 'icon-green',
     iconColor: '#10B981',
     titleClass: 'group-hover:text-finance',
@@ -161,7 +161,7 @@ const benefits = [
   {
     icon: 'shield',
     title: 'Compliance Consulting',
-    description: 'Navigate complex regulatory requirements with confidence. Expert guidance on compliance frameworks, audit readiness, and risk management.',
+    description: 'Navigate complex regulatory requirements with expert guidance on compliance, audit readiness, and risk management.',
     iconBg: 'icon-orange',
     iconColor: '#F97316',
     titleClass: 'group-hover:text-education',

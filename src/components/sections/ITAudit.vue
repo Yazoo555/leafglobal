@@ -154,17 +154,9 @@ const whyPoints = [
 
 const pillars = [
   {
-    icon: 'shield',
-    title: 'Technology Governance',
-    description: 'Evaluating the policies, procedures, and oversight structures that guide technology decision-making and ensure alignment with business objectives.',
-    iconBg: 'icon-blue',
-    iconColor: '#2563EB',
-    titleClass: 'group-hover:text-primary',
-  },
-  {
     icon: 'briefcase',
     title: 'Compliance',
-    description: 'Assessing adherence to regulatory requirements, industry standards, and contractual obligations to avoid penalties and protect your operating licence.',
+    description: 'Assessing compliance with regulations, standards, and obligations to protect your operating licence.',
     iconBg: 'icon-blue',
     iconColor: '#2563EB',
     titleClass: 'group-hover:text-primary',
@@ -172,15 +164,7 @@ const pillars = [
   {
     icon: 'target',
     title: 'Risk Assessment',
-    description: 'Identifying, analysing, and prioritising technology risks — from cybersecurity threats to data privacy exposures — and recommending mitigation strategies.',
-    iconBg: 'icon-green',
-    iconColor: '#10B981',
-    titleClass: 'group-hover:text-finance',
-  },
-  {
-    icon: 'zap',
-    title: 'Operational Efficiency',
-    description: 'Analysing system performance, workflow automation, and resource utilisation to uncover opportunities for optimisation and cost reduction.',
+    description: 'Identifying and prioritising technology risks — from cyber threats to data privacy — with actionable mitigation strategies.',
     iconBg: 'icon-green',
     iconColor: '#10B981',
     titleClass: 'group-hover:text-finance',
@@ -188,7 +172,7 @@ const pillars = [
   {
     icon: 'clock',
     title: 'Business Continuity',
-    description: 'Reviewing disaster recovery plans, backup strategies, and incident response capabilities to ensure your organisation can withstand and recover from disruptions.',
+    description: 'Reviewing recovery plans and response capabilities to ensure your organisation can withstand disruptions.',
     iconBg: 'icon-orange',
     iconColor: '#F97316',
     titleClass: 'group-hover:text-education',

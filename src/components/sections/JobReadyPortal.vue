@@ -104,7 +104,7 @@ const programs = [
   {
     icon: 'target',
     title: 'Career Readiness',
-    description: 'Build foundational skills and career awareness to confidently navigate the job market and identify your ideal career pathway.',
+    description: 'Build foundational skills and career awareness to navigate the job market with confidence.',
     iconBg: 'icon-blue',
     iconColor: '#2563EB',
     titleClass: 'group-hover:text-primary',
@@ -113,25 +113,16 @@ const programs = [
   {
     icon: 'star',
     title: 'Professional Training',
-    description: 'Industry-aligned training programs designed to build practical, job-ready skills that employers are actively seeking.',
+    description: 'Industry-aligned training that builds practical skills employers are actively seeking.',
     iconBg: 'icon-blue',
     iconColor: '#2563EB',
     titleClass: 'group-hover:text-primary',
     linkClass: 'text-primary',
   },
   {
-    icon: 'trending-up',
-    title: 'Employment Pathways',
-    description: 'Structured progression routes that connect training directly to employment opportunities with partner organisations.',
-    iconBg: 'icon-green',
-    iconColor: '#10B981',
-    titleClass: 'group-hover:text-finance',
-    linkClass: 'text-finance',
-  },
-  {
     icon: 'briefcase',
     title: 'Resume Preparation',
-    description: 'Expert guidance to craft compelling resumes, cover letters, and professional profiles that get noticed by employers.',
+    description: 'Expert guidance to craft resumes and profiles that get noticed by employers.',
     iconBg: 'icon-blue',
     iconColor: '#2563EB',
     titleClass: 'group-hover:text-primary',
@@ -140,51 +131,33 @@ const programs = [
   {
     icon: 'users',
     title: 'Interview Skills',
-    description: 'Practical interview preparation including mock interviews, feedback sessions, and confidence-building techniques.',
+    description: 'Practical interview preparation with mock interviews, feedback, and confidence-building.',
     iconBg: 'icon-green',
     iconColor: '#10B981',
     titleClass: 'group-hover:text-finance',
     linkClass: 'text-finance',
-  },
-  {
-    icon: 'shield',
-    title: 'Industry Readiness',
-    description: 'Sector-specific preparation covering workplace expectations, industry standards, and professional conduct.',
-    iconBg: 'icon-orange',
-    iconColor: '#F97316',
-    titleClass: 'group-hover:text-education',
-    linkClass: 'text-education',
-  },
-  {
-    icon: 'zap',
-    title: 'Workforce Development',
-    description: 'Ongoing support and development programs to help you advance, upskill, and grow throughout your career journey.',
-    iconBg: 'icon-blue',
-    iconColor: '#2563EB',
-    titleClass: 'group-hover:text-primary',
-    linkClass: 'text-primary',
   },
 ]
 
 const pathway = [
   {
     label: 'Skills Assessment',
-    description: 'Evaluate your current capabilities and identify development areas to create a personalised training plan.',
+    description: 'Identify your strengths and development areas to create a personalised plan.',
     bgClass: 'gradient-blue',
   },
   {
     label: 'Training & Development',
-    description: 'Build job-ready skills through structured programs, professional training, and practical workshops.',
+    description: 'Build job-ready skills through structured programs and practical workshops.',
     bgClass: 'bg-finance',
   },
   {
     label: 'Career Coaching',
-    description: 'One-on-one coaching covering resume writing, interview preparation, and job search strategies.',
+    description: 'Personalised coaching for resumes, interviews, and job search strategies.',
     bgClass: 'bg-education',
   },
   {
     label: 'Employment Placement',
-    description: 'Connect with partner employers, access job opportunities, and receive ongoing support for your first 90 days.',
+    description: 'Connect with partner employers, access opportunities, and receive support through your first 90 days.',
     bgClass: 'gradient-blue',
   },
 ]

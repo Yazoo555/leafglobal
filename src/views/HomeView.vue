@@ -10,13 +10,36 @@
       cta-text="Get Started"
     />
 
-    <!-- 2. Consulting Promotion -->
+    <!-- 2. Job Ready Portal -->
+    <CrystalDivider variant="neutral" padding="sm" />
+
+    <JobReadyPortal @enroll-click="router.push('/contact')" />
+
+    <!-- 3. IT Audit -->
+    <CrystalDivider variant="neutral" padding="sm" />
+
+    <ITAudit
+      @audit-click="router.push('/contact')"
+      @learn-click="router.push('/services')"
+    />
+
+    <!-- 4. Cybersecurity -->
+    <CrystalDivider variant="neutral" padding="sm" />
+
+    <Cybersecurity
+      @security-click="router.push('/contact')"
+      @learn-click="router.push('/services')"
+    />
+
+    <!-- 5. Consulting Promotion -->
+    <CrystalDivider variant="neutral" padding="sm" />
+
     <ConsultingPromotion
       @primary-click="router.push('/contact')"
       @secondary-click="router.push('/contact')"
     />
 
-    <!-- 3. Digital Transformation & Technology Solutions -->
+    <!-- 6. Digital Transformation & Technology Solutions -->
     <CrystalDivider variant="blue" padding="sm" />
 
     <ServiceSection
@@ -28,12 +51,12 @@
       :services="techServices"
       icon="code"
       card-title="Full-Spectrum Digital Solutions"
-      card-description="Comprehensive technology services spanning cloud, infrastructure, AI, automation, and strategy — delivered by experienced consultants who understand your business and your goals."
+      card-description="Comprehensive technology services spanning cloud, infrastructure, AI, and strategy — delivered by consultants who understand your business."
       btn-text="Explore Digital Solutions"
       @cta-click="router.push('/services')"
     />
 
-    <!-- 4. Business Advisory & Financial Consulting -->
+    <!-- 7. Business Advisory & Financial Consulting -->
     <CrystalDivider variant="green" padding="sm" />
 
     <ServiceSection
@@ -45,14 +68,14 @@
       :services="financeServices"
       icon="bar-chart"
       card-title="Strategic Business Advisory"
-      card-description="Integrated advisory services combining business strategy, financial expertise, and governance to help your organisation navigate complexity and achieve lasting results."
+      card-description="Integrated advisory combining business strategy, financial expertise, and governance to help your organisation achieve lasting results."
       btn-text="Explore Business Advisory"
       reversed
       bg-class="bg-background-secondary"
       @cta-click="router.push('/services')"
     />
 
-    <!-- 5. Education, Training & Workforce Development -->
+    <!-- 8. Education, Training & Workforce Development -->
     <CrystalDivider variant="orange" padding="sm" />
 
     <ServiceSection
@@ -64,36 +87,15 @@
       :services="educationServices"
       icon="star"
       card-title="Workforce Capability Solutions"
-      card-description="End-to-end workforce development services combining education consulting, professional certifications, and industry-aligned training to build the skills your organisation needs to thrive."
+      card-description="End-to-end workforce development combining education consulting, professional certifications, and industry-aligned training to build the skills your organisation needs."
       btn-text="Explore Workforce Solutions"
       @cta-click="router.push('/services')"
     />
 
-    <!-- 6. Advisory Sales Promotion -->
+    <!-- 9. Advisory Sales Promotion -->
     <CrystalDivider variant="blue" padding="sm" />
 
     <AdvisorySalesPromotion @consult-click="router.push('/contact')" />
-
-    <!-- 7. Job Ready Portal -->
-    <CrystalDivider variant="neutral" padding="sm" />
-
-    <JobReadyPortal @enroll-click="router.push('/contact')" />
-
-    <!-- 8. IT Audit -->
-    <CrystalDivider variant="neutral" padding="sm" />
-
-    <ITAudit
-      @audit-click="router.push('/contact')"
-      @learn-click="router.push('/services')"
-    />
-
-    <!-- 9. Cybersecurity -->
-    <CrystalDivider variant="neutral" padding="sm" />
-
-    <Cybersecurity
-      @security-click="router.push('/contact')"
-      @learn-click="router.push('/services')"
-    />
 
     <!-- 10. Testimonials -->
     <CrystalDivider variant="neutral" padding="md" />
